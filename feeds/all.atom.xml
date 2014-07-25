@@ -11,6 +11,9 @@
 &lt;span class="n"&gt;import&lt;/span&gt; &lt;span class="n"&gt;java&lt;/span&gt; &lt;span class="n"&gt;io&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>My super title</title><link href="http://fashion4cj.com/my-super-post.html" rel="alternate"></link><updated>2010-12-05T19:30:00+08:00</updated><author><name>Alexis Metaireau</name></author><id>tag:fashion4cj.com,2010-12-03:my-super-post.html</id><summary type="html">&lt;h1&gt;Status: draft&lt;/h1&gt;
 &lt;p&gt;This is the content of my super blog post.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;hello&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;classprefix&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;python&lt;/span&gt;
+&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;linenos&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;table&lt;/span&gt;
+&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;linenostart&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;hello&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
 &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Hello, World!&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;</summary><category term="pelican"></category><category term="publishing"></category></entry></feed>
