@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Fashioncj Tell You</title><link>http://fashion4cj.com/</link><description></description><atom:link href="http://fashion4cj.com/feeds%5Cchenjiame.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 03 Dec 2010 10:20:00 +0800</lastBuildDate><item><title>My Fi222</title><link>http://fashion4cj.com/my-fi222.html</link><description>&lt;blockquote&gt;
-&lt;p&gt;chenjia.me&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Fashioncj Tell You</title><link>http://fashion4cj.com/</link><description></description><atom:link href="http://fashion4cj.com/feeds%5Cchenjiame.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 25 Jul 2014 16:59:00 +0800</lastBuildDate><item><title>Pelican 的标准发表模板</title><link>http://fashion4cj.com/pelican-de-biao-zhun-fa-biao-mo-ban.html</link><description>&lt;h1&gt;看上去不错&lt;/h1&gt;
+&lt;h2&gt;的确不错&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;java.io.*&lt;/span&gt;
+&lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="o"&gt;(){&lt;/span&gt;
+
+&lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;blockquote&gt;
+&lt;p&gt;info it&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;java&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;
-&lt;span class="n"&gt;import&lt;/span&gt; &lt;span class="n"&gt;java&lt;/span&gt; &lt;span class="n"&gt;io&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">chenjia.me</dc:creator><pubDate>Fri, 03 Dec 2010 10:20:00 +0800</pubDate><guid>tag:fashion4cj.com,2010-12-03:my-fi222.html</guid></item><item><title>My First Review</title><link>http://fashion4cj.com/my-first-review.html</link><description>&lt;blockquote&gt;
-&lt;p&gt;chenjia.me&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;java&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;
-&lt;span class="n"&gt;import&lt;/span&gt; &lt;span class="n"&gt;java&lt;/span&gt; &lt;span class="n"&gt;io&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">chenjia.me</dc:creator><pubDate>Fri, 03 Dec 2010 10:20:00 +0800</pubDate><guid>tag:fashion4cj.com,2010-12-03:my-first-review.html</guid></item></channel></rss>
+&lt;p&gt;&lt;em&gt;italy&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;BOLD&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://chenjia.me" title="url"&gt;http://chenjia.me&lt;/a&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;2014/7/25 17:04:48 &lt;/p&gt;
+&lt;p&gt;&lt;img alt="img" src="http://i.imgur.com/S6CqnFR.png" /&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">chenjia.me</dc:creator><pubDate>Fri, 25 Jul 2014 16:59:00 +0800</pubDate><guid>tag:fashion4cj.com,2014-07-25:pelican-de-biao-zhun-fa-biao-mo-ban.html</guid><category>pelican</category><category>publishing</category><category>python</category></item></channel></rss>
