@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>Fashioncj Tell You</title><link href="http://fashion4cj.com/" rel="alternate"></link><link href="http://fashion4cj.com/feeds/all.atom.xml" rel="self"></link><id>http://fashion4cj.com/</id><updated>2014-07-25T16:59:00+08:00</updated><entry><title>Pelican 的Windows 入门教程</title><link href="http://fashion4cj.com/pelican-de-windows-ru-men-jiao-cheng.html" rel="alternate"></link><updated>2014-07-25T16:59:00+08:00</updated><author><name>chenjia.me</name></author><id>tag:fashion4cj.com,2014-07-26:pelican-de-windows-ru-men-jiao-cheng.html</id><summary type="html">&lt;h1&gt;为什么选择TA&lt;/h1&gt;
 &lt;ol&gt;
-&lt;li&gt;在windows下可以很方便的运行，不需要ruby，只要安装pytho，而且不需要知道python脚本怎么使用&lt;/li&gt;
+&lt;li&gt;在windows下可以很方便的运行，不需要ruby，只要安装pytho  n，而且不需要知道python脚本怎么使用&lt;/li&gt;
 &lt;li&gt;简洁，带有code 高亮，如果用rst写的话还支持更多代码显示&lt;/li&gt;
 &lt;li&gt;模块设计，支持bootstrap，可以自己写Theme和plugins&lt;/li&gt;
 &lt;li&gt;看了这个文章，你只需要不到一个 小时就可以写出HelloMyBlog&lt;/li&gt;
