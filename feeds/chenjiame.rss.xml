@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Fashioncj Tell You</title><link>http://fashion4cj.com/</link><description></description><atom:link href="http://fashion4cj.com/feeds%5Cchenjiame.rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 27 Jul 2014 00:03:00 +0800</lastBuildDate><item><title>Pelican 的进阶-添加主题，插件</title><link>http://fashion4cj.com/pelican-de-jin-jie-tian-jia-zhu-ti-cha-jian.html</link><description>&lt;h1&gt;添加主题&lt;/h1&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Fashioncj Tell You</title><link>http://fashion4cj.com/</link><description></description><atom:link href="http://fashion4cj.com/feeds%5Cchenjiame.rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 27 Jul 2014 00:54:00 +0800</lastBuildDate><item><title>Pelican 的进阶-添加主题，插件</title><link>http://fashion4cj.com/pelican-de-jin-jie-tian-jia-zhu-ti-cha-jian.html</link><description>&lt;h1&gt;添加主题&lt;/h1&gt;
 &lt;h2&gt;下载主题&lt;/h2&gt;
 &lt;p&gt;在Blog目录下~打开GIT。
 输入，&lt;/p&gt;
@@ -70,7 +70,7 @@ HTML就是这个BLOG的核心部分，基本上所有的代码都是根据这个
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;就ok啦~&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">chenjia.me</dc:creator><pubDate>Fri, 25 Jul 2014 16:59:00 +0800</pubDate><guid>tag:fashion4cj.com,2014-07-26:pelican-de-qing-song-shi-yong-xie-yi-ge-hao-jiao-ben.html</guid><category>pelican</category><category>publishing</category><category>python</category></item><item><title>Pelican 的Windows 入门教程</title><link>http://fashion4cj.com/pelican-de-windows-ru-men-jiao-cheng.html</link><description>&lt;ol&gt;
+&lt;p&gt;就ok啦~&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">chenjia.me</dc:creator><pubDate>Sun, 27 Jul 2014 00:54:00 +0800</pubDate><guid>tag:fashion4cj.com,2014-07-26:pelican-de-qing-song-shi-yong-xie-yi-ge-hao-jiao-ben.html</guid><category>pelican</category><category>publishing</category><category>python</category></item><item><title>Pelican 的Windows 入门教程</title><link>http://fashion4cj.com/pelican-de-windows-ru-men-jiao-cheng.html</link><description>&lt;ol&gt;
 &lt;li&gt;在windows下可以很方便的运行，不需要ruby，只要安装pytho  n，而且不需要知道python脚本怎么使用&lt;/li&gt;
 &lt;li&gt;简洁，带有code 高亮，如果用rst写的话还支持更多代码...&lt;/li&gt;
 &lt;/ol&gt;
