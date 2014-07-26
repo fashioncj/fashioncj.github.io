@@ -57,8 +57,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="http://fashion4cj.com/pelican-de-windows-ru-men-jiao-cheng.html"><h1>Pelican 的Windows 入门教程</h1></a>
-2014-07-26(周六)
+            <a href="http://fashion4cj.com/pelican-de-jin-jie-tian-jia-zhu-ti-cha-jian.html"><h1>Pelican 的进阶-添加主题，插件</h1></a>
+2014-07-27(周日)
 
 by <a class="url fn" href="http://fashion4cj.com/author/chenjiame.html">chenjia.me</a>
  
@@ -67,111 +67,79 @@ by <a class="url fn" href="http://fashion4cj.com/author/chenjiame.html">chenjia.
  
         </div>
         
-        <div><ol>
-<li>在windows下可以很方便的运行，不需要ruby，只要安装pytho  n，而且不需要知道python脚本怎么使用</li>
-<li>简洁，带有code 高亮，如果用rst写的话还支持更多代码...</li>
-</ol>
-<h1>为什么选择TA</h1>
-<ol>
-<li>在windows下可以很方便的运行，不需要ruby，只要安装pytho  n，而且不需要知道python脚本怎么使用</li>
-<li>简洁，带有code 高亮，如果用rst写的话还支持更多代码显示</li>
-<li>模块设计，支持bootstrap，可以自己写Theme和plugins</li>
-<li>看了这个文章，你只需要不到一个 小时就可以写出HelloMyBlog</li>
-</ol>
-<blockquote>
-<p>感谢知乎上的题目给了我对jekyII，Octopress，Pelican的对比
-<a href="http://www.zhihu.com/question/19996679">http://www.zhihu.com/question/19996679</a></p>
-<p>感谢以下两个Blog给我很多提示
-<a href="http://www.lizherui.com/pages/2013/08/17/build_blog.html">http://www.lizherui.com/pages/2013/08/17/build_blog.html</a>
-<a href="http://www.cnblogs.com/ballwql/p/pelican.html">http://www.cnblogs.com/ballwql/p/pelican.html</a></p>
-</blockquote>
-<h1>让我们开始</h1>
-<p>官方文档：<a href="http://pelican-cn.readthedocs.org/zh_CN/latest/quickstart.html">http://pelican-cn.readthedocs.org/zh_CN/latest/quickstart.html</a></p>
-<h2>安装python</h2>
-<p>pelican对于python2和3 都兼容，我个人习惯是都安装，因为现在可以使用<code>py -2</code>或者<code>py -3</code>来选择是python2还是python3运行。</p>
-<h2>安装pelican</h2>
-<p>首先，我们要确定pip命令是否可用，在cmd中输入pip看是否识别，不能识别的请将python script的路径加入环境变量path中，不会请google it</p>
-<p>现在我们开始安装pelican</p>
-<p>首先是下载安装pelican</p>
-<div class="highlight"><pre><span class="n">pip</span> <span class="n">install</span> <span class="n">pelican</span> <span class="n">markdown</span>
+        <div><h1>添加主题</h1>
+<h2>下载主题</h2>
+<p>在Blog目录下~打开GIT。
+输入，</p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="o">:</span><span class="c1">//github.com/getpelican/pelican-themes.git</span>
+<span class="n">cd</span> <span class="n">pelican</span><span class="o">-</span><span class="n">themes</span>
 </pre></div>
 
 
-<p>等待完成就好~</p>
-<h2>部署新的pelican blog</h2>
-<p>找个新的文件夹~也就是你准备要存放Blog的文件夹~
-然后用cmd运行到这个目录下~
-本文使用的是newblog这个目录~</p>
-<p>在cmd中输入</p>
-<div class="highlight"><pre><span class="n">pelican</span><span class="o">-</span><span class="n">quickstart</span>
+<p>然后你就会发现多了一个pelican-themes的文件夹~里面就都是主题啦~</p>
+<p>里面的每个文件夹都是一个主题，很多都是空的o(╯□╰)o</p>
+<p>不过有内容的都是有截图的~然后自己选择一个比较喜欢的~</p>
+<p>PO主选择的是<code>tuxlite_tbs</code>这个主题~</p>
+<p>然后运行一下命令进行安装主题~</p>
+<div class="highlight"><pre><span class="n">pelican</span><span class="o">-</span><span class="n">themes</span> <span class="o">-</span><span class="n">i</span> <span class="n">tuxlite_tbs</span>
 </pre></div>
 
 
-<p>然后就开始配置，网站标题，作者，前缀，分页，页数都自己填，如果你购买了域名就在网站前缀直接输入你的域名~</p>
-<p>一路回答后~就完成了~你会发现文件夹里面多了好多东西~</p>
-<h2>写一篇新文章</h2>
-<p>首先下载MarkdownPad2~这个是在Windows编辑.md文件比较好的软件~
-然后在MP中输入：</p>
-<div class="highlight"><pre><span class="n">Title</span><span class="o">:</span> <span class="n">Pelican</span> <span class="err">的标准发表模板</span>
-<span class="n">Date</span><span class="o">:</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">7</span><span class="o">-</span><span class="mi">25</span> <span class="mi">16</span><span class="o">:</span><span class="mi">59</span>
-<span class="n">Modified</span><span class="o">:</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">7</span><span class="o">-</span><span class="mi">25</span> <span class="mi">16</span><span class="o">:</span><span class="mi">59</span>
-<span class="n">Category</span><span class="o">:</span> <span class="n">Pelican</span>
-<span class="n">Tags</span><span class="o">:</span> <span class="n">pelican</span><span class="o">,</span> <span class="n">publishing</span><span class="o">,</span> <span class="n">python</span>
-<span class="n">Authors</span><span class="o">:</span> <span class="n">chenjia</span><span class="o">.</span><span class="na">me</span>
-<span class="n">Summary</span><span class="o">:</span> <span class="n">Template</span>
-
-<span class="o">&lt;</span><span class="err">在这里填写文件内容</span><span class="o">&gt;</span>
+<p>然后修改文件<code>pelicanconf.py</code>在其中添加<code>THEME = 'bootstrap2'</code>然后重新生成Blog就好了~</p>
+<p>新的主题怎么样呢~</p>
+<h2>修改主题</h2>
+<p>我们可以看到主题有两个目录，一个是css和icon的~一个是全部的HTML，CSS按照自己喜欢的方式添加修改~
+HTML就是这个BLOG的核心部分，基本上所有的代码都是根据这个生成的。</p>
+<p>主页一般是base.html+index.html+....生成的</p>
+<p>我们可以通过观察修改不同的代码，以及我们也可以自己添加函数，标准函数都是{{xxxx.xxxx}}这样的~只要把对应的东西放在对应的位置就好~</p>
+<p>比如 让 网页的title显示的是文章的title而不是Blog的Title</p>
+<p>修改<code>article.html</code>，添加第二行文字</p>
+<div class="highlight"><pre><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;base.html&quot;</span> <span class="cp">%}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">windowtitle</span> <span class="cp">%}{{</span> <span class="nv">article.title</span> <span class="cp">}}{%</span> <span class="k">endblock</span> <span class="cp">%}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">content</span> <span class="cp">%}</span><span class="x"></span>
 </pre></div>
 
 
-<p>然后保存到<code>content</code>这个文件夹下~</p>
-<h2>生成Blog</h2>
-<p>在根目录下，cmd中~输入</p>
-<div class="highlight"><pre><span class="n">pelican</span> <span class="n">content</span>
+<p>修改主题后，我们要更新主题才会生效</p>
+<div class="highlight"><pre><span class="n">pelican</span><span class="o">-</span><span class="n">themes</span> <span class="o">-</span><span class="n">U</span> <span class="n">tuxlite_tbs</span>
 </pre></div>
 
 
-<p>这样在output文件夹中就会有文件了~可以直接打开里面的index.html，看看是不是很难看？没事不要担心~我们慢慢搞定它~</p>
-<h2>将代码托管到GitHub/GitCafe</h2>
-<p>这两个都提供了个人page的功能~
-Github在国外，GFW墙过，gitcafe是国内~比较稳定，不过貌似对某些地方的联通网络支持不好~</p>
-<p>看到大家都喜欢用github~就介绍这个吧~</p>
-<blockquote>
-<p>如果新注册的GitCafe的用户~可以添加我作为邀请用户~用户名fashioncj</p>
-</blockquote>
-<p>在Github上注册好厚创建 用户名.github.io 的仓库，然后在右边点击设置，里面就有一个生成个人page的选择~然后你就填写资料~就好了~</p>
-<p>ps.那个主题神马的都无所谓~因为我们是要用Pelican的！</p>
-<p>然后配置你的SSH，在本地装好Git环境</p>
-<blockquote>
-<p>如果不会git请百度~很快就会的~因为我们只要会clone,add，commit，push</p>
-</blockquote>
-<p>然后到本机，cmd切换到output这个目录，使用<code>git clone</code>把仓库里面的代码复制下来，然后我们就完成了第一步。</p>
-<p>接下来，修改文件<code>publishconf.py</code>中的</p>
-<div class="highlight"><pre><span class="n">DELETE_OUTPUT_DIRECTORY</span> <span class="o">=</span> <span class="n">False</span>
+<p>更新主题后继续重新生成Blog，是不是改变了！</p>
+<h1>添加插件</h1>
+<h2>GITHUB上的插件</h2>
+<p>和主题一样，GIT CLONE。</p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="o">:</span><span class="c1">//github.com/getpelican/pelican-plugins.git</span>
 </pre></div>
 
 
-<p>防止我们每次生成Blog的时候清空.git目录</p>
-<p>然后我们使用命令<code>pelican content -s publishconf.py</code>再次生成。</p>
-<p>成功后，我们打开output目录，将代码push到远程仓库。
-然后用浏览器访问：用户名.github.io 看看是不是Blog出现了~</p>
-<h2>绑定域名</h2>
-<ol>
-<li>在仓库中创建一个文件，文件名为CNAME,内容为 你的域名 </li>
-<li>修改你的域名dns解析商，推荐dnspod和dnsla</li>
-<li>使用dnspod或者dnsla，将你的域名添加两条A记录，指向的地址分别是<blockquote>
-<p>192.30.252.154</p>
-<p>192.30.252.153</p>
-</blockquote>
-</li>
-</ol>
-<p>然后过几分钟，打开你的域名~blog是不是出现了！</p>
-<hr />
-<p>接下来的一篇文章会介绍添加主题，插件，修改主题模板，脚本快速发表等内容</p>
-<p>modified at 2014-07-26 01:15  </p></div>
+<p>如何使用可以参考开头提到的Blog和插件自带的.md，这里不再赘述。</p>
+<h2>添加评论插件Disqus</h2>
+<p>去Disqus官网注册，然后申请一个，记住SITENAME，然后在<code>pelicanconf.py</code>的<code>DISQUS_SITENAME</code>这个属性后添加SITENAME,c重新编译即可~</p>
+<h2>添加Google Analytics</h2>
+<p>去Google Analytics申请账号，记下跟踪ID，在<code>pelicanconf.py</code>的<code>GOOGLE_ANALYTICS</code>添加ID。
+注意，现在Google已经修改代码，很多主题的分析代码都是旧版本的，我们先完整的复制Google给的js代码，然后打开主题的 <code>analytics.html</code>,删除原来的Google Analytics的代码，替换成新的代码，然后更新主题~搞定~</p></div>
         <hr />
     </div>
 		
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://fashion4cj.com/pelican-de-windows-ru-men-jiao-cheng.html"><h2>Pelican 的Windows 入门教程</h2></a>
+        <div class= "well small"> 2014-07-26(周六)
+
+by <a class="url fn" href="http://fashion4cj.com/author/chenjiame.html">chenjia.me</a>
+ 
+
+
+ </div>
+        <div class="summary"><h1>为什么选择TA</h1> <a class="btn btn-info xsmall" href="http://fashion4cj.com/pelican-de-windows-ru-men-jiao-cheng.html">read more</a></div>
+    </div>	
+				
 
  
         

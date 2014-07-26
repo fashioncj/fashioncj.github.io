@@ -1,5 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Fashioncj Tell You</title><link href="http://fashion4cj.com/" rel="alternate"></link><link href="http://fashion4cj.com/feeds%5Call-en.atom.xml" rel="self"></link><id>http://fashion4cj.com/</id><updated>2014-07-25T16:59:00+08:00</updated><entry><title>Pelican 的Windows 入门教程</title><link href="http://fashion4cj.com/pelican-de-windows-ru-men-jiao-cheng.html" rel="alternate"></link><updated>2014-07-25T16:59:00+08:00</updated><author><name>chenjia.me</name></author><id>tag:fashion4cj.com,2014-07-26:pelican-de-windows-ru-men-jiao-cheng.html</id><summary type="html">&lt;ol&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Fashioncj Tell You</title><link href="http://fashion4cj.com/" rel="alternate"></link><link href="http://fashion4cj.com/feeds%5Call-en.atom.xml" rel="self"></link><id>http://fashion4cj.com/</id><updated>2014-07-27T00:03:00+08:00</updated><entry><title>Pelican 的进阶-添加主题，插件</title><link href="http://fashion4cj.com/pelican-de-jin-jie-tian-jia-zhu-ti-cha-jian.html" rel="alternate"></link><updated>2014-07-27T00:03:00+08:00</updated><author><name>chenjia.me</name></author><id>tag:fashion4cj.com,2014-07-27:pelican-de-jin-jie-tian-jia-zhu-ti-cha-jian.html</id><summary type="html">&lt;h1&gt;添加主题&lt;/h1&gt;
+&lt;h2&gt;下载主题&lt;/h2&gt;
+&lt;p&gt;在Blog目录下~打开GIT。
+输入，&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;clone&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//github.com/getpelican/pelican-themes.git&lt;/span&gt;
+&lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="n"&gt;pelican&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;themes&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;然后你就会发现多了一个pelican-themes的文件夹~里面就都是主题啦~&lt;/p&gt;
+&lt;p&gt;里面的每个文件夹都是一个主题，很多都是空的o(╯□╰)o&lt;/p&gt;
+&lt;p&gt;不过有内容的都是有截图的~然后自己选择一个比较喜欢的~&lt;/p&gt;
+&lt;p&gt;PO主选择的是&lt;code&gt;tuxlite_tbs&lt;/code&gt;这个主题~&lt;/p&gt;
+&lt;p&gt;然后运行一下命令进行安装主题~&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;pelican&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;themes&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="n"&gt;tuxlite_tbs&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;然后修改文件&lt;code&gt;pelicanconf.py&lt;/code&gt;在其中添加&lt;code&gt;THEME = 'bootstrap2'&lt;/code&gt;然后重新生成Blog就好了~&lt;/p&gt;
+&lt;p&gt;新的主题怎么样呢~&lt;/p&gt;
+&lt;h2&gt;修改主题&lt;/h2&gt;
+&lt;p&gt;我们可以看到主题有两个目录，一个是css和icon的~一个是全部的HTML，CSS按照自己喜欢的方式添加修改~
+HTML就是这个BLOG的核心部分，基本上所有的代码都是根据这个生成的。&lt;/p&gt;
+&lt;p&gt;主页一般是base.html+index.html+....生成的&lt;/p&gt;
+&lt;p&gt;我们可以通过观察修改不同的代码，以及我们也可以自己添加函数，标准函数都是{{xxxx.xxxx}}这样的~只要把对应的东西放在对应的位置就好~&lt;/p&gt;
+&lt;p&gt;比如 让 网页的title显示的是文章的title而不是Blog的Title&lt;/p&gt;
+&lt;p&gt;修改&lt;code&gt;article.html&lt;/code&gt;，添加第二行文字&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;extends&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;base.html&amp;quot;&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;block&lt;/span&gt; &lt;span class="nv"&gt;windowtitle&lt;/span&gt; &lt;span class="cp"&gt;%}{{&lt;/span&gt; &lt;span class="nv"&gt;article.title&lt;/span&gt; &lt;span class="cp"&gt;}}{%&lt;/span&gt; &lt;span class="k"&gt;endblock&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;block&lt;/span&gt; &lt;span class="nv"&gt;content&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;修改主题后，我们要更新主题才会生效&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;pelican&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;themes&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;U&lt;/span&gt; &lt;span class="n"&gt;tuxlite_tbs&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;更新主题后继续重新生成Blog，是不是改变了！&lt;/p&gt;
+&lt;h1&gt;添加插件&lt;/h1&gt;
+&lt;h2&gt;GITHUB上的插件&lt;/h2&gt;
+&lt;p&gt;和主题一样，GIT CLONE。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;clone&lt;/span&gt; &lt;span class="n"&gt;git&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//github.com/getpelican/pelican-plugins.git&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;如何使用可以参考开头提到的Blog和插件自带的.md，这里不再赘述。&lt;/p&gt;
+&lt;h2&gt;添加评论插件Disqus&lt;/h2&gt;
+&lt;p&gt;去Disqus官网注册，然后申请一个，记住SITENAME，然后在&lt;code&gt;pelicanconf.py&lt;/code&gt;的&lt;code&gt;DISQUS_SITENAME&lt;/code&gt;这个属性后添加SITENAME,c重新编译即可~&lt;/p&gt;
+&lt;h2&gt;添加Google Analytics&lt;/h2&gt;
+&lt;p&gt;去Google Analytics申请账号，记下跟踪ID，在&lt;code&gt;pelicanconf.py&lt;/code&gt;的&lt;code&gt;GOOGLE_ANALYTICS&lt;/code&gt;添加ID。
+注意，现在Google已经修改代码，很多主题的分析代码都是旧版本的，我们先完整的复制Google给的js代码，然后打开主题的 &lt;code&gt;analytics.html&lt;/code&gt;,删除原来的Google Analytics的代码，替换成新的代码，然后更新主题~搞定~&lt;/p&gt;</summary><category term="pelican"></category><category term="python"></category></entry><entry><title>Pelican 的Windows 入门教程</title><link href="http://fashion4cj.com/pelican-de-windows-ru-men-jiao-cheng.html" rel="alternate"></link><updated>2014-07-25T16:59:00+08:00</updated><author><name>chenjia.me</name></author><id>tag:fashion4cj.com,2014-07-26:pelican-de-windows-ru-men-jiao-cheng.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;在windows下可以很方便的运行，不需要ruby，只要安装pytho  n，而且不需要知道python脚本怎么使用&lt;/li&gt;
 &lt;li&gt;简洁，带有code 高亮，如果用rst写的话还支持更多代码...&lt;/li&gt;
 &lt;/ol&gt;
