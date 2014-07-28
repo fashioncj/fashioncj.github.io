@@ -4,7 +4,7 @@
 &lt;p&gt;2014年7月28日&lt;/p&gt;
 &lt;p&gt;无线路由器WDS配置&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h1&gt;如何让家里走到哪里都有无线 #&lt;/h1&gt;
+&lt;h1&gt;如何让家里走到哪里都有无线&lt;/h1&gt;
 &lt;p&gt;问题很简单，买很多的无线路由器。&lt;/p&gt;
 &lt;h2&gt;可是，我只有一根网线呀&lt;/h2&gt;
 &lt;p&gt;好的~下面开始进入教学环节，如果让两个无线路由器通过无线连接上网~&lt;/p&gt;
@@ -28,9 +28,9 @@
 &lt;li&gt;修改路由器B的管理IP为192.168.1.2，也就是上面预留的那个ip&lt;/li&gt;
 &lt;/ol&gt;
 &lt;hr /&gt;
-&lt;p&gt;NetCore 路由器比较麻烦，这时候两个路由器已经连接，但是不可以上网，我们需要进入路由器A中，在WDS中添加路由器B的SSID和MAC
-&lt;img alt="" src="http://i.imgur.com/2qjyUWG.png" /&gt;
-然后这时候我们重启两个路由器~&lt;/p&gt;
+&lt;p&gt;NetCore 路由器比较麻烦，这时候两个路由器已经连接，但是不可以上网，我们需要进入路由器A中，在WDS中添加路由器B的SSID和MAC&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://i.imgur.com/2qjyUWG.png" /&gt;&lt;/p&gt;
+&lt;p&gt;然后这时候我们重启两个路由器~&lt;/p&gt;
 &lt;p&gt;大功告成！&lt;/p&gt;
 &lt;p&gt;现在手机客户端就会根据TA本身的原则来自由的选择Wifi，一般是自动选择信号强的 ~&lt;/p&gt;
 &lt;p&gt;END。&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">chenjia.me</dc:creator><pubDate>Tue, 29 Jul 2014 00:52:00 +0800</pubDate><guid>tag:fashion4cj.com,2014-07-29:2014nian-7yue-28ri-guan-yu-tp-linkhe-netcorelu-you-qi-de-wdslian-jie.html</guid><category>diary</category><category>july</category><category>route</category></item><item><title>Pelican 的进阶-添加主题，插件</title><link>http://fashion4cj.com/pelican-de-jin-jie-tian-jia-zhu-ti-cha-jian.html</link><description>&lt;h1&gt;添加主题&lt;/h1&gt;
