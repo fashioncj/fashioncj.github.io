@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Fashioncj Tell You</title><link>http://fashion4cj.com/</link><description></description><atom:link href="http://fashion4cj.com/feeds%5Cchenjiame.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 29 Jul 2014 00:52:00 +0800</lastBuildDate><item><title>【2014年7月27日】关于TP-link和Netcore路由器的WDS连接</title><link>http://fashion4cj.com/2014nian-7yue-27ri-guan-yu-tp-linkhe-netcorelu-you-qi-de-wdslian-jie.html</link><description>&lt;blockquote&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Fashioncj Tell You</title><link>http://fashion4cj.com/</link><description></description><atom:link href="http://fashion4cj.com/feeds%5Cchenjiame.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 29 Jul 2014 00:52:00 +0800</lastBuildDate><item><title>【2014年7月28日】关于TP-link和Netcore路由器的WDS连接</title><link>http://fashion4cj.com/2014nian-7yue-28ri-guan-yu-tp-linkhe-netcorelu-you-qi-de-wdslian-jie.html</link><description>&lt;blockquote&gt;
 &lt;p&gt;准备开始每日一个日记&lt;/p&gt;
 &lt;p&gt;2014年7月28日&lt;/p&gt;
 &lt;p&gt;无线路由器WDS配置&lt;/p&gt;
@@ -33,7 +33,7 @@
 然后这时候我们重启两个路由器~&lt;/p&gt;
 &lt;p&gt;大功告成！&lt;/p&gt;
 &lt;p&gt;现在手机客户端就会根据TA本身的原则来自由的选择Wifi，一般是自动选择信号强的 ~&lt;/p&gt;
-&lt;p&gt;END。&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">chenjia.me</dc:creator><pubDate>Tue, 29 Jul 2014 00:52:00 +0800</pubDate><guid>tag:fashion4cj.com,2014-07-29:2014nian-7yue-27ri-guan-yu-tp-linkhe-netcorelu-you-qi-de-wdslian-jie.html</guid><category>diary</category><category>july</category><category>route</category></item><item><title>Pelican 的进阶-添加主题，插件</title><link>http://fashion4cj.com/pelican-de-jin-jie-tian-jia-zhu-ti-cha-jian.html</link><description>&lt;h1&gt;添加主题&lt;/h1&gt;
+&lt;p&gt;END。&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">chenjia.me</dc:creator><pubDate>Tue, 29 Jul 2014 00:52:00 +0800</pubDate><guid>tag:fashion4cj.com,2014-07-29:2014nian-7yue-28ri-guan-yu-tp-linkhe-netcorelu-you-qi-de-wdslian-jie.html</guid><category>diary</category><category>july</category><category>route</category></item><item><title>Pelican 的进阶-添加主题，插件</title><link>http://fashion4cj.com/pelican-de-jin-jie-tian-jia-zhu-ti-cha-jian.html</link><description>&lt;h1&gt;添加主题&lt;/h1&gt;
 &lt;h2&gt;下载主题&lt;/h2&gt;
 &lt;p&gt;在Blog目录下~打开GIT。
 输入，&lt;/p&gt;
