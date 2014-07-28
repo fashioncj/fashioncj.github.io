@@ -1,5 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Fashioncj Tell You</title><link href="http://fashion4cj.com/" rel="alternate"></link><link href="http://fashion4cj.com/feeds%5Call-en.atom.xml" rel="self"></link><id>http://fashion4cj.com/</id><updated>2014-07-27T00:54:00+08:00</updated><entry><title>Pelican 的进阶-添加主题，插件</title><link href="http://fashion4cj.com/pelican-de-jin-jie-tian-jia-zhu-ti-cha-jian.html" rel="alternate"></link><updated>2014-07-27T00:03:00+08:00</updated><author><name>chenjia.me</name></author><id>tag:fashion4cj.com,2014-07-27:pelican-de-jin-jie-tian-jia-zhu-ti-cha-jian.html</id><summary type="html">&lt;h1&gt;添加主题&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Fashioncj Tell You</title><link href="http://fashion4cj.com/" rel="alternate"></link><link href="http://fashion4cj.com/feeds%5Call-en.atom.xml" rel="self"></link><id>http://fashion4cj.com/</id><updated>2014-07-29T00:52:00+08:00</updated><entry><title>【2014年7月27日】关于TP-link和Netcore路由器的WDS连接</title><link href="http://fashion4cj.com/2014nian-7yue-27ri-guan-yu-tp-linkhe-netcorelu-you-qi-de-wdslian-jie.html" rel="alternate"></link><updated>2014-07-29T00:52:00+08:00</updated><author><name>chenjia.me</name></author><id>tag:fashion4cj.com,2014-07-29:2014nian-7yue-27ri-guan-yu-tp-linkhe-netcorelu-you-qi-de-wdslian-jie.html</id><summary type="html">&lt;blockquote&gt;
+&lt;p&gt;准备开始每日一个日记&lt;/p&gt;
+&lt;p&gt;2014年7月28日&lt;/p&gt;
+&lt;p&gt;无线路由器WDS配置&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1&gt;如何让家里走到哪里都有无线 #&lt;/h1&gt;
+&lt;p&gt;问题很简单，买很多的无线路由器。&lt;/p&gt;
+&lt;h2&gt;可是，我只有一根网线呀&lt;/h2&gt;
+&lt;p&gt;好的~下面开始进入教学环节，如果让两个无线路由器通过无线连接上网~&lt;/p&gt;
+&lt;h1&gt;背景&lt;/h1&gt;
+&lt;p&gt;想一下你在学校的时候，在无线覆盖区域（比如图书馆），是不是只是连接一个无线，走到哪里都可以上网。&lt;/p&gt;
+&lt;p&gt;那个无线真的信号可以覆盖那么广么？明显不可以。那么是怎么实现的呢？我们又如何在家中享受这种便利呢？&lt;/p&gt;
+&lt;h2&gt;材料&lt;/h2&gt;
+&lt;p&gt;准备两个无线路由器，至少有一个支持WDS功能，还有一个能上网的网线。&lt;/p&gt;
+&lt;h1&gt;配置路由器&lt;/h1&gt;
+&lt;p&gt;【PO主家有两个路由器，路由器A设定为NETCORE磊科路由器NW737，路由器B为TP-LINK的路由器，两个都支持WDS】&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;路由器A通过宽带上网（这是必须的）&lt;/li&gt;
+&lt;li&gt;路由器A更改无线设置，选择一个好听的SSID，然后用WPA2加密，固定信道（记住他就好，这里选择10）&lt;/li&gt;
+&lt;li&gt;开始路由器A的DHCP功能，记录网关，例如192.168.1.1的话，DHCP分配的ip应该在192.168.1.3开始，因为.2的ip要给我们路由器B&lt;/li&gt;
+&lt;li&gt;用无线设备连接，看看可不可以上网。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li&gt;路由器B更改ssid和路由器A一样，信道和A一样，密码和A一样，然后在路由器B中的WDS添加路由器A的无线SSID，密码，MAC等信息&lt;/li&gt;
+&lt;li&gt;关闭路由器B的DHCP功能&lt;/li&gt;
+&lt;li&gt;修改路由器B的管理IP为192.168.1.2，也就是上面预留的那个ip&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr /&gt;
+&lt;p&gt;NetCore 路由器比较麻烦，这时候两个路由器已经连接，但是不可以上网，我们需要进入路由器A中，在WDS中添加路由器B的SSID和MAC
+&lt;img alt="" src="http://i.imgur.com/2qjyUWG.png" /&gt;
+然后这时候我们重启两个路由器~&lt;/p&gt;
+&lt;p&gt;大功告成！&lt;/p&gt;
+&lt;p&gt;现在手机客户端就会根据TA本身的原则来自由的选择Wifi，一般是自动选择信号强的 ~&lt;/p&gt;
+&lt;p&gt;END。&lt;/p&gt;</summary><category term="diary"></category><category term="july"></category><category term="route"></category></entry><entry><title>Pelican 的进阶-添加主题，插件</title><link href="http://fashion4cj.com/pelican-de-jin-jie-tian-jia-zhu-ti-cha-jian.html" rel="alternate"></link><updated>2014-07-27T00:03:00+08:00</updated><author><name>chenjia.me</name></author><id>tag:fashion4cj.com,2014-07-27:pelican-de-jin-jie-tian-jia-zhu-ti-cha-jian.html</id><summary type="html">&lt;h1&gt;添加主题&lt;/h1&gt;
 &lt;h2&gt;下载主题&lt;/h2&gt;
 &lt;p&gt;在Blog目录下~打开GIT。
 输入，&lt;/p&gt;

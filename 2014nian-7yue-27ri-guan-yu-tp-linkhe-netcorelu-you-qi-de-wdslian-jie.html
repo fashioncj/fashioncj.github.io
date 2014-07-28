@@ -2,7 +2,7 @@
 <html lang="en" >
 <head>
     <meta charset="utf-8">
-    <title>Fashioncj Tell You</title>
+    <title>【2014年7月27日】关于TP-link和Netcore路由器的WDS连接</title>
     <meta name="description" content="fashion4cj.com ,chenjia.me ">
     <meta name="author" content="chenjia.me">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,23 +50,71 @@
     <div class="row">
 
         <div class="span9">
-        
-<section id="content" class="body">    
-    <h2 class="content-title">
-        About Me
-    </h2>
-    <h1>程序猿的Blog</h1>
-<p>为什么要用Pelican写一个这样的Blog呢？</p>
+    <div class='article'>
+        <div class="content-title">
+            <h1>【2014年7月27日】关于TP-link和Netcore路由器的WDS连接</h1>
+2014-07-29(周二)
+
+by <a class="url fn" href="http://fashion4cj.com/author/chenjiame.html">chenjia.me</a>
+ 
+
+
+        </div>
+	
+        <div><blockquote>
+<p>准备开始每日一个日记</p>
+<p>2014年7月28日</p>
+<p>无线路由器WDS配置</p>
+</blockquote>
+<h1>如何让家里走到哪里都有无线 #</h1>
+<p>问题很简单，买很多的无线路由器。</p>
+<h2>可是，我只有一根网线呀</h2>
+<p>好的~下面开始进入教学环节，如果让两个无线路由器通过无线连接上网~</p>
+<h1>背景</h1>
+<p>想一下你在学校的时候，在无线覆盖区域（比如图书馆），是不是只是连接一个无线，走到哪里都可以上网。</p>
+<p>那个无线真的信号可以覆盖那么广么？明显不可以。那么是怎么实现的呢？我们又如何在家中享受这种便利呢？</p>
+<h2>材料</h2>
+<p>准备两个无线路由器，至少有一个支持WDS功能，还有一个能上网的网线。</p>
+<h1>配置路由器</h1>
+<p>【PO主家有两个路由器，路由器A设定为NETCORE磊科路由器NW737，路由器B为TP-LINK的路由器，两个都支持WDS】</p>
 <ol>
-<li>厌倦了WordPress的臃肿</li>
-<li>不想每次写Blog都要开Linux虚拟机</li>
-<li>买不起Mac pro</li>
-<li>学习新东西</li>
+<li>路由器A通过宽带上网（这是必须的）</li>
+<li>路由器A更改无线设置，选择一个好听的SSID，然后用WPA2加密，固定信道（记住他就好，这里选择10）</li>
+<li>开始路由器A的DHCP功能，记录网关，例如192.168.1.1的话，DHCP分配的ip应该在192.168.1.3开始，因为.2的ip要给我们路由器B</li>
+<li>用无线设备连接，看看可不可以上网。</li>
 </ol>
-<h1>我是谁？</h1>
-<p>查看以下Link
-<a href="http://chenjia.me" title="个人CV">http://chenjia.me</a></p>
-</section>
+<hr />
+<ol>
+<li>路由器B更改ssid和路由器A一样，信道和A一样，密码和A一样，然后在路由器B中的WDS添加路由器A的无线SSID，密码，MAC等信息</li>
+<li>关闭路由器B的DHCP功能</li>
+<li>修改路由器B的管理IP为192.168.1.2，也就是上面预留的那个ip</li>
+</ol>
+<hr />
+<p>NetCore 路由器比较麻烦，这时候两个路由器已经连接，但是不可以上网，我们需要进入路由器A中，在WDS中添加路由器B的SSID和MAC
+<img alt="" src="http://i.imgur.com/2qjyUWG.png" />
+然后这时候我们重启两个路由器~</p>
+<p>大功告成！</p>
+<p>现在手机客户端就会根据TA本身的原则来自由的选择Wifi，一般是自动选择信号强的 ~</p>
+<p>END。</p></div>
+	
+        <hr>
+        <div class="bdsharebuttonbox"><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{"tsina":"2429705450"},"bdText":"“【2014年7月27日】关于TP-link和Netcore路由器的WDS连接”  From  Fashion4cj.com","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+        <hr>
+        <h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'fashioncjtellyou'; 
+    var disqus_title = '【2014年7月27日】关于TP-link和Netcore路由器的WDS连接';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
         </div>
         
         <div class="span3">
