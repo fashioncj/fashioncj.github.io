@@ -1,5 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Fashioncj Tell You</title><link href="http://fashion4cj.com/" rel="alternate"></link><link href="http://fashion4cj.com/feeds%5Cchenjiame.atom.xml" rel="self"></link><id>http://fashion4cj.com/</id><updated>2014-07-29T00:52:00+08:00</updated><entry><title>【2014年7月28日】关于TP-link和Netcore路由器的WDS连接</title><link href="http://fashion4cj.com/2014nian-7yue-28ri-guan-yu-tp-linkhe-netcorelu-you-qi-de-wdslian-jie.html" rel="alternate"></link><updated>2014-07-29T00:52:00+08:00</updated><author><name>chenjia.me</name></author><id>tag:fashion4cj.com,2014-07-29:2014nian-7yue-28ri-guan-yu-tp-linkhe-netcorelu-you-qi-de-wdslian-jie.html</id><summary type="html">&lt;blockquote&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Fashioncj Tell You</title><link href="http://fashion4cj.com/" rel="alternate"></link><link href="http://fashion4cj.com/feeds%5Cchenjiame.atom.xml" rel="self"></link><id>http://fashion4cj.com/</id><updated>2014-07-30T00:43:00+08:00</updated><entry><title>【2014年7月29日】iPhone越狱，备份，升级，刷机的一些Tips</title><link href="http://fashion4cj.com/2014nian-7yue-29ri-iphoneyue-yu-bei-fen-sheng-ji-shua-ji-de-yi-xie-tips.html" rel="alternate"></link><updated>2014-07-30T00:43:00+08:00</updated><author><name>chenjia.me</name></author><id>tag:fashion4cj.com,2014-07-30:2014nian-7yue-29ri-iphoneyue-yu-bei-fen-sheng-ji-shua-ji-de-yi-xie-tips.html</id><summary type="html">&lt;h1&gt;iPhone是个好手机&lt;/h1&gt;
+&lt;p&gt;Po主虽然是Android开发者，但是是忠实的果粉。&lt;/p&gt;
+&lt;p&gt;其实我就是喜欢TA的屏幕，他的Sandbox。&lt;/p&gt;
+&lt;p&gt;其实我是忠实Jailbreak.&lt;/p&gt;
+&lt;h1&gt;iPHone手机应该如何备份&lt;/h1&gt;
+&lt;p&gt;itunes难用很多人都觉得，至少我是不会去教一个大人如何去使用itunes，而且我认为大部分人在用itunes同步的时候会把手机的应用同步没吧~&lt;/p&gt;
+&lt;p&gt;所以我们应该如何备份我们的数据呢~&lt;/p&gt;
+&lt;p&gt;将手机连接itunes，在itunes中找到自己的手机，然后点击备份，只要点击备份就好了~然后他就会默默的开始备份。（这里要强调一定要备份应用。。。）&lt;/p&gt;
+&lt;p&gt;备份好的时候我们还是要等待应用传输结束，直到itunes中上方里面木有进度条为止，一次完整的备份成功了。&lt;/p&gt;
+&lt;p&gt;通过itunes备份的数据有哪些呢？&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;手机的设置&lt;/li&gt;
+&lt;li&gt;手机的通讯录，短信，备忘录，书签等基本数据（如果开启了icloud的话就不会被备份到电脑上）&lt;/li&gt;
+&lt;li&gt;照片&lt;/li&gt;
+&lt;li&gt;应用程序和优化过的程序文档（这里要重点说明，不是所有的程序文档都会被保存，比如qq的信息就全部miss了，而大部分的游戏等存档都在，怀疑qq的文档是以tmp类型的文件存放。）&lt;/li&gt;
+&lt;li&gt;歌曲铃声只有在你同步到iTunes中才会保存&lt;/li&gt;
+&lt;li&gt;越狱的设置文件很多都会被保存。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1&gt;越狱的手机如何正确升级呢？&lt;/h1&gt;
+&lt;p&gt;越狱的手机是不可以通过OTA升级或者直接在itunes升级以及恢复抹掉数据，这些操作都会导致白苹果，造成数据的不可逆的丢失，以及手机开不了机。&lt;/p&gt;
+&lt;p&gt;正确的升级方式应该是-&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;用itunes备份手机数据，拷贝铃声和音乐，通过itools等第三方程序备份应用及其文档，备份照片和联系人等数据&lt;/li&gt;
+&lt;li&gt;下载对应的固件ipsw&lt;/li&gt;
+&lt;li&gt;在itunes中按住shift键然后点击恢复选择固件刷入&lt;/li&gt;
+&lt;li&gt;恢复备份数据&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1&gt;一些关于itunes级刷机的问题&lt;/h1&gt;
+&lt;h2&gt;iPHone升级或者恢复固件失败或者其他原因进入恢复模式的问题解决&lt;/h2&gt;
+&lt;p&gt;手机莫名进入恢复模式，刷机4013错误进入无限恢复模式，等的可以尝试使用&lt;code&gt;爱思助手中的高级玩家模式中的退出恢复模式&lt;/code&gt;进行尝试，大部分情况下是可以恢复到正常，少数情况失败的那就只能刷机了。&lt;/p&gt;
+&lt;h2&gt;itunes备份占用过多C盘空间的解决方案&lt;/h2&gt;
+&lt;p&gt;本方案适合windows 7及以上操作系统（正在测试中）&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;事前请先确认iTunes已经关闭&lt;/li&gt;
+&lt;li&gt;把C:\Users\您的用户名\Music下的iTunes文件夹剪切（不是复制）到D盘的Downloads文件夹里，然后重命名为iTunesSource&lt;/li&gt;
+&lt;li&gt;把C:\Users\您的用户名\AppData\Roaming\Apple Computer下的MobileSync文件夹剪切（不是复制）到D盘的Downloads文件夹里，然后重命名为MobileSyncSource&lt;/li&gt;
+&lt;li&gt;请确认上述iTunes和MobileSync文件夹在原始路径下已经不存在，并全部转移到D盘了。&lt;/li&gt;
+&lt;li&gt;点击开始-&amp;gt; 搜索框里输入cmd-&amp;gt;右键点击cmd选择以管理员模式运行&lt;/li&gt;
+&lt;li&gt;执行下列命令。注意：每一行是一条命令，输入完要回车。另外&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如果文件路径里面有空格的话，执行mklink命令的时候路径要用双引号引上。&lt;/p&gt;
+&lt;p&gt;执行以下命令&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="n"&gt;C&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;Users&lt;/span&gt;&lt;span class="err"&gt;\您的用户名\&lt;/span&gt;&lt;span class="n"&gt;Music&lt;/span&gt;
+
+&lt;span class="n"&gt;mklink&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="n"&gt;iTunes&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;Downloads&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;iTunesSource&lt;/span&gt;
+
+&lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="n"&gt;C&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;Users&lt;/span&gt;&lt;span class="err"&gt;\您的用户名\&lt;/span&gt;&lt;span class="n"&gt;AppData&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;Roaming&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;Apple&lt;/span&gt; &lt;span class="n"&gt;Computer&lt;/span&gt;
+
+&lt;span class="n"&gt;mklink&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="n"&gt;MobileSync&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;Downloads&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;MobileSyncSource&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;执行上述命令后，你可以看到&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;symbolic&lt;/span&gt; &lt;span class="n"&gt;link&lt;/span&gt; &lt;span class="n"&gt;created&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;iTunes&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;===&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;Downloads&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;iTunesSource&lt;/span&gt;
+&lt;span class="err"&gt;和&lt;/span&gt;
+&lt;span class="n"&gt;symbolic&lt;/span&gt; &lt;span class="n"&gt;link&lt;/span&gt; &lt;span class="n"&gt;created&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;MobileSync&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;===&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;Downloads&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;MobileSyncSource&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;最后，请确认
+&lt;code&gt;C:\Users\您的用户名\Music&lt;/code&gt;下存在iTunes
+&lt;code&gt;C:\Users\您的用户名\AppData\Roaming\Apple Computer&lt;/code&gt;下存在MobileSync&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;启动itunes，看看是不是数据都还在！&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</summary><category term="diary"></category><category term="july"></category><category term="iOS"></category></entry><entry><title>【2014年7月28日】关于TP-link和Netcore路由器的WDS连接</title><link href="http://fashion4cj.com/2014nian-7yue-28ri-guan-yu-tp-linkhe-netcorelu-you-qi-de-wdslian-jie.html" rel="alternate"></link><updated>2014-07-29T00:52:00+08:00</updated><author><name>chenjia.me</name></author><id>tag:fashion4cj.com,2014-07-29:2014nian-7yue-28ri-guan-yu-tp-linkhe-netcorelu-you-qi-de-wdslian-jie.html</id><summary type="html">&lt;blockquote&gt;
 &lt;p&gt;准备开始每日一个日记&lt;/p&gt;
 &lt;p&gt;2014年7月28日&lt;/p&gt;
 &lt;p&gt;无线路由器WDS配置&lt;/p&gt;
