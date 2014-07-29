@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://fashion4cj.com/index.html</loc>
-<lastmod>2014-07-29T01:18:06-00:00</lastmod>
+<lastmod>2014-07-29T16:21:08-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
 
 <url>
 <loc>http://fashion4cj.com/archives.html</loc>
-<lastmod>2014-07-29T01:18:06-00:00</lastmod>
+<lastmod>2014-07-29T16:21:08-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
 
 <url>
 <loc>http://fashion4cj.com/tags.html</loc>
-<lastmod>2014-07-29T01:18:06-00:00</lastmod>
+<lastmod>2014-07-29T16:21:08-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
 
 <url>
 <loc>http://fashion4cj.com/categories.html</loc>
-<lastmod>2014-07-29T01:18:06-00:00</lastmod>
+<lastmod>2014-07-29T16:21:08-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
@@ -88,6 +88,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>http://fashion4cj.com/tag/route.html</loc>
+<lastmod>2014-07-29T00:52:00-00:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+
+<url>
 <loc>http://fashion4cj.com/tag/diary.html</loc>
 <lastmod>2014-07-29T00:52:00-00:00</lastmod>
 <changefreq>daily</changefreq>
@@ -117,13 +124,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://fashion4cj.com/tag/july.html</loc>
-<lastmod>2014-07-29T00:52:00-00:00</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.8</priority>
-</url>
-
-<url>
-<loc>http://fashion4cj.com/tag/route.html</loc>
 <lastmod>2014-07-29T00:52:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
