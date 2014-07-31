@@ -40,7 +40,6 @@
         <ul class="nav">
             
             <li><a href="http://fashion4cj.com/pages/about-me.html">About Me</a></li>
-            <li><a href="http://fashion4cj.com/pages/my-weibo.html">My Weibo</a></li>
         </ul>
         </div>
         <div><a style="float: right;padding: 10px 10px 11px;color: #ffffff;">Enjoy simple,record &amp; share</a></div>
@@ -116,10 +115,10 @@ HTML就是这个BLOG的核心部分，基本上所有的代码都是根据这个
 <h2>添加Google Analytics</h2>
 <p>去Google Analytics申请账号，记下跟踪ID，在<code>pelicanconf.py</code>的<code>GOOGLE_ANALYTICS</code>添加ID。
 注意，现在Google已经修改代码，很多主题的分析代码都是旧版本的，我们先完整的复制Google给的js代码，然后打开主题的 <code>analytics.html</code>,删除原来的Google Analytics的代码，替换成新的代码，然后更新主题~搞定~</p></div>
-	
+<!--
         <hr>
         <div class="bdsharebuttonbox"><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a></div>
-<script>window._bd_share_config={"common":{"bdSnsKey":{"tsina":"2429705450"},"bdText":"“Pelican 的进阶-添加主题，插件”  From  Fashion4cj.com","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+<script>window._bd_share_config={"common":{"bdSnsKey":{"tsina":"2429705450"},"bdText":"“Pelican 的进阶-添加主题，插件”  From  Fashion4cj.com","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script> -->
         <hr>
         <h2>Comments</h2>
 <div id="disqus_thread"></div>
@@ -142,11 +141,11 @@ HTML就是这个BLOG的核心部分，基本上所有的代码都是根据这个
         	<div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
             <ul class="nav nav-list">
                 <li class="nav-header"> 
-                Share it & follow me
+                Share it 
                 </li>
-            	<wb:share-button appkey="3UEIPw" addition="text" type="button" default_text="Pelican 的进阶-添加主题，插件 From fashion4cj.com"></wb:share-button>
+            	<wb:share-button appkey="3UEIPw" addition="text" type="button" default_text="我分享了:“ Pelican 的进阶-添加主题，插件  ”来自 fashion4cj.com"></wb:share-button>
                 <li>
-                <li><wb:follow-button uid="1698025395" type="red_3" width="100%" height="24" ></wb:follow-button></li>
+                <!-- <li><wb:follow-button uid="1698025395" type="red_3" width="100%" height="24" ></wb:follow-button></li> -->
                
             </ul>
             </div>
