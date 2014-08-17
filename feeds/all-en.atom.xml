@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Fashioncj Tell You</title><link href="http://fashion4cj.com/" rel="alternate"></link><link href="http://fashion4cj.com/feeds%5Call-en.atom.xml" rel="self"></link><id>http://fashion4cj.com/</id><updated>2014-08-15T01:50:00+08:00</updated><entry><title>【2014年8月14日】关于正则表达式的一些事情</title><link href="http://fashion4cj.com/2014nian-8yue-14ri-guan-yu-zheng-ze-biao-da-shi-de-yi-xie-shi-qing.html" rel="alternate"></link><updated>2014-08-15T01:50:00+08:00</updated><author><name>chenjia.me</name></author><id>tag:fashion4cj.com,2014-08-15:2014nian-8yue-14ri-guan-yu-zheng-ze-biao-da-shi-de-yi-xie-shi-qing.html</id><summary type="html">&lt;h1&gt;日记部分&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Fashioncj Tell You</title><link href="http://fashion4cj.com/" rel="alternate"></link><link href="http://fashion4cj.com/feeds%5Call-en.atom.xml" rel="self"></link><id>http://fashion4cj.com/</id><updated>2014-08-18T01:03:00+08:00</updated><entry><title>【2014年8月17日】Android的设备管理器（一）</title><link href="http://fashion4cj.com/2014nian-8yue-17ri-androidde-she-bei-guan-li-qi-yi.html" rel="alternate"></link><updated>2014-08-18T01:03:00+08:00</updated><author><name>chenjia.me</name></author><id>tag:fashion4cj.com,2014-08-18:2014nian-8yue-17ri-androidde-she-bei-guan-li-qi-yi.html</id><summary type="html">&lt;h1&gt;日记&lt;/h1&gt;
+&lt;p&gt;最近有一个叫做“ignore no more”的APP出现在各大新闻头条，说是一个美国的妈妈为了让她儿子每天都给他打电话写的，不打电话就locked his phone.然后好奇了一下~麻麻写的软件一定不完善呀~我就可以写了~然后fq一下去了google play上搜索了一下，结果发现这个软件是要1.99刀...而且是一个公司开发的，已经很不错了。。。&lt;/p&gt;
+&lt;p&gt;媒体我恨你、&lt;/p&gt;
+&lt;h1&gt;Android设备管理器&lt;/h1&gt;
+&lt;p&gt;虽然不用我自己写了，可是人家要1.99美元呢~可惜android市场的收费呵呵呵。&lt;/p&gt;
+&lt;p&gt;然后看了一下软件的截图，发现他在软件选择孩子的时候会安装一个软件，仔细看了一下发现这个 软件需要请求系统管理员权限。&lt;/p&gt;
+&lt;p&gt;好神奇是不是，我也很好奇，就百度了一下~&lt;/p&gt;
+&lt;p&gt;然后发现了这个。&lt;/p&gt;
+&lt;h2&gt;DevicePolicyManager&lt;/h2&gt;
+&lt;p&gt;这是Android API 8后出的一个API接口，可以提供锁屏，恢复出厂设置，还有设置密码、强制清除密码，修改密码、设置屏幕灯光渐暗时间间隔等操作。&lt;/p&gt;
+&lt;p&gt;那他具体怎么用呢0.0 &lt;/p&gt;
+&lt;p&gt;明天再说。&lt;/p&gt;</summary><category term="diary"></category><category term="August"></category><category term="android"></category></entry><entry><title>【2014年8月14日】关于正则表达式的一些事情</title><link href="http://fashion4cj.com/2014nian-8yue-14ri-guan-yu-zheng-ze-biao-da-shi-de-yi-xie-shi-qing.html" rel="alternate"></link><updated>2014-08-15T01:50:00+08:00</updated><author><name>chenjia.me</name></author><id>tag:fashion4cj.com,2014-08-15:2014nian-8yue-14ri-guan-yu-zheng-ze-biao-da-shi-de-yi-xie-shi-qing.html</id><summary type="html">&lt;h1&gt;日记部分&lt;/h1&gt;
 &lt;p&gt;虽然已经从学线退休了，下午接到许老师的电话，还是很快的又进入工作模式了。成为习惯或者是一种心态么。&lt;/p&gt;
 &lt;h1&gt;PHP中的正则表达式的使用&lt;/h1&gt;
 &lt;h2&gt;爬虫&lt;/h2&gt;
