@@ -60,8 +60,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="http://fashion4cj.com/2014nian-8yue-17ri-androidde-she-bei-guan-li-qi-yi.html"><h1>【2014年8月17日】Android的设备管理器（一）</h1></a>
-2014-08-18(周一)
+            <a href="http://fashion4cj.com/2014nian-8yue-18ri-androiddi-san-fang-sdkshi-yong-de-yi-xie-ti-shi.html"><h1>【2014年8月18日】Android第三方SDK使用的一些提示</h1></a>
+2014-08-19(周二)
 
 by <a class="url fn" href="http://fashion4cj.com/author/chenjiame.html">chenjia.me</a>
  
@@ -70,21 +70,73 @@ by <a class="url fn" href="http://fashion4cj.com/author/chenjiame.html">chenjia.
  
         </div>
         
-        <div><h1>日记</h1>
-<p>最近有一个叫做“ignore no more”的APP出现在各大新闻头条，说是一个美国的妈妈为了让她儿子每天都给他打电话写的，不打电话就locked his phone.然后好奇了一下~麻麻写的软件一定不完善呀~我就可以写了~然后fq一下去了google play上搜索了一下，结果发现这个软件是要1.99刀...而且是一个公司开发的，已经很不错了。。。</p>
-<p>媒体我恨你、</p>
-<h1>Android设备管理器</h1>
-<p>虽然不用我自己写了，可是人家要1.99美元呢~可惜android市场的收费呵呵呵。</p>
-<p>然后看了一下软件的截图，发现他在软件选择孩子的时候会安装一个软件，仔细看了一下发现这个 软件需要请求系统管理员权限。</p>
-<p>好神奇是不是，我也很好奇，就百度了一下~</p>
-<p>然后发现了这个。</p>
-<h2>DevicePolicyManager</h2>
-<p>这是Android API 8后出的一个API接口，可以提供锁屏，恢复出厂设置，还有设置密码、强制清除密码，修改密码、设置屏幕灯光渐暗时间间隔等操作。</p>
-<p>那他具体怎么用呢0.0 </p>
-<p>明天再说。</p></div>
+        <div><h1>前言</h1>
+<p>今天有个学弟问了我一个问题，关于蛐蛐儿的SDK为什么DEMO可以运行但是他一使用就直接报错。</p>
+<p>我第一个想法是lib配置不对，提示应该加入lib order中。</p>
+<p>这是新版本ADT中导入第三方类库经常出现CLASS NOT FOUND的原因、</p>
+<p>学弟说他被这个问题困扰了很久了。一直导致无法继续敲代码。</p>
+<p>然后我就试了一下~</p>
+<h1>任务开始</h1>
+<h2>下载demo包</h2>
+<p>无论使用哪个网站的SDK，基本都会有DEMO包。</p>
+<p>不过有的网站demo包是最新的，有的是sdk中的是最新的~这就要靠你来分辨了~</p>
+<p>无论如何，我们都要下载他的demo包运行~</p>
+<p>毕竟这是人家写好的代码，运行一是可以看效果，而是可以学习他们API调用的过程。</p>
+<p>e.g 我下载了蛐蛐儿的DEMO包（他们只提供的demo包），然后把工程导入到ADT中编译运行~然后看到效果~</p>
+<h2>创建一个新项目</h2>
+<p>如果网站的API写的详细的话就可以直接按照说明加入到我们自己的工程去了~这点百度地图的SDK以及友盟的SDK都做的很好~点赞~</p>
+<p>如果像蛐蛐儿这样的~以防万一我们先建立新的工程~出错了大不了可以删嘛~</p>
+<ol>
+<li>新建一个新的Android工程</li>
+<li>将lib文件复制到新的工程下的lib文件中</li>
+<li>将res文件中的资源复制到新的工程中</li>
+<li>将src中的源代码复制到新的工程中</li>
+<li><strong>修改AndroidManifest.xml文件</strong></li>
+<li>修正错误</li>
+<li>run it</li>
+</ol>
+<h2>出现的问题</h2>
+<p>很遗憾，我们的程序并没有像DEMO中一样正确运行，那么我们就要看LOGCAT（这点很重要，不会看logcat的人想必百度都不知道怎么百度）</p>
+<p>首先是出现了这样的问题：
+<img alt="pic1" src="http://i.imgur.com/41UELH0.png" /></p>
+<p>重点是在<code>NO JNI_ONLOAD FOUND IN XXXXX</code></p>
+<p>第一反应是lib配置错了~重新配置了lib~问题依旧。</p>
+<p>然后怀疑版本问题，因为DEMO是2.3.3而我的编译是4.4.2 然后调低了API，发现问题依旧</p>
+<p>会不会是复制没完整，仔细对比了一下文件，发现是<code>AndroidManifest.xml</code>文件中缺少了权限</p>
+<p>然后我就奇怪了~缺少权限为什么LOGCAT不是直接在error中打出来提示。</p>
+<p>后来发现是该SDK在JNI的时候就调用了权限，并不在虚拟机中。</p>
+<p>所以以后发现.so报错的时候可以看看这里。</p>
+<p>修改后就可以运行了，可是学弟提醒说修改hello world就直接程序崩溃，我仔细看了一下logcat</p>
+<p><img alt="pic2" src="http://i.imgur.com/OYzvCWJ.png" /></p>
+<div class="highlight"><pre><span class="n">NETWORKONMAINTHREADEXCEPTION</span>
+</pre></div>
+
+
+<p>很常见的异常，在很老的SDK或者源代码中经常出现的异常，报错原因是因为在ANDROID3.0以后网络线程，数据库线程等比较耗时的线程都不可以直接在主线程上直接使用，换换句话说就是一定要用多线程。</p>
+<p>估计这个人写DEMO的时候还是在2.3.3的时候，好几年没更新了！！！</p>
+<p>然后最后推荐网络线程还是要用handler来实现多线程，方便而且可以直接在内部直接操作界面元素~</p>
+<p>END</p></div>
         <hr />
     </div>
 		
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://fashion4cj.com/2014nian-8yue-17ri-androidde-she-bei-guan-li-qi-yi.html"><h2>【2014年8月17日】Android的设备管理器（一）</h2></a>
+        <div class= "well small"> 2014-08-18(周一)
+
+by <a class="url fn" href="http://fashion4cj.com/author/chenjiame.html">chenjia.me</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>Android设备管理器的使用</p> <a class="btn btn-info xsmall" href="http://fashion4cj.com/2014nian-8yue-17ri-androidde-she-bei-guan-li-qi-yi.html">read more</a></div>
+    </div>	
+				
 
  
         
@@ -187,6 +239,7 @@ by <a class="url fn" href="http://fashion4cj.com/author/chenjiame.html">chenjia.
                 </li>
                 
                 <li><a href="http://fashion4cj.com/category/diary.html">Diary</a></li>
+                <li><a href="http://fashion4cj.com/category/diary-android.html">Diary ,Android</a></li>
                 <li><a href="http://fashion4cj.com/category/pelican.html">Pelican</a></li>
                 <li><a href="http://fashion4cj.com/category/security.html">Security</a></li>
                    

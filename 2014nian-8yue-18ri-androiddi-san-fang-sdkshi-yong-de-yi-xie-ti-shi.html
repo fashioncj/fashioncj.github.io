@@ -2,7 +2,7 @@
 <html lang="en" xmlns:wb="http://open.weibo.com/wb">
 <head>
     <meta charset="utf-8">
-    <title>【2014年7月28日】关于TP-link和Netcore路由器的WDS连接</title>
+    <title>【2014年8月18日】Android第三方SDK使用的一些提示</title>
     <meta name="description" content="fashion4cj.com ,chenjia.me ">
     <meta name="author" content="chenjia.me">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -55,8 +55,8 @@
         <div class="span9">
     <div class='article'>
         <div class="content-title">
-            <h1>【2014年7月28日】关于TP-link和Netcore路由器的WDS连接</h1>
-2014-07-29(周二)
+            <h1>【2014年8月18日】Android第三方SDK使用的一些提示</h1>
+2014-08-19(周二)
 
 by <a class="url fn" href="http://fashion4cj.com/author/chenjiame.html">chenjia.me</a>
  
@@ -64,51 +64,62 @@ by <a class="url fn" href="http://fashion4cj.com/author/chenjiame.html">chenjia.
 
         </div>
 	
-        <div><blockquote>
-<p>准备开始每日一个日记</p>
-<p>2014年7月28日</p>
-<p>无线路由器WDS配置</p>
-</blockquote>
-<h1>如何让家里走到哪里都有无线</h1>
-<p>问题很简单，买很多的无线路由器。</p>
-<h2>可是，我只有一根网线呀</h2>
-<p>好的~下面开始进入教学环节，如果让两个无线路由器通过无线连接上网~</p>
-<h1>背景</h1>
-<p>想一下你在学校的时候，在无线覆盖区域（比如图书馆），是不是只是连接一个无线，走到哪里都可以上网。</p>
-<p>那个无线真的信号可以覆盖那么广么？明显不可以。那么是怎么实现的呢？我们又如何在家中享受这种便利呢？</p>
-<h2>材料</h2>
-<p>准备两个无线路由器，至少有一个支持WDS功能，还有一个能上网的网线。</p>
-<h1>配置路由器</h1>
-<p>【PO主家有两个路由器，路由器A设定为NETCORE磊科路由器NW737，路由器B为TP-LINK的路由器，两个都支持WDS】</p>
+        <div><h1>前言</h1>
+<p>今天有个学弟问了我一个问题，关于蛐蛐儿的SDK为什么DEMO可以运行但是他一使用就直接报错。</p>
+<p>我第一个想法是lib配置不对，提示应该加入lib order中。</p>
+<p>这是新版本ADT中导入第三方类库经常出现CLASS NOT FOUND的原因、</p>
+<p>学弟说他被这个问题困扰了很久了。一直导致无法继续敲代码。</p>
+<p>然后我就试了一下~</p>
+<h1>任务开始</h1>
+<h2>下载demo包</h2>
+<p>无论使用哪个网站的SDK，基本都会有DEMO包。</p>
+<p>不过有的网站demo包是最新的，有的是sdk中的是最新的~这就要靠你来分辨了~</p>
+<p>无论如何，我们都要下载他的demo包运行~</p>
+<p>毕竟这是人家写好的代码，运行一是可以看效果，而是可以学习他们API调用的过程。</p>
+<p>e.g 我下载了蛐蛐儿的DEMO包（他们只提供的demo包），然后把工程导入到ADT中编译运行~然后看到效果~</p>
+<h2>创建一个新项目</h2>
+<p>如果网站的API写的详细的话就可以直接按照说明加入到我们自己的工程去了~这点百度地图的SDK以及友盟的SDK都做的很好~点赞~</p>
+<p>如果像蛐蛐儿这样的~以防万一我们先建立新的工程~出错了大不了可以删嘛~</p>
 <ol>
-<li>路由器A通过宽带上网（这是必须的）</li>
-<li>路由器A更改无线设置，选择一个好听的SSID，然后用WPA2加密，固定信道（记住他就好，这里选择10）</li>
-<li>开始路由器A的DHCP功能，记录网关，例如192.168.1.1的话，DHCP分配的ip应该在192.168.1.3开始，因为.2的ip要给我们路由器B</li>
-<li>用无线设备连接，看看可不可以上网。</li>
+<li>新建一个新的Android工程</li>
+<li>将lib文件复制到新的工程下的lib文件中</li>
+<li>将res文件中的资源复制到新的工程中</li>
+<li>将src中的源代码复制到新的工程中</li>
+<li><strong>修改AndroidManifest.xml文件</strong></li>
+<li>修正错误</li>
+<li>run it</li>
 </ol>
-<hr />
-<ol>
-<li>路由器B更改ssid和路由器A一样，信道和A一样，密码和A一样，然后在路由器B中的WDS添加路由器A的无线SSID，密码，MAC等信息</li>
-<li>关闭路由器B的DHCP功能</li>
-<li>修改路由器B的管理IP为192.168.1.2，也就是上面预留的那个ip</li>
-</ol>
-<hr />
-<p>NetCore 路由器比较麻烦，这时候两个路由器已经连接，但是不可以上网，我们需要进入路由器A中，在WDS中添加路由器B的SSID和MAC</p>
-<p><img alt="netcore路由器WDS设置图" src="http://i.imgur.com/2qjyUWG.png" /></p>
-<p>然后这时候我们重启两个路由器~</p>
-<p>大功告成！</p>
-<p>现在手机客户端就会根据TA本身的原则来自由的选择Wifi，一般是自动选择信号强的 ~</p>
-<p>END。</p></div>
+<h2>出现的问题</h2>
+<p>很遗憾，我们的程序并没有像DEMO中一样正确运行，那么我们就要看LOGCAT（这点很重要，不会看logcat的人想必百度都不知道怎么百度）</p>
+<p>首先是出现了这样的问题：
+<img alt="pic1" src="http://i.imgur.com/41UELH0.png" /></p>
+<p>重点是在<code>NO JNI_ONLOAD FOUND IN XXXXX</code></p>
+<p>第一反应是lib配置错了~重新配置了lib~问题依旧。</p>
+<p>然后怀疑版本问题，因为DEMO是2.3.3而我的编译是4.4.2 然后调低了API，发现问题依旧</p>
+<p>会不会是复制没完整，仔细对比了一下文件，发现是<code>AndroidManifest.xml</code>文件中缺少了权限</p>
+<p>然后我就奇怪了~缺少权限为什么LOGCAT不是直接在error中打出来提示。</p>
+<p>后来发现是该SDK在JNI的时候就调用了权限，并不在虚拟机中。</p>
+<p>所以以后发现.so报错的时候可以看看这里。</p>
+<p>修改后就可以运行了，可是学弟提醒说修改hello world就直接程序崩溃，我仔细看了一下logcat</p>
+<p><img alt="pic2" src="http://i.imgur.com/OYzvCWJ.png" /></p>
+<div class="highlight"><pre><span class="n">NETWORKONMAINTHREADEXCEPTION</span>
+</pre></div>
+
+
+<p>很常见的异常，在很老的SDK或者源代码中经常出现的异常，报错原因是因为在ANDROID3.0以后网络线程，数据库线程等比较耗时的线程都不可以直接在主线程上直接使用，换换句话说就是一定要用多线程。</p>
+<p>估计这个人写DEMO的时候还是在2.3.3的时候，好几年没更新了！！！</p>
+<p>然后最后推荐网络线程还是要用handler来实现多线程，方便而且可以直接在内部直接操作界面元素~</p>
+<p>END</p></div>
 <!--
         <hr>
         <div class="bdsharebuttonbox"><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a></div>
-<script>window._bd_share_config={"common":{"bdSnsKey":{"tsina":"2429705450"},"bdText":"“【2014年7月28日】关于TP-link和Netcore路由器的WDS连接”  From  Fashion4cj.com","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script> -->
+<script>window._bd_share_config={"common":{"bdSnsKey":{"tsina":"2429705450"},"bdText":"“【2014年8月18日】Android第三方SDK使用的一些提示”  From  Fashion4cj.com","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script> -->
         <hr>
         <h2>Comments</h2>
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'fashioncjtellyou'; 
-    var disqus_title = '【2014年7月28日】关于TP-link和Netcore路由器的WDS连接';
+    var disqus_title = '【2014年8月18日】Android第三方SDK使用的一些提示';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -127,7 +138,7 @@ by <a class="url fn" href="http://fashion4cj.com/author/chenjiame.html">chenjia.
                 <li class="nav-header"> 
                 Share it 
                 </li>
-            	<wb:share-button appkey="3UEIPw" addition="text" type="button" default_text="我分享了:“ 【2014年7月28日】关于TP-link和Netcore路由器的WDS连接  ”来自 fashion4cj.com"></wb:share-button>
+            	<wb:share-button appkey="3UEIPw" addition="text" type="button" default_text="我分享了:“ 【2014年8月18日】Android第三方SDK使用的一些提示  ”来自 fashion4cj.com"></wb:share-button>
                 <li>
                 <!-- <li><wb:follow-button uid="1698025395" type="red_3" width="100%" height="24" ></wb:follow-button></li> -->
                
