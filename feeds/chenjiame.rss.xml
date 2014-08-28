@@ -44,7 +44,7 @@
 &lt;p&gt;很常见的异常，在很老的SDK或者源代码中经常出现的异常，报错原因是因为在ANDROID3.0以后网络线程，数据库线程等比较耗时的线程都不可以直接在主线程上直接使用，换换句话说就是一定要用多线程。&lt;/p&gt;
 &lt;p&gt;估计这个人写DEMO的时候还是在2.3.3的时候，好几年没更新了！！！&lt;/p&gt;
 &lt;p&gt;然后最后推荐网络线程还是要用handler来实现多线程，方便而且可以直接在内部直接操作界面元素~&lt;/p&gt;
-&lt;p&gt;END&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">chenjia.me</dc:creator><pubDate>Tue, 19 Aug 2014 00:30:00 +0800</pubDate><guid>tag:fashion4cj.com,2014-08-19:2014nian-8yue-18ri-androiddi-san-fang-sdkshi-yong-de-yi-xie-ti-shi.html</guid><category>diary</category><category>August</category><category>android</category></item><item><title>【2014年8月17日】Android的设备管理器（一）</title><link>http://fashion4cj.com/2014nian-8yue-17ri-androidde-she-bei-guan-li-qi-yi.html</link><description>&lt;h1&gt;日记&lt;/h1&gt;
+&lt;p&gt;END&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">chenjia.me</dc:creator><pubDate>Tue, 19 Aug 2014 00:30:00 +0800</pubDate><guid>tag:fashion4cj.com,2014-08-19:2014nian-8yue-18ri-androiddi-san-fang-sdkshi-yong-de-yi-xie-ti-shi.html</guid><category>diary</category><category>August</category><category>Android</category></item><item><title>【2014年8月17日】Android的设备管理器（一）</title><link>http://fashion4cj.com/2014nian-8yue-17ri-androidde-she-bei-guan-li-qi-yi.html</link><description>&lt;h1&gt;日记&lt;/h1&gt;
 &lt;p&gt;最近有一个叫做“ignore no more”的APP出现在各大新闻头条，说是一个美国的妈妈为了让她儿子每天都给他打电话写的，不打电话就locked his phone.然后好奇了一下~麻麻写的软件一定不完善呀~我就可以写了~然后fq一下去了google play上搜索了一下，结果发现这个软件是要1.99刀...而且是一个公司开发的，已经很不错了。。。&lt;/p&gt;
 &lt;p&gt;媒体我恨你、&lt;/p&gt;
 &lt;h1&gt;Android设备管理器&lt;/h1&gt;
@@ -258,7 +258,7 @@ CellID代表一个移动基站，如果你有基站数据，查CellID你就可�
 &lt;li&gt;等待完成后，目录下会出现一个文件&lt;code&gt;classes_dex2jar.jar&lt;/code&gt;，将其复制到一个地方&lt;/li&gt;
 &lt;li&gt;打开jd-gui.exe，将刚才的jar文件拖入打开，我们就可以看到源代码了。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img alt="" src="http://i.imgur.com/QfLmoxc.png" /&gt;
+&lt;p&gt;&lt;img alt="pic1" src="http://i.imgur.com/QfLmoxc.png" /&gt;
 这就是第一个APK的基本源代码&lt;/p&gt;
 &lt;p&gt;同样的步骤我们解压Trogoogle的那个apk，获得其源代码。&lt;/p&gt;
 &lt;p&gt;在Torgoogle中，我们发现了第三方jar包mail.jar，说明这位同学还是很有心学习的。&lt;/p&gt;
@@ -353,9 +353,9 @@ CellID代表一个移动基站，如果你有基站数据，查CellID你就可�
 &lt;img alt="欢迎界面" src="http://i.imgur.com/a3A7gcA.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;完成后我们就到了主界面了，这时候你的通讯录好友已经都收到你的短信了。社会工程攻击已经完成了，病毒的下载链接已经扩散，就等小白上钩了~接下来就是对你的攻击了。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;进入主页面我们会看到这样的页面，提示我们安装资源包。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="http://i.imgur.com/Mt4cfsh.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="pic2" src="http://i.imgur.com/Mt4cfsh.png" /&gt;&lt;/p&gt;
 &lt;p&gt;恩。一般人都会点安装的吧，然后就很顺其自然的安装了asserts目录下的那个apk&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="http://i.imgur.com/T9Mmem4.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="pic3" src="http://i.imgur.com/T9Mmem4.png" /&gt;&lt;/p&gt;
 &lt;p&gt;让我们看看代码：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;boolean&lt;/span&gt; &lt;span class="nf"&gt;retrieveApkFromAssets&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Context&lt;/span&gt; &lt;span class="n"&gt;paramContext&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;paramString1&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;paramString2&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
 &lt;span class="o"&gt;{&lt;/span&gt;

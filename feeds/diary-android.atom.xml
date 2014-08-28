@@ -44,4 +44,4 @@
 &lt;p&gt;很常见的异常，在很老的SDK或者源代码中经常出现的异常，报错原因是因为在ANDROID3.0以后网络线程，数据库线程等比较耗时的线程都不可以直接在主线程上直接使用，换换句话说就是一定要用多线程。&lt;/p&gt;
 &lt;p&gt;估计这个人写DEMO的时候还是在2.3.3的时候，好几年没更新了！！！&lt;/p&gt;
 &lt;p&gt;然后最后推荐网络线程还是要用handler来实现多线程，方便而且可以直接在内部直接操作界面元素~&lt;/p&gt;
-&lt;p&gt;END&lt;/p&gt;</summary><category term="diary"></category><category term="August"></category><category term="android"></category></entry></feed>
+&lt;p&gt;END&lt;/p&gt;</summary><category term="diary"></category><category term="August"></category><category term="Android"></category></entry></feed>

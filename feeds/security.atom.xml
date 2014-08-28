@@ -33,7 +33,7 @@
 &lt;li&gt;等待完成后，目录下会出现一个文件&lt;code&gt;classes_dex2jar.jar&lt;/code&gt;，将其复制到一个地方&lt;/li&gt;
 &lt;li&gt;打开jd-gui.exe，将刚才的jar文件拖入打开，我们就可以看到源代码了。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img alt="" src="http://i.imgur.com/QfLmoxc.png" /&gt;
+&lt;p&gt;&lt;img alt="pic1" src="http://i.imgur.com/QfLmoxc.png" /&gt;
 这就是第一个APK的基本源代码&lt;/p&gt;
 &lt;p&gt;同样的步骤我们解压Trogoogle的那个apk，获得其源代码。&lt;/p&gt;
 &lt;p&gt;在Torgoogle中，我们发现了第三方jar包mail.jar，说明这位同学还是很有心学习的。&lt;/p&gt;
@@ -128,9 +128,9 @@
 &lt;img alt="欢迎界面" src="http://i.imgur.com/a3A7gcA.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;完成后我们就到了主界面了，这时候你的通讯录好友已经都收到你的短信了。社会工程攻击已经完成了，病毒的下载链接已经扩散，就等小白上钩了~接下来就是对你的攻击了。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;进入主页面我们会看到这样的页面，提示我们安装资源包。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="http://i.imgur.com/Mt4cfsh.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="pic2" src="http://i.imgur.com/Mt4cfsh.png" /&gt;&lt;/p&gt;
 &lt;p&gt;恩。一般人都会点安装的吧，然后就很顺其自然的安装了asserts目录下的那个apk&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="http://i.imgur.com/T9Mmem4.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="pic3" src="http://i.imgur.com/T9Mmem4.png" /&gt;&lt;/p&gt;
 &lt;p&gt;让我们看看代码：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;boolean&lt;/span&gt; &lt;span class="nf"&gt;retrieveApkFromAssets&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Context&lt;/span&gt; &lt;span class="n"&gt;paramContext&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;paramString1&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;paramString2&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
 &lt;span class="o"&gt;{&lt;/span&gt;
