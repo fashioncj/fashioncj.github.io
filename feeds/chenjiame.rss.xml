@@ -1,5 +1,190 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Fashioncj Tell You</title><link>http://fashion4cj.com/</link><description></description><atom:link href="http://fashion4cj.com/feeds%5Cchenjiame.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 19 Aug 2014 00:30:00 +0800</lastBuildDate><item><title>【2014年8月18日】Android第三方SDK使用的一些提示</title><link>http://fashion4cj.com/2014nian-8yue-18ri-androiddi-san-fang-sdkshi-yong-de-yi-xie-ti-shi.html</link><description>&lt;h1&gt;前言&lt;/h1&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Fashioncj Tell You</title><link>http://fashion4cj.com/</link><description></description><atom:link href="http://fashion4cj.com/feeds%5Cchenjiame.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 04 Sep 2014 15:04:00 +0800</lastBuildDate><item><title>【2014年9月4日】Markdown基本语法</title><link>http://fashion4cj.com/2014nian-9yue-4ri-markdownji-ben-yu-fa.html</link><description>&lt;h1&gt;Markdown语法&lt;/h1&gt;
+&lt;p&gt;markdown是一个最近比较热门的一个文本标记语言，他的用处就是把某种规则的文字按照一定规则装换为HTML语言，显示的更为合理。
+而且他支持直接在文字中直接添加html语言。&lt;/p&gt;
+&lt;h1&gt;基本语法&lt;/h1&gt;
+&lt;h2&gt;标题部分&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#title 一级标题&lt;/span&gt;
+&lt;span class="c"&gt;##title 二级标题&lt;/span&gt;
+&lt;span class="c"&gt;###title 三级标题&lt;/span&gt;
+&lt;span class="c"&gt;######title 六级标题&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1&gt;title 一级标题&lt;/h1&gt;
+&lt;h2&gt;title 二级标题&lt;/h2&gt;
+&lt;h3&gt;title 三级标题&lt;/h3&gt;
+&lt;h6&gt;title 六级标题&lt;/h6&gt;
+&lt;h2&gt;文本中字体变化&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="err"&gt;粗体&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;  
+&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="err"&gt;斜体&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;粗体&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;斜体&lt;/em&gt;&lt;/p&gt;
+&lt;h2&gt;引用&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;import&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;import&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;import&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;blockquote&gt;
+&lt;p&gt;import&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;import&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;import&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;代码显示，强调&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;this&lt;/span&gt; &lt;span class="n"&gt;is&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="err"&gt;`&lt;/span&gt;&lt;span class="n"&gt;code&lt;/span&gt;&lt;span class="err"&gt;`&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;passage&lt;/span&gt; &lt;span class="c1"&gt;//文本中用``包括（Esc下面那个键）&lt;/span&gt;
+&lt;span class="n"&gt;code&lt;/span&gt; &lt;span class="n"&gt;block&lt;/span&gt;&lt;span class="c1"&gt;//缩进4个空格或者一个Tab&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;this is a &lt;code&gt;code&lt;/code&gt; in passage&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;code&lt;/span&gt; &lt;span class="n"&gt;block&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;p.s.有的解释器支持语法高亮，比如pelican里面可以用&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;:::java
+public void main(){
+int a=1;
+int b=1;
+system.out.println(a+b);
+}
+来高亮java语言&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="o"&gt;(){&lt;/span&gt;
+&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;system&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;无序列表&lt;/h2&gt;
+&lt;p&gt;使用+，-，* 然后空格 然后内容构成&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
+&lt;span class="o"&gt;----------&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
+&lt;span class="o"&gt;----------&lt;/span&gt;
+&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;1&lt;/li&gt;
+&lt;li&gt;2&lt;/li&gt;
+&lt;li&gt;3&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;ul&gt;
+&lt;li&gt;1&lt;/li&gt;
+&lt;li&gt;2&lt;/li&gt;
+&lt;li&gt;3&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;ul&gt;
+&lt;li&gt;1&lt;/li&gt;
+&lt;li&gt;2&lt;/li&gt;
+&lt;li&gt;3&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;有序列表&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;数字加句点加空格加内容&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="mf"&gt;1.&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="mf"&gt;2.&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="mf"&gt;3.&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
+&lt;span class="mf"&gt;4.&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ol&gt;
+&lt;li&gt;1&lt;/li&gt;
+&lt;li&gt;2&lt;/li&gt;
+&lt;li&gt;3&lt;/li&gt;
+&lt;li&gt;4&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;超链接&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;网址：[文本显示](网址 "alt文字")&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//www.baidu.com](http://www.baidu.com &amp;quot;baidu&amp;quot;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;a href="http://www.baidu.com" title="baidu"&gt;http://www.baidu.com&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;图片:![无图片显示的alt文字](地址)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;logo&lt;/span&gt;&lt;span class="p"&gt;](&lt;/span&gt;&lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//www.baidu.com/img/baidu_jgylogo3.gif)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="logo" src="http://www.baidu.com/img/baidu_jgylogo3.gif" /&gt;&lt;/p&gt;
+&lt;h2&gt;转义符&lt;/h2&gt;
+&lt;p&gt;所有的特殊符号加上&lt;code&gt;\&lt;/code&gt;都不会被解释&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;\&lt;/span&gt;   &lt;span class="err"&gt;反斜线&lt;/span&gt;
+&lt;span class="err"&gt;`&lt;/span&gt;   &lt;span class="err"&gt;反引号&lt;/span&gt;
+&lt;span class="o"&gt;*&lt;/span&gt;   &lt;span class="err"&gt;星号&lt;/span&gt;
+&lt;span class="n"&gt;_&lt;/span&gt;   &lt;span class="err"&gt;底线&lt;/span&gt;
+&lt;span class="p"&gt;{}&lt;/span&gt;  &lt;span class="err"&gt;花括号&lt;/span&gt;
+&lt;span class="p"&gt;[]&lt;/span&gt;  &lt;span class="err"&gt;方括号&lt;/span&gt;
+&lt;span class="p"&gt;()&lt;/span&gt;  &lt;span class="err"&gt;括弧&lt;/span&gt;
+&lt;span class="cp"&gt;#   井字号&lt;/span&gt;
+&lt;span class="o"&gt;+&lt;/span&gt;   &lt;span class="err"&gt;加号&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;   &lt;span class="err"&gt;减号&lt;/span&gt;
+&lt;span class="p"&gt;.&lt;/span&gt;   &lt;span class="err"&gt;英文句点&lt;/span&gt;
+&lt;span class="o"&gt;!&lt;/span&gt;   &lt;span class="err"&gt;惊叹号&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;分割线/水平标尺&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;----------&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;效果：就是下面这条线，就是&lt;code&gt;&amp;lt;hr&amp;gt;&lt;/code&gt;&lt;/h2&gt;
+&lt;h2&gt;所有的HTML语言都可以，只要浏览器支持就可以显示&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nt"&gt;&amp;lt;a&lt;/span&gt; &lt;span class="na"&gt;href=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://www.fashion4cj.com&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;fashion4cj.com&lt;span class="nt"&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;a href="http://www.fashion4cj.com"&gt;fashion4cj.com&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;角标，内跳转,替换&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;[home]&lt;/span&gt;
+
+&lt;span class="err"&gt;//这里写很多没用的东西&lt;/span&gt;
+
+&lt;span class="k"&gt;[home]&lt;/span&gt;
+
+&lt;span class="err"&gt;//最后写上定义&lt;/span&gt;
+
+&lt;span class="err"&gt;[home]:index.html&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;a href="index.html"&gt;home&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;//这里写很多没用的东西&lt;/p&gt;
+&lt;p&gt;&lt;a href="index.html"&gt;home&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;//最后写上定义&lt;/p&gt;
+&lt;h1&gt;结束&lt;/h1&gt;
+&lt;p&gt;好久没写文章了，最近要补好多东西，比如华为题目解答以及其他的一些测评&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">chenjia.me</dc:creator><pubDate>Thu, 04 Sep 2014 15:04:00 +0800</pubDate><guid>tag:fashion4cj.com,2014-09-04:2014nian-9yue-4ri-markdownji-ben-yu-fa.html</guid><category>diary</category><category>September</category><category>Markdown</category></item><item><title>【2014年8月18日】Android第三方SDK使用的一些提示</title><link>http://fashion4cj.com/2014nian-8yue-18ri-androiddi-san-fang-sdkshi-yong-de-yi-xie-ti-shi.html</link><description>&lt;h1&gt;前言&lt;/h1&gt;
 &lt;p&gt;今天有个学弟问了我一个问题，关于蛐蛐儿的SDK为什么DEMO可以运行但是他一使用就直接报错。&lt;/p&gt;
 &lt;p&gt;我第一个想法是lib配置不对，提示应该加入lib order中。&lt;/p&gt;
 &lt;p&gt;这是新版本ADT中导入第三方类库经常出现CLASS NOT FOUND的原因、&lt;/p&gt;
