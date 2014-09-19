@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://fashion4cj.com/index.html</loc>
-<lastmod>2014-09-20T00:57:04-00:00</lastmod>
+<lastmod>2014-09-20T01:21:35-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
 
 <url>
 <loc>http://fashion4cj.com/archives.html</loc>
-<lastmod>2014-09-20T00:57:04-00:00</lastmod>
+<lastmod>2014-09-20T01:21:35-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
 
 <url>
 <loc>http://fashion4cj.com/tags.html</loc>
-<lastmod>2014-09-20T00:57:04-00:00</lastmod>
+<lastmod>2014-09-20T01:21:35-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
 
 <url>
 <loc>http://fashion4cj.com/categories.html</loc>
-<lastmod>2014-09-20T00:57:04-00:00</lastmod>
+<lastmod>2014-09-20T01:21:35-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
@@ -179,15 +179,8 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://fashion4cj.com/tag/diary.html</loc>
+<loc>http://fashion4cj.com/tag/markdown.html</loc>
 <lastmod>2014-09-04T15:04:00-00:00</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.8</priority>
-</url>
-
-<url>
-<loc>http://fashion4cj.com/tag/ios.html</loc>
-<lastmod>2014-08-11T00:42:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
@@ -200,13 +193,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://fashion4cj.com/tag/route.html</loc>
-<lastmod>2014-07-29T00:52:00-00:00</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.8</priority>
-</url>
-
-<url>
 <loc>http://fashion4cj.com/tag/android.html</loc>
 <lastmod>2014-08-19T00:30:00-00:00</lastmod>
 <changefreq>daily</changefreq>
@@ -214,15 +200,8 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://fashion4cj.com/tag/september.html</loc>
+<loc>http://fashion4cj.com/tag/diary.html</loc>
 <lastmod>2014-09-04T15:04:00-00:00</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.8</priority>
-</url>
-
-<url>
-<loc>http://fashion4cj.com/tag/pelican.html</loc>
-<lastmod>2014-07-27T00:54:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
@@ -235,7 +214,21 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://fashion4cj.com/tag/python.html</loc>
+<loc>http://fashion4cj.com/tag/php.html</loc>
+<lastmod>2014-08-15T01:50:00-00:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+
+<url>
+<loc>http://fashion4cj.com/tag/ios.html</loc>
+<lastmod>2014-08-11T00:42:00-00:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+
+<url>
+<loc>http://fashion4cj.com/tag/pelican.html</loc>
 <lastmod>2014-07-27T00:54:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
@@ -244,6 +237,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://fashion4cj.com/tag/security.html</loc>
 <lastmod>2014-08-04T11:21:00-00:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+
+<url>
+<loc>http://fashion4cj.com/tag/python.html</loc>
+<lastmod>2014-07-27T00:54:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
@@ -263,15 +263,15 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://fashion4cj.com/tag/markdown.html</loc>
+<loc>http://fashion4cj.com/tag/september.html</loc>
 <lastmod>2014-09-04T15:04:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://fashion4cj.com/tag/php.html</loc>
-<lastmod>2014-08-15T01:50:00-00:00</lastmod>
+<loc>http://fashion4cj.com/tag/route.html</loc>
+<lastmod>2014-07-29T00:52:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
