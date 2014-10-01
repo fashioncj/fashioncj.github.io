@@ -1,5 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Fashioncj Tell You</title><link>http://fashion4cj.com/</link><description></description><atom:link href="http://fashion4cj.com/feeds%5Cchenjiame.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 04 Sep 2014 15:04:00 +0800</lastBuildDate><item><title>【2014年9月4日】Markdown基本语法</title><link>http://fashion4cj.com/2014nian-9yue-4ri-markdownji-ben-yu-fa.html</link><description>&lt;h1&gt;Markdown语法&lt;/h1&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Fashioncj Tell You</title><link>http://fashion4cj.com/</link><description></description><atom:link href="http://fashion4cj.com/feeds%5Cchenjiame.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 01 Oct 2014 13:07:00 +0800</lastBuildDate><item><title>【2014年10月1日】Ubuntu Repo配置以及Android源代码下载</title><link>http://fashion4cj.com/2014nian-10yue-1ri-ubuntu-repopei-zhi-yi-ji-androidyuan-dai-ma-xia-zai.html</link><description>&lt;h1&gt;安装Ubuntu 14.04 LTS&lt;/h1&gt;
+&lt;p&gt;不多说&lt;/p&gt;
+&lt;h1&gt;配置环境&lt;/h1&gt;
+&lt;h2&gt;配置Curl和git-core&lt;/h2&gt;
+&lt;p&gt;安装两个软件&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt;  &lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;curl&lt;/span&gt;
+&lt;span class="err"&gt;$&lt;/span&gt;  &lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;git&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;core&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;创建~/bin目录并添加到环境变量&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt; &lt;span class="err"&gt;$&lt;/span&gt;  &lt;span class="n"&gt;mkdir&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;
+ &lt;span class="err"&gt;$&lt;/span&gt;  &lt;span class="n"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=~/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;PATH&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;下载repo脚本并修改权限为可执行&lt;/h2&gt;
+&lt;p&gt;这是最新repo 1.21&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;curl&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//storage.googleapis.com/git-repo-downloads/repo &amp;gt; ~/bin/repo&lt;/span&gt;
+&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;chmod&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;repo&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;创建一个放代码的文件夹&lt;/h2&gt;
+&lt;p&gt;创建一个保存android源码的目录，修改为最大权限，并进入该目录&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt;  &lt;span class="n"&gt;mkdir&lt;/span&gt; &lt;span class="n"&gt;android4&lt;/span&gt;&lt;span class="mf"&gt;.4&lt;/span&gt;
+&lt;span class="err"&gt;$&lt;/span&gt;  &lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;chmod&lt;/span&gt; &lt;span class="err"&gt;–&lt;/span&gt;&lt;span class="n"&gt;R&lt;/span&gt; &lt;span class="mi"&gt;777&lt;/span&gt; &lt;span class="n"&gt;android4&lt;/span&gt;&lt;span class="mf"&gt;.4&lt;/span&gt;
+&lt;span class="err"&gt;$&lt;/span&gt;  &lt;span class="n"&gt;cd&lt;/span&gt;  &lt;span class="n"&gt;android4&lt;/span&gt;&lt;span class="mf"&gt;.4&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;初始化repo&lt;/h2&gt;
+&lt;p&gt;初始化repo，并选择要下载的分支&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;下载所有代码使用这个
+    $  repo init -u https://android.googlesource.com/platform/manifest&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这时需要输入你的姓名和邮箱。
+申请到&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;When prompted, configure Repo with your real name and email address. To use the Gerrit code-review tool, you will need an email address that is connected with a &lt;a href="https://www.google.com/accounts"&gt;registered Google account&lt;/a&gt;. Make sure this is a live address at which you can receive messages. The name that you provide here will show up in attributions for your code submissions.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;开通下载权限&lt;/p&gt;
+&lt;p&gt;使用&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;config&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;global&lt;/span&gt; &lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;email&lt;/span&gt; &lt;span class="n"&gt;your&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;email&lt;/span&gt;
+&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;config&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;global&lt;/span&gt; &lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;you&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;fetch&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;如果选择下载的最新分支或者某个分支可以这么使用，最新的分支可以在这里看&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href="https://android.googlesource.com/platform/manifest/+refs"&gt;https://android.googlesource.com/platform/manifest/+refs&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;输入&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;repo&lt;/span&gt; &lt;span class="n"&gt;init&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;u&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//android.googlesource.com/platform/manifest -b android-4.4.4_r2.0.1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;最后一步，同步内容&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;repo&lt;/span&gt; &lt;span class="n"&gt;sync&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;支持断点续传的同步下载&lt;/p&gt;
+&lt;h1&gt;断网自动恢复的脚本&lt;/h1&gt;
+&lt;p&gt;在目录下新建一个sh的shell脚本
+    repo sync
+    while [ $? -ne 0 ] 
+    do 
+    repo sync
+    done&lt;/p&gt;
+&lt;h2&gt;最后&lt;/h2&gt;
+&lt;p&gt;官方文档：&lt;a href="http://source.android.com/source/downloading.html#installing-repo"&gt;http://source.android.com/source/downloading.html#installing-repo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;参考Blog：&lt;a href="http://blog.csdn.net/legendof1991/article/details/17005849"&gt;http://blog.csdn.net/legendof1991/article/details/17005849&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://blog.csdn.net/wh_19910525/article/details/8164107"&gt;http://blog.csdn.net/wh_19910525/article/details/8164107&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">chenjia.me</dc:creator><pubDate>Wed, 01 Oct 2014 13:07:00 +0800</pubDate><guid>tag:fashion4cj.com,2014-10-01:2014nian-10yue-1ri-ubuntu-repopei-zhi-yi-ji-androidyuan-dai-ma-xia-zai.html</guid><category>diary</category><category>October</category><category>Repo</category><category>android</category></item><item><title>【2014年9月26日】ING STUDIO 二轮面试题目</title><link>http://fashion4cj.com/2014nian-9yue-26ri-ing-studio-er-lun-mian-shi-ti-mu.html</link><description>&lt;h1&gt;Welcome&lt;/h1&gt;
+&lt;p&gt;首先恭喜大家通过了ING工作室的面试！（此处应该有掌声）、&lt;/p&gt;
+&lt;p&gt;不过想要真正成为ING工作室的一员~还需要通过下面的小测试哦~&lt;/p&gt;
+&lt;h1&gt;写在前面&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;该测试是木有标准答案的~&lt;/li&gt;
+&lt;li&gt;该测试的结果的好坏只会对最后评价起到一个促进作用&lt;/li&gt;
+&lt;li&gt;请尽可能的展示自己的能力（各种的~）&lt;/li&gt;
+&lt;li&gt;请善用Google和百度搜索相关知识，但请勿复制抄写代码。&lt;strong&gt;重在理解！&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;如果遇到题目无法理解的问题请邮件到&lt;a href="mailto://src348934952@foxmail.com"&gt;陈夏雨姐姐的邮箱&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;时间&lt;/h2&gt;
+&lt;p&gt;这个测试将会给大家3天时间&lt;strong&gt;（2014-09-26 18:00 -2014-09-29 18:00）&lt;/strong&gt;来完成&lt;/p&gt;
+&lt;h2&gt;题目要求&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;使用Java或你熟悉的一种语言进行编写&lt;/li&gt;
+&lt;li&gt;请理解你写代码的含义，最后提交的时候我们会询问细节&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;这里是题目&lt;/h2&gt;
+&lt;p&gt;最近大四学长学姐们都忙于找工作或者保研或者考研，找工作的学长学姐们每天都要看好几个网站来获取公司的招聘信息。这样对于我们计算机软件的同学是不可以忍受的。&lt;/p&gt;
+&lt;p&gt;所以我们打算将信息做一个信息聚合，来减轻学长学姐的每天查阅信息所花费的时间。让学长学姐们将精力投入到找工作的准备中去。（听起来就很伟大是不是！！！）&lt;/p&gt;
+&lt;p&gt;具体内容：请访问山东大学就业指导中心网站：&lt;a href="http://job.sdu.edu.cn"&gt;http://job.sdu.edu.cn&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;将其中的通知公告模块，校内招聘模块，在线招聘模块，实习招聘模块的通知的标题，时间，新闻的网址获取出来，保存到本地查看。&lt;/p&gt;
+&lt;p&gt;附加题：获取&lt;a href="http://job.sdu.edu.cn/html/recruit/recruit-1.html"&gt;http://job.sdu.edu.cn/html/recruit/recruit-1.html&lt;/a&gt;网页信息，将新闻标题，超链接，招聘地点时间等信息保存本地，方便查看&lt;/p&gt;
+&lt;h2&gt;题目提示和代码提交&lt;/h2&gt;
+&lt;p&gt;以Java语言为例：&lt;/p&gt;
+&lt;p&gt;项目名称：Android+拼音简写（AndroidCj）&lt;/p&gt;
+&lt;p&gt;包名：ing.android.xxx（ing.android.cj）&lt;/p&gt;
+&lt;p&gt;代码打包提交压缩格式：zip&lt;/p&gt;
+&lt;p&gt;代码打包时应该加上第三方jar包（如果有的话），请在同学电脑中测试可以执行后正确再提交&lt;/p&gt;
+&lt;p&gt;代码打包命名格式：Android-xxX.zip（Android-陈夏雨.zip）&lt;/p&gt;
+&lt;h2&gt;Tips和进阶加分项&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;保存的数据或者控制台输出的数据要美观直接&lt;/li&gt;
+&lt;li&gt;最好可以保存成HTML格式方便查阅&lt;/li&gt;
+&lt;li&gt;可以导出成为jar或者exe程序直接运行&lt;/li&gt;
+&lt;li&gt;代码编写规范，可读性强&lt;/li&gt;
+&lt;li&gt;大三同学最好使用数据库进行保存&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;相关工具&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Google无法访问请自学如何使用&lt;/p&gt;
+&lt;p&gt;或者使用&lt;a href="http://g.openibm.com/"&gt;http://g.openibm.com/&lt;/a&gt;访问&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;写在最后&lt;/h2&gt;
+&lt;p&gt;希望大家都展示出自己的能力和水平~我们希望看到的，是你的进步和努力，而不是你之前拥有过的成就！&lt;/p&gt;
+&lt;p&gt;By：陈佳
+2014-09-26 15:17  &lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">chenjia.me</dc:creator><pubDate>Fri, 26 Sep 2014 13:07:00 +0800</pubDate><guid>tag:fashion4cj.com,2014-09-26:2014nian-9yue-26ri-ing-studio-er-lun-mian-shi-ti-mu.html</guid><category>diary</category><category>September</category></item><item><title>【2014年9月4日】Markdown基本语法</title><link>http://fashion4cj.com/2014nian-9yue-4ri-markdownji-ben-yu-fa.html</link><description>&lt;h1&gt;Markdown语法&lt;/h1&gt;
 &lt;p&gt;markdown是一个最近比较热门的一个文本标记语言，他的用处就是把某种规则的文字按照一定规则装换为HTML语言，显示的更为合理。
 而且他支持直接在文字中直接添加html语言。&lt;/p&gt;
 &lt;h1&gt;基本语法&lt;/h1&gt;

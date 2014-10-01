@@ -60,8 +60,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="http://fashion4cj.com/2014nian-8yue-18ri-androiddi-san-fang-sdkshi-yong-de-yi-xie-ti-shi.html"><h1>【2014年8月18日】Android第三方SDK使用的一些提示</h1></a>
-2014-08-19(周二)
+            <a href="http://fashion4cj.com/2014nian-10yue-1ri-ubuntu-repopei-zhi-yi-ji-androidyuan-dai-ma-xia-zai.html"><h1>【2014年10月1日】Ubuntu Repo配置以及Android源代码下载</h1></a>
+2014-10-01(周三)
 
 by <a class="url fn" href="http://fashion4cj.com/author/chenjiame.html">chenjia.me</a>
  
@@ -70,55 +70,102 @@ by <a class="url fn" href="http://fashion4cj.com/author/chenjiame.html">chenjia.
  
         </div>
         
-        <div><h1>前言</h1>
-<p>今天有个学弟问了我一个问题，关于蛐蛐儿的SDK为什么DEMO可以运行但是他一使用就直接报错。</p>
-<p>我第一个想法是lib配置不对，提示应该加入lib order中。</p>
-<p>这是新版本ADT中导入第三方类库经常出现CLASS NOT FOUND的原因、</p>
-<p>学弟说他被这个问题困扰了很久了。一直导致无法继续敲代码。</p>
-<p>然后我就试了一下~</p>
-<h1>任务开始</h1>
-<h2>下载demo包</h2>
-<p>无论使用哪个网站的SDK，基本都会有DEMO包。</p>
-<p>不过有的网站demo包是最新的，有的是sdk中的是最新的~这就要靠你来分辨了~</p>
-<p>无论如何，我们都要下载他的demo包运行~</p>
-<p>毕竟这是人家写好的代码，运行一是可以看效果，而是可以学习他们API调用的过程。</p>
-<p>e.g 我下载了蛐蛐儿的DEMO包（他们只提供的demo包），然后把工程导入到ADT中编译运行~然后看到效果~</p>
-<h2>创建一个新项目</h2>
-<p>如果网站的API写的详细的话就可以直接按照说明加入到我们自己的工程去了~这点百度地图的SDK以及友盟的SDK都做的很好~点赞~</p>
-<p>如果像蛐蛐儿这样的~以防万一我们先建立新的工程~出错了大不了可以删嘛~</p>
-<ol>
-<li>新建一个新的Android工程</li>
-<li>将lib文件复制到新的工程下的lib文件中</li>
-<li>将res文件中的资源复制到新的工程中</li>
-<li>将src中的源代码复制到新的工程中</li>
-<li><strong>修改AndroidManifest.xml文件</strong></li>
-<li>修正错误</li>
-<li>run it</li>
-</ol>
-<h2>出现的问题</h2>
-<p>很遗憾，我们的程序并没有像DEMO中一样正确运行，那么我们就要看LOGCAT（这点很重要，不会看logcat的人想必百度都不知道怎么百度）</p>
-<p>首先是出现了这样的问题：
-<img alt="pic1" src="http://i.imgur.com/41UELH0.png" /></p>
-<p>重点是在<code>NO JNI_ONLOAD FOUND IN XXXXX</code></p>
-<p>第一反应是lib配置错了~重新配置了lib~问题依旧。</p>
-<p>然后怀疑版本问题，因为DEMO是2.3.3而我的编译是4.4.2 然后调低了API，发现问题依旧</p>
-<p>会不会是复制没完整，仔细对比了一下文件，发现是<code>AndroidManifest.xml</code>文件中缺少了权限</p>
-<p>然后我就奇怪了~缺少权限为什么LOGCAT不是直接在error中打出来提示。</p>
-<p>后来发现是该SDK在JNI的时候就调用了权限，并不在虚拟机中。</p>
-<p>所以以后发现.so报错的时候可以看看这里。</p>
-<p>修改后就可以运行了，可是学弟提醒说修改hello world就直接程序崩溃，我仔细看了一下logcat</p>
-<p><img alt="pic2" src="http://i.imgur.com/OYzvCWJ.png" /></p>
-<div class="highlight"><pre><span class="n">NETWORKONMAINTHREADEXCEPTION</span>
+        <div><h1>安装Ubuntu 14.04 LTS</h1>
+<p>不多说</p>
+<h1>配置环境</h1>
+<h2>配置Curl和git-core</h2>
+<p>安装两个软件</p>
+<div class="highlight"><pre><span class="err">$</span>  <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">curl</span>
+<span class="err">$</span>  <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">git</span><span class="o">-</span><span class="n">core</span>
 </pre></div>
 
 
-<p>很常见的异常，在很老的SDK或者源代码中经常出现的异常，报错原因是因为在ANDROID3.0以后网络线程，数据库线程等比较耗时的线程都不可以直接在主线程上直接使用，换换句话说就是一定要用多线程。</p>
-<p>估计这个人写DEMO的时候还是在2.3.3的时候，好几年没更新了！！！</p>
-<p>然后最后推荐网络线程还是要用handler来实现多线程，方便而且可以直接在内部直接操作界面元素~</p>
-<p>END</p></div>
+<h2>创建~/bin目录并添加到环境变量</h2>
+<div class="highlight"><pre> <span class="err">$</span>  <span class="n">mkdir</span> <span class="o">~/</span><span class="n">bin</span>
+ <span class="err">$</span>  <span class="n">PATH</span><span class="o">=~/</span><span class="n">bin</span><span class="o">:</span><span class="err">$</span><span class="n">PATH</span>
+</pre></div>
+
+
+<h2>下载repo脚本并修改权限为可执行</h2>
+<p>这是最新repo 1.21</p>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">curl</span> <span class="n">https</span><span class="o">:</span><span class="c1">//storage.googleapis.com/git-repo-downloads/repo &gt; ~/bin/repo</span>
+<span class="err">$</span> <span class="n">chmod</span> <span class="n">a</span><span class="o">+</span><span class="n">x</span> <span class="o">~/</span><span class="n">bin</span><span class="o">/</span><span class="n">repo</span>
+</pre></div>
+
+
+<h2>创建一个放代码的文件夹</h2>
+<p>创建一个保存android源码的目录，修改为最大权限，并进入该目录</p>
+<div class="highlight"><pre><span class="err">$</span>  <span class="n">mkdir</span> <span class="n">android4</span><span class="mf">.4</span>
+<span class="err">$</span>  <span class="n">sudo</span> <span class="n">chmod</span> <span class="err">–</span><span class="n">R</span> <span class="mi">777</span> <span class="n">android4</span><span class="mf">.4</span>
+<span class="err">$</span>  <span class="n">cd</span>  <span class="n">android4</span><span class="mf">.4</span>
+</pre></div>
+
+
+<h2>初始化repo</h2>
+<p>初始化repo，并选择要下载的分支</p>
+<blockquote>
+<p>下载所有代码使用这个
+    $  repo init -u https://android.googlesource.com/platform/manifest</p>
+</blockquote>
+<p>这时需要输入你的姓名和邮箱。
+申请到</p>
+<blockquote>
+<p>When prompted, configure Repo with your real name and email address. To use the Gerrit code-review tool, you will need an email address that is connected with a <a href="https://www.google.com/accounts">registered Google account</a>. Make sure this is a live address at which you can receive messages. The name that you provide here will show up in attributions for your code submissions.</p>
+</blockquote>
+<p>开通下载权限</p>
+<p>使用</p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="n">global</span> <span class="n">user</span><span class="p">.</span><span class="n">email</span> <span class="n">your</span><span class="o">-</span><span class="n">email</span>
+<span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="n">global</span> <span class="n">user</span><span class="p">.</span><span class="n">name</span> <span class="n">the</span><span class="o">-</span><span class="n">name</span><span class="o">-</span><span class="n">you</span><span class="o">-</span><span class="n">fetch</span>
+</pre></div>
+
+
+<p>如果选择下载的最新分支或者某个分支可以这么使用，最新的分支可以在这里看</p>
+<blockquote>
+<p><a href="https://android.googlesource.com/platform/manifest/+refs">https://android.googlesource.com/platform/manifest/+refs</a></p>
+</blockquote>
+<p>输入</p>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">repo</span> <span class="n">init</span> <span class="o">-</span><span class="n">u</span> <span class="n">https</span><span class="o">:</span><span class="c1">//android.googlesource.com/platform/manifest -b android-4.4.4_r2.0.1</span>
+</pre></div>
+
+
+<h2>最后一步，同步内容</h2>
+<div class="highlight"><pre><span class="n">repo</span> <span class="n">sync</span>
+</pre></div>
+
+
+<p>支持断点续传的同步下载</p>
+<h1>断网自动恢复的脚本</h1>
+<p>在目录下新建一个sh的shell脚本
+    repo sync
+    while [ $? -ne 0 ] 
+    do 
+    repo sync
+    done</p>
+<h2>最后</h2>
+<p>官方文档：<a href="http://source.android.com/source/downloading.html#installing-repo">http://source.android.com/source/downloading.html#installing-repo</a></p>
+<p>参考Blog：<a href="http://blog.csdn.net/legendof1991/article/details/17005849">http://blog.csdn.net/legendof1991/article/details/17005849</a></p>
+<p><a href="http://blog.csdn.net/wh_19910525/article/details/8164107">http://blog.csdn.net/wh_19910525/article/details/8164107</a></p></div>
         <hr />
     </div>
 		
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://fashion4cj.com/2014nian-8yue-18ri-androiddi-san-fang-sdkshi-yong-de-yi-xie-ti-shi.html"><h2>【2014年8月18日】Android第三方SDK使用的一些提示</h2></a>
+        <div class= "well small"> 2014-08-19(周二)
+
+by <a class="url fn" href="http://fashion4cj.com/author/chenjiame.html">chenjia.me</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>提示一些在使用不是很完整的SDK的时候应该注意到的事情</p> <a class="btn btn-info xsmall" href="http://fashion4cj.com/2014nian-8yue-18ri-androiddi-san-fang-sdkshi-yong-de-yi-xie-ti-shi.html">read more</a></div>
+    </div>	
+				
 
  
         

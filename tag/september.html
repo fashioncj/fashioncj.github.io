@@ -60,8 +60,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="http://fashion4cj.com/2014nian-9yue-4ri-markdownji-ben-yu-fa.html"><h1>【2014年9月4日】Markdown基本语法</h1></a>
-2014-09-04(周四)
+            <a href="http://fashion4cj.com/2014nian-9yue-26ri-ing-studio-er-lun-mian-shi-ti-mu.html"><h1>【2014年9月26日】ING STUDIO 二轮面试题目</h1></a>
+2014-09-26(周五)
 
 by <a class="url fn" href="http://fashion4cj.com/author/chenjiame.html">chenjia.me</a>
  
@@ -70,195 +70,75 @@ by <a class="url fn" href="http://fashion4cj.com/author/chenjiame.html">chenjia.
  
         </div>
         
-        <div><h1>Markdown语法</h1>
-<p>markdown是一个最近比较热门的一个文本标记语言，他的用处就是把某种规则的文字按照一定规则装换为HTML语言，显示的更为合理。
-而且他支持直接在文字中直接添加html语言。</p>
-<h1>基本语法</h1>
-<h2>标题部分</h2>
-<div class="highlight"><pre><span class="c">#title 一级标题</span>
-<span class="c">##title 二级标题</span>
-<span class="c">###title 三级标题</span>
-<span class="c">######title 六级标题</span>
-</pre></div>
-
-
-<h1>title 一级标题</h1>
-<h2>title 二级标题</h2>
-<h3>title 三级标题</h3>
-<h6>title 六级标题</h6>
-<h2>文本中字体变化</h2>
-<div class="highlight"><pre><span class="o">**</span><span class="err">粗体</span><span class="o">**</span>  
-<span class="o">*</span><span class="err">斜体</span><span class="o">*</span>
-</pre></div>
-
-
-<p><strong>粗体</strong></p>
-<p><em>斜体</em></p>
-<h2>引用</h2>
-<div class="highlight"><pre><span class="o">&gt;</span> <span class="n">import</span>
-
-<span class="o">&gt;&gt;</span><span class="n">import</span>
-
-<span class="o">&gt;&gt;&gt;</span><span class="n">import</span>
-</pre></div>
-
-
-<blockquote>
-<p>import</p>
-<blockquote>
-<p>import</p>
-<blockquote>
-<p>import</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<h2>代码显示，强调</h2>
-<div class="highlight"><pre><span class="n">this</span> <span class="n">is</span> <span class="n">a</span> <span class="err">`</span><span class="n">code</span><span class="err">`</span> <span class="n">in</span> <span class="n">passage</span> <span class="c1">//文本中用``包括（Esc下面那个键）</span>
-<span class="n">code</span> <span class="n">block</span><span class="c1">//缩进4个空格或者一个Tab</span>
-</pre></div>
-
-
-<p>this is a <code>code</code> in passage</p>
-<div class="highlight"><pre><span class="n">code</span> <span class="n">block</span>
-</pre></div>
-
-
-<p>p.s.有的解释器支持语法高亮，比如pelican里面可以用</p>
-<blockquote>
-<p>:::java</p>
-<p>public void main(){</p>
-<p>int a=1;</p>
-<p>int b=1;</p>
-<p>system.out.println(a+b);</p>
-<p>}
-来高亮java语言</p>
-</blockquote>
-<div class="highlight"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(){</span>
-<span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span>
-<span class="kt">int</span> <span class="n">b</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span>
-<span class="n">system</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">);</span>
-<span class="o">}</span>
-</pre></div>
-
-
-<h2>无序列表</h2>
-<p>使用+，-，* 然后空格 然后内容构成</p>
-<div class="highlight"><pre><span class="o">+</span> <span class="mi">1</span>
-<span class="o">+</span> <span class="mi">2</span>
-<span class="o">+</span> <span class="mi">3</span>
-<span class="o">----------</span>
-<span class="o">-</span> <span class="mi">1</span>
-<span class="o">-</span> <span class="mi">2</span>
-<span class="o">-</span> <span class="mi">3</span>
-<span class="o">----------</span>
-<span class="o">*</span> <span class="mi">1</span>
-<span class="o">*</span> <span class="mi">2</span>
-<span class="o">*</span> <span class="mi">3</span>
-</pre></div>
-
-
-<ul>
-<li>1</li>
-<li>2</li>
-<li>3</li>
-</ul>
-<hr />
-<ul>
-<li>1</li>
-<li>2</li>
-<li>3</li>
-</ul>
-<hr />
-<ul>
-<li>1</li>
-<li>2</li>
-<li>3</li>
-</ul>
-<h2>有序列表</h2>
-<blockquote>
-<p>数字加句点加空格加内容</p>
-</blockquote>
-<div class="highlight"><pre><span class="mf">1.</span> <span class="mi">1</span>
-<span class="mf">2.</span> <span class="mi">2</span>
-<span class="mf">3.</span> <span class="mi">3</span>
-<span class="mf">4.</span> <span class="mi">4</span>
-</pre></div>
-
-
+        <div><h1>Welcome</h1>
+<p>首先恭喜大家通过了ING工作室的面试！（此处应该有掌声）、</p>
+<p>不过想要真正成为ING工作室的一员~还需要通过下面的小测试哦~</p>
+<h1>写在前面</h1>
 <ol>
-<li>1</li>
-<li>2</li>
-<li>3</li>
-<li>4</li>
+<li>该测试是木有标准答案的~</li>
+<li>该测试的结果的好坏只会对最后评价起到一个促进作用</li>
+<li>请尽可能的展示自己的能力（各种的~）</li>
+<li>请善用Google和百度搜索相关知识，但请勿复制抄写代码。<strong>重在理解！</strong></li>
+<li>如果遇到题目无法理解的问题请邮件到<a href="mailto://src348934952@foxmail.com">陈夏雨姐姐的邮箱</a></li>
 </ol>
-<h2>超链接</h2>
+<h2>时间</h2>
+<p>这个测试将会给大家3天时间<strong>（2014-09-26 18:00 -2014-09-29 18:00）</strong>来完成</p>
+<h2>题目要求</h2>
+<ol>
+<li>使用Java或你熟悉的一种语言进行编写</li>
+<li>请理解你写代码的含义，最后提交的时候我们会询问细节</li>
+</ol>
+<h2>这里是题目</h2>
+<p>最近大四学长学姐们都忙于找工作或者保研或者考研，找工作的学长学姐们每天都要看好几个网站来获取公司的招聘信息。这样对于我们计算机软件的同学是不可以忍受的。</p>
+<p>所以我们打算将信息做一个信息聚合，来减轻学长学姐的每天查阅信息所花费的时间。让学长学姐们将精力投入到找工作的准备中去。（听起来就很伟大是不是！！！）</p>
+<p>具体内容：请访问山东大学就业指导中心网站：<a href="http://job.sdu.edu.cn">http://job.sdu.edu.cn</a></p>
+<p>将其中的通知公告模块，校内招聘模块，在线招聘模块，实习招聘模块的通知的标题，时间，新闻的网址获取出来，保存到本地查看。</p>
+<p>附加题：获取<a href="http://job.sdu.edu.cn/html/recruit/recruit-1.html">http://job.sdu.edu.cn/html/recruit/recruit-1.html</a>网页信息，将新闻标题，超链接，招聘地点时间等信息保存本地，方便查看</p>
+<h2>题目提示和代码提交</h2>
+<p>以Java语言为例：</p>
+<p>项目名称：Android+拼音简写（AndroidCj）</p>
+<p>包名：ing.android.xxx（ing.android.cj）</p>
+<p>代码打包提交压缩格式：zip</p>
+<p>代码打包时应该加上第三方jar包（如果有的话），请在同学电脑中测试可以执行后正确再提交</p>
+<p>代码打包命名格式：Android-xxX.zip（Android-陈夏雨.zip）</p>
+<h2>Tips和进阶加分项</h2>
+<ol>
+<li>保存的数据或者控制台输出的数据要美观直接</li>
+<li>最好可以保存成HTML格式方便查阅</li>
+<li>可以导出成为jar或者exe程序直接运行</li>
+<li>代码编写规范，可读性强</li>
+<li>大三同学最好使用数据库进行保存</li>
+</ol>
+<h2>相关工具</h2>
 <blockquote>
-<p>网址：[文本显示](网址 "alt文字")</p>
+<p>Google无法访问请自学如何使用</p>
+<p>或者使用<a href="http://g.openibm.com/">http://g.openibm.com/</a>访问</p>
 </blockquote>
-<div class="highlight"><pre><span class="p">[</span><span class="n">http</span><span class="o">:</span><span class="c1">//www.baidu.com](http://www.baidu.com &quot;baidu&quot;)</span>
-</pre></div>
-
-
-<p><a href="http://www.baidu.com" title="baidu">http://www.baidu.com</a></p>
-<blockquote>
-<p>图片:![无图片显示的alt文字](地址)</p>
-</blockquote>
-<div class="highlight"><pre><span class="o">!</span><span class="p">[</span><span class="n">logo</span><span class="p">](</span><span class="n">http</span><span class="o">:</span><span class="c1">//www.baidu.com/img/baidu_jgylogo3.gif)</span>
-</pre></div>
-
-
-<p><img alt="logo" src="http://www.baidu.com/img/baidu_jgylogo3.gif" /></p>
-<h2>转义符</h2>
-<p>所有的特殊符号加上<code>\</code>都不会被解释</p>
-<div class="highlight"><pre><span class="err">\</span>   <span class="err">反斜线</span>
-<span class="err">`</span>   <span class="err">反引号</span>
-<span class="o">*</span>   <span class="err">星号</span>
-<span class="n">_</span>   <span class="err">底线</span>
-<span class="p">{}</span>  <span class="err">花括号</span>
-<span class="p">[]</span>  <span class="err">方括号</span>
-<span class="p">()</span>  <span class="err">括弧</span>
-<span class="cp">#   井字号</span>
-<span class="o">+</span>   <span class="err">加号</span>
-<span class="o">-</span>   <span class="err">减号</span>
-<span class="p">.</span>   <span class="err">英文句点</span>
-<span class="o">!</span>   <span class="err">惊叹号</span>
-</pre></div>
-
-
-<h2>分割线/水平标尺</h2>
-<div class="highlight"><pre><span class="o">----------</span>
-</pre></div>
-
-
-<h2>效果：就是下面这条线，就是<code>&lt;hr&gt;</code></h2>
-<h2>所有的HTML语言都可以，只要浏览器支持就可以显示</h2>
-<div class="highlight"><pre><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://www.fashion4cj.com&quot;</span><span class="nt">&gt;</span>fashion4cj.com<span class="nt">&lt;/a&gt;</span>
-</pre></div>
-
-
-<p><a href="http://www.fashion4cj.com">fashion4cj.com</a></p>
-<h2>角标，内跳转,替换</h2>
-<div class="highlight"><pre><span class="k">[home]</span>
-
-<span class="err">//这里写很多没用的东西</span>
-
-<span class="k">[home]</span>
-
-<span class="err">//最后写上定义</span>
-
-<span class="err">[home]:index.html</span>
-</pre></div>
-
-
-<p><a href="index.html">home</a></p>
-<p>//这里写很多没用的东西</p>
-<p><a href="index.html">home</a></p>
-<p>//最后写上定义</p>
-<h1>结束</h1>
-<p>好久没写文章了，最近要补好多东西，比如华为题目解答以及其他的一些测评</p></div>
+<h2>写在最后</h2>
+<p>希望大家都展示出自己的能力和水平~我们希望看到的，是你的进步和努力，而不是你之前拥有过的成就！</p>
+<p>By：陈佳
+2014-09-26 15:17  </p></div>
         <hr />
     </div>
 		
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://fashion4cj.com/2014nian-9yue-4ri-markdownji-ben-yu-fa.html"><h2>【2014年9月4日】Markdown基本语法</h2></a>
+        <div class= "well small"> 2014-09-04(周四)
+
+by <a class="url fn" href="http://fashion4cj.com/author/chenjiame.html">chenjia.me</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>Markdown基本语法说明~看一下就知道怎么写文章啦~</p> <a class="btn btn-info xsmall" href="http://fashion4cj.com/2014nian-9yue-4ri-markdownji-ben-yu-fa.html">read more</a></div>
+    </div>	
+				
 <div class="pagination">
 <ul>
     <li class="prev disabled"><a href="#">&larr; Previous</a></li>

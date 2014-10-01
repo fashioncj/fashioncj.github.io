@@ -60,8 +60,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="http://fashion4cj.com/2014nian-9yue-4ri-markdownji-ben-yu-fa.html"><h1>【2014年9月4日】Markdown基本语法</h1></a>
-2014-09-04(周四)
+            <a href="http://fashion4cj.com/2014nian-10yue-1ri-ubuntu-repopei-zhi-yi-ji-androidyuan-dai-ma-xia-zai.html"><h1>【2014年10月1日】Ubuntu Repo配置以及Android源代码下载</h1></a>
+2014-10-01(周三)
 
 by <a class="url fn" href="http://fashion4cj.com/author/chenjiame.html">chenjia.me</a>
  
@@ -70,195 +70,120 @@ by <a class="url fn" href="http://fashion4cj.com/author/chenjiame.html">chenjia.
  
         </div>
         
-        <div><h1>Markdown语法</h1>
-<p>markdown是一个最近比较热门的一个文本标记语言，他的用处就是把某种规则的文字按照一定规则装换为HTML语言，显示的更为合理。
-而且他支持直接在文字中直接添加html语言。</p>
-<h1>基本语法</h1>
-<h2>标题部分</h2>
-<div class="highlight"><pre><span class="c">#title 一级标题</span>
-<span class="c">##title 二级标题</span>
-<span class="c">###title 三级标题</span>
-<span class="c">######title 六级标题</span>
+        <div><h1>安装Ubuntu 14.04 LTS</h1>
+<p>不多说</p>
+<h1>配置环境</h1>
+<h2>配置Curl和git-core</h2>
+<p>安装两个软件</p>
+<div class="highlight"><pre><span class="err">$</span>  <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">curl</span>
+<span class="err">$</span>  <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">git</span><span class="o">-</span><span class="n">core</span>
 </pre></div>
 
 
-<h1>title 一级标题</h1>
-<h2>title 二级标题</h2>
-<h3>title 三级标题</h3>
-<h6>title 六级标题</h6>
-<h2>文本中字体变化</h2>
-<div class="highlight"><pre><span class="o">**</span><span class="err">粗体</span><span class="o">**</span>  
-<span class="o">*</span><span class="err">斜体</span><span class="o">*</span>
+<h2>创建~/bin目录并添加到环境变量</h2>
+<div class="highlight"><pre> <span class="err">$</span>  <span class="n">mkdir</span> <span class="o">~/</span><span class="n">bin</span>
+ <span class="err">$</span>  <span class="n">PATH</span><span class="o">=~/</span><span class="n">bin</span><span class="o">:</span><span class="err">$</span><span class="n">PATH</span>
 </pre></div>
 
 
-<p><strong>粗体</strong></p>
-<p><em>斜体</em></p>
-<h2>引用</h2>
-<div class="highlight"><pre><span class="o">&gt;</span> <span class="n">import</span>
-
-<span class="o">&gt;&gt;</span><span class="n">import</span>
-
-<span class="o">&gt;&gt;&gt;</span><span class="n">import</span>
+<h2>下载repo脚本并修改权限为可执行</h2>
+<p>这是最新repo 1.21</p>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">curl</span> <span class="n">https</span><span class="o">:</span><span class="c1">//storage.googleapis.com/git-repo-downloads/repo &gt; ~/bin/repo</span>
+<span class="err">$</span> <span class="n">chmod</span> <span class="n">a</span><span class="o">+</span><span class="n">x</span> <span class="o">~/</span><span class="n">bin</span><span class="o">/</span><span class="n">repo</span>
 </pre></div>
 
 
+<h2>创建一个放代码的文件夹</h2>
+<p>创建一个保存android源码的目录，修改为最大权限，并进入该目录</p>
+<div class="highlight"><pre><span class="err">$</span>  <span class="n">mkdir</span> <span class="n">android4</span><span class="mf">.4</span>
+<span class="err">$</span>  <span class="n">sudo</span> <span class="n">chmod</span> <span class="err">–</span><span class="n">R</span> <span class="mi">777</span> <span class="n">android4</span><span class="mf">.4</span>
+<span class="err">$</span>  <span class="n">cd</span>  <span class="n">android4</span><span class="mf">.4</span>
+</pre></div>
+
+
+<h2>初始化repo</h2>
+<p>初始化repo，并选择要下载的分支</p>
 <blockquote>
-<p>import</p>
+<p>下载所有代码使用这个
+    $  repo init -u https://android.googlesource.com/platform/manifest</p>
+</blockquote>
+<p>这时需要输入你的姓名和邮箱。
+申请到</p>
 <blockquote>
-<p>import</p>
+<p>When prompted, configure Repo with your real name and email address. To use the Gerrit code-review tool, you will need an email address that is connected with a <a href="https://www.google.com/accounts">registered Google account</a>. Make sure this is a live address at which you can receive messages. The name that you provide here will show up in attributions for your code submissions.</p>
+</blockquote>
+<p>开通下载权限</p>
+<p>使用</p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="n">global</span> <span class="n">user</span><span class="p">.</span><span class="n">email</span> <span class="n">your</span><span class="o">-</span><span class="n">email</span>
+<span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="n">global</span> <span class="n">user</span><span class="p">.</span><span class="n">name</span> <span class="n">the</span><span class="o">-</span><span class="n">name</span><span class="o">-</span><span class="n">you</span><span class="o">-</span><span class="n">fetch</span>
+</pre></div>
+
+
+<p>如果选择下载的最新分支或者某个分支可以这么使用，最新的分支可以在这里看</p>
 <blockquote>
-<p>import</p>
+<p><a href="https://android.googlesource.com/platform/manifest/+refs">https://android.googlesource.com/platform/manifest/+refs</a></p>
 </blockquote>
-</blockquote>
-</blockquote>
-<h2>代码显示，强调</h2>
-<div class="highlight"><pre><span class="n">this</span> <span class="n">is</span> <span class="n">a</span> <span class="err">`</span><span class="n">code</span><span class="err">`</span> <span class="n">in</span> <span class="n">passage</span> <span class="c1">//文本中用``包括（Esc下面那个键）</span>
-<span class="n">code</span> <span class="n">block</span><span class="c1">//缩进4个空格或者一个Tab</span>
+<p>输入</p>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">repo</span> <span class="n">init</span> <span class="o">-</span><span class="n">u</span> <span class="n">https</span><span class="o">:</span><span class="c1">//android.googlesource.com/platform/manifest -b android-4.4.4_r2.0.1</span>
 </pre></div>
 
 
-<p>this is a <code>code</code> in passage</p>
-<div class="highlight"><pre><span class="n">code</span> <span class="n">block</span>
+<h2>最后一步，同步内容</h2>
+<div class="highlight"><pre><span class="n">repo</span> <span class="n">sync</span>
 </pre></div>
 
 
-<p>p.s.有的解释器支持语法高亮，比如pelican里面可以用</p>
-<blockquote>
-<p>:::java</p>
-<p>public void main(){</p>
-<p>int a=1;</p>
-<p>int b=1;</p>
-<p>system.out.println(a+b);</p>
-<p>}
-来高亮java语言</p>
-</blockquote>
-<div class="highlight"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(){</span>
-<span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span>
-<span class="kt">int</span> <span class="n">b</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span>
-<span class="n">system</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">);</span>
-<span class="o">}</span>
-</pre></div>
-
-
-<h2>无序列表</h2>
-<p>使用+，-，* 然后空格 然后内容构成</p>
-<div class="highlight"><pre><span class="o">+</span> <span class="mi">1</span>
-<span class="o">+</span> <span class="mi">2</span>
-<span class="o">+</span> <span class="mi">3</span>
-<span class="o">----------</span>
-<span class="o">-</span> <span class="mi">1</span>
-<span class="o">-</span> <span class="mi">2</span>
-<span class="o">-</span> <span class="mi">3</span>
-<span class="o">----------</span>
-<span class="o">*</span> <span class="mi">1</span>
-<span class="o">*</span> <span class="mi">2</span>
-<span class="o">*</span> <span class="mi">3</span>
-</pre></div>
-
-
-<ul>
-<li>1</li>
-<li>2</li>
-<li>3</li>
-</ul>
-<hr />
-<ul>
-<li>1</li>
-<li>2</li>
-<li>3</li>
-</ul>
-<hr />
-<ul>
-<li>1</li>
-<li>2</li>
-<li>3</li>
-</ul>
-<h2>有序列表</h2>
-<blockquote>
-<p>数字加句点加空格加内容</p>
-</blockquote>
-<div class="highlight"><pre><span class="mf">1.</span> <span class="mi">1</span>
-<span class="mf">2.</span> <span class="mi">2</span>
-<span class="mf">3.</span> <span class="mi">3</span>
-<span class="mf">4.</span> <span class="mi">4</span>
-</pre></div>
-
-
-<ol>
-<li>1</li>
-<li>2</li>
-<li>3</li>
-<li>4</li>
-</ol>
-<h2>超链接</h2>
-<blockquote>
-<p>网址：[文本显示](网址 "alt文字")</p>
-</blockquote>
-<div class="highlight"><pre><span class="p">[</span><span class="n">http</span><span class="o">:</span><span class="c1">//www.baidu.com](http://www.baidu.com &quot;baidu&quot;)</span>
-</pre></div>
-
-
-<p><a href="http://www.baidu.com" title="baidu">http://www.baidu.com</a></p>
-<blockquote>
-<p>图片:![无图片显示的alt文字](地址)</p>
-</blockquote>
-<div class="highlight"><pre><span class="o">!</span><span class="p">[</span><span class="n">logo</span><span class="p">](</span><span class="n">http</span><span class="o">:</span><span class="c1">//www.baidu.com/img/baidu_jgylogo3.gif)</span>
-</pre></div>
-
-
-<p><img alt="logo" src="http://www.baidu.com/img/baidu_jgylogo3.gif" /></p>
-<h2>转义符</h2>
-<p>所有的特殊符号加上<code>\</code>都不会被解释</p>
-<div class="highlight"><pre><span class="err">\</span>   <span class="err">反斜线</span>
-<span class="err">`</span>   <span class="err">反引号</span>
-<span class="o">*</span>   <span class="err">星号</span>
-<span class="n">_</span>   <span class="err">底线</span>
-<span class="p">{}</span>  <span class="err">花括号</span>
-<span class="p">[]</span>  <span class="err">方括号</span>
-<span class="p">()</span>  <span class="err">括弧</span>
-<span class="cp">#   井字号</span>
-<span class="o">+</span>   <span class="err">加号</span>
-<span class="o">-</span>   <span class="err">减号</span>
-<span class="p">.</span>   <span class="err">英文句点</span>
-<span class="o">!</span>   <span class="err">惊叹号</span>
-</pre></div>
-
-
-<h2>分割线/水平标尺</h2>
-<div class="highlight"><pre><span class="o">----------</span>
-</pre></div>
-
-
-<h2>效果：就是下面这条线，就是<code>&lt;hr&gt;</code></h2>
-<h2>所有的HTML语言都可以，只要浏览器支持就可以显示</h2>
-<div class="highlight"><pre><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://www.fashion4cj.com&quot;</span><span class="nt">&gt;</span>fashion4cj.com<span class="nt">&lt;/a&gt;</span>
-</pre></div>
-
-
-<p><a href="http://www.fashion4cj.com">fashion4cj.com</a></p>
-<h2>角标，内跳转,替换</h2>
-<div class="highlight"><pre><span class="k">[home]</span>
-
-<span class="err">//这里写很多没用的东西</span>
-
-<span class="k">[home]</span>
-
-<span class="err">//最后写上定义</span>
-
-<span class="err">[home]:index.html</span>
-</pre></div>
-
-
-<p><a href="index.html">home</a></p>
-<p>//这里写很多没用的东西</p>
-<p><a href="index.html">home</a></p>
-<p>//最后写上定义</p>
-<h1>结束</h1>
-<p>好久没写文章了，最近要补好多东西，比如华为题目解答以及其他的一些测评</p></div>
+<p>支持断点续传的同步下载</p>
+<h1>断网自动恢复的脚本</h1>
+<p>在目录下新建一个sh的shell脚本
+    repo sync
+    while [ $? -ne 0 ] 
+    do 
+    repo sync
+    done</p>
+<h2>最后</h2>
+<p>官方文档：<a href="http://source.android.com/source/downloading.html#installing-repo">http://source.android.com/source/downloading.html#installing-repo</a></p>
+<p>参考Blog：<a href="http://blog.csdn.net/legendof1991/article/details/17005849">http://blog.csdn.net/legendof1991/article/details/17005849</a></p>
+<p><a href="http://blog.csdn.net/wh_19910525/article/details/8164107">http://blog.csdn.net/wh_19910525/article/details/8164107</a></p></div>
         <hr />
     </div>
 		
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://fashion4cj.com/2014nian-9yue-26ri-ing-studio-er-lun-mian-shi-ti-mu.html"><h2>【2014年9月26日】ING STUDIO 二轮面试题目</h2></a>
+        <div class= "well small"> 2014-09-26(周五)
+
+by <a class="url fn" href="http://fashion4cj.com/author/chenjiame.html">chenjia.me</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>ING STUDIO 二轮面试题目 Android 组-爬虫</p> <a class="btn btn-info xsmall" href="http://fashion4cj.com/2014nian-9yue-26ri-ing-studio-er-lun-mian-shi-ti-mu.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://fashion4cj.com/2014nian-9yue-4ri-markdownji-ben-yu-fa.html"><h2>【2014年9月4日】Markdown基本语法</h2></a>
+        <div class= "well small"> 2014-09-04(周四)
+
+by <a class="url fn" href="http://fashion4cj.com/author/chenjiame.html">chenjia.me</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>Markdown基本语法说明~看一下就知道怎么写文章啦~</p> <a class="btn btn-info xsmall" href="http://fashion4cj.com/2014nian-9yue-4ri-markdownji-ben-yu-fa.html">read more</a></div>
+    </div>	
+				
 
  
         
@@ -491,49 +416,14 @@ by <a class="url fn" href="http://fashion4cj.com/author/chenjiame.html">chenjia.
         <div class="summary"><p>通过脚本快速发表文章，更新主题~</p> <a class="btn btn-info xsmall" href="http://fashion4cj.com/pelican-de-qing-song-shi-yong-xie-yi-ge-hao-jiao-ben.html">read more</a></div>
     </div>	
 				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://fashion4cj.com/pelican-de-windows-ru-men-jiao-cheng.html"><h2>Pelican 的Windows 入门教程</h2></a>
-        <div class= "well small"> 2014-07-26(周六)
-
-by <a class="url fn" href="http://fashion4cj.com/author/chenjiame.html">chenjia.me</a>
- 
-
-
- </div>
-        <div class="summary"><h1>为什么选择TA</h1> <a class="btn btn-info xsmall" href="http://fashion4cj.com/pelican-de-windows-ru-men-jiao-cheng.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://fashion4cj.com/pelican-de-biao-zhun-fa-biao-mo-ban.html"><h2>Pelican 的标准发表模板</h2></a>
-        <div class= "well small"> 2014-07-25(周五)
-
-by <a class="url fn" href="http://fashion4cj.com/author/chenjiame.html">chenjia.me</a>
- 
-
-
- </div>
-        <div class="summary"><p>Pelican 的标准模板形式，以及支持的Markdown语法</p> <a class="btn btn-info xsmall" href="http://fashion4cj.com/pelican-de-biao-zhun-fa-biao-mo-ban.html">read more</a></div>
-    </div>	
-				
 <div class="pagination">
 <ul>
     <li class="prev disabled"><a href="#">&larr; Previous</a></li>
 
     <li class="active"><a href="http://fashion4cj.com/index.html">1</a></li>
+    <li class=""><a href="http://fashion4cj.com/index2.html">2</a></li>
 
-    <li class="next disabled"><a href="#">&rarr; Next</a></li>
+    <li class="next"><a href="http://fashion4cj.com/index2.html">Next &rarr;</a></li>
 
 </ul>
 </div>
