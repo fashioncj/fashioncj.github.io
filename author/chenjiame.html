@@ -60,7 +60,7 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="http://fashion4cj.com/2014nian-10yue-1ri-ubuntu-repopei-zhi-yi-ji-androidyuan-dai-ma-xia-zai.html"><h1>【2014年10月1日】Ubuntu Repo配置以及Android源代码下载</h1></a>
+            <a href="http://fashion4cj.com/2014nian-10yue-1ri-yu-gao.html"><h1>【2014年10月1日】预告</h1></a>
 2014-10-01(周三)
 
 by <a class="url fn" href="http://fashion4cj.com/author/chenjiame.html">chenjia.me</a>
@@ -70,84 +70,32 @@ by <a class="url fn" href="http://fashion4cj.com/author/chenjiame.html">chenjia.
  
         </div>
         
-        <div><h1>安装Ubuntu 14.04 LTS</h1>
-<p>不多说</p>
-<h1>配置环境</h1>
-<h2>配置Curl和git-core</h2>
-<p>安装两个软件</p>
-<div class="highlight"><pre><span class="err">$</span>  <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">curl</span>
-<span class="err">$</span>  <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">git</span><span class="o">-</span><span class="n">core</span>
-</pre></div>
-
-
-<h2>创建~/bin目录并添加到环境变量</h2>
-<div class="highlight"><pre> <span class="err">$</span>  <span class="n">mkdir</span> <span class="o">~/</span><span class="n">bin</span>
- <span class="err">$</span>  <span class="n">PATH</span><span class="o">=~/</span><span class="n">bin</span><span class="o">:</span><span class="err">$</span><span class="n">PATH</span>
-</pre></div>
-
-
-<h2>下载repo脚本并修改权限为可执行</h2>
-<p>这是最新repo 1.21</p>
-<div class="highlight"><pre><span class="err">$</span> <span class="n">curl</span> <span class="n">https</span><span class="o">:</span><span class="c1">//storage.googleapis.com/git-repo-downloads/repo &gt; ~/bin/repo</span>
-<span class="err">$</span> <span class="n">chmod</span> <span class="n">a</span><span class="o">+</span><span class="n">x</span> <span class="o">~/</span><span class="n">bin</span><span class="o">/</span><span class="n">repo</span>
-</pre></div>
-
-
-<h2>创建一个放代码的文件夹</h2>
-<p>创建一个保存android源码的目录，修改为最大权限，并进入该目录</p>
-<div class="highlight"><pre><span class="err">$</span>  <span class="n">mkdir</span> <span class="n">android4</span><span class="mf">.4</span>
-<span class="err">$</span>  <span class="n">sudo</span> <span class="n">chmod</span> <span class="err">–</span><span class="n">R</span> <span class="mi">777</span> <span class="n">android4</span><span class="mf">.4</span>
-<span class="err">$</span>  <span class="n">cd</span>  <span class="n">android4</span><span class="mf">.4</span>
-</pre></div>
-
-
-<h2>初始化repo</h2>
-<p>初始化repo，并选择要下载的分支</p>
-<blockquote>
-<p>下载所有代码使用这个
-    $  repo init -u https://android.googlesource.com/platform/manifest</p>
-</blockquote>
-<p>这时需要输入你的姓名和邮箱。
-申请到</p>
-<blockquote>
-<p>When prompted, configure Repo with your real name and email address. To use the Gerrit code-review tool, you will need an email address that is connected with a <a href="https://www.google.com/accounts">registered Google account</a>. Make sure this is a live address at which you can receive messages. The name that you provide here will show up in attributions for your code submissions.</p>
-</blockquote>
-<p>开通下载权限</p>
-<p>使用</p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="n">global</span> <span class="n">user</span><span class="p">.</span><span class="n">email</span> <span class="n">your</span><span class="o">-</span><span class="n">email</span>
-<span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="n">global</span> <span class="n">user</span><span class="p">.</span><span class="n">name</span> <span class="n">the</span><span class="o">-</span><span class="n">name</span><span class="o">-</span><span class="n">you</span><span class="o">-</span><span class="n">fetch</span>
-</pre></div>
-
-
-<p>如果选择下载的最新分支或者某个分支可以这么使用，最新的分支可以在这里看</p>
-<blockquote>
-<p><a href="https://android.googlesource.com/platform/manifest/+refs">https://android.googlesource.com/platform/manifest/+refs</a></p>
-</blockquote>
-<p>输入</p>
-<div class="highlight"><pre><span class="err">$</span> <span class="n">repo</span> <span class="n">init</span> <span class="o">-</span><span class="n">u</span> <span class="n">https</span><span class="o">:</span><span class="c1">//android.googlesource.com/platform/manifest -b android-4.4.4_r2.0.1</span>
-</pre></div>
-
-
-<h2>最后一步，同步内容</h2>
-<div class="highlight"><pre><span class="n">repo</span> <span class="n">sync</span>
-</pre></div>
-
-
-<p>支持断点续传的同步下载</p>
-<h1>断网自动恢复的脚本</h1>
-<p>在目录下新建一个sh的shell脚本
-    repo sync
-    while [ $? -ne 0 ] 
-    do 
-    repo sync
-    done</p>
-<h2>最后</h2>
-<p>官方文档：<a href="http://source.android.com/source/downloading.html#installing-repo">http://source.android.com/source/downloading.html#installing-repo</a></p>
-<p>参考Blog：<a href="http://blog.csdn.net/legendof1991/article/details/17005849">http://blog.csdn.net/legendof1991/article/details/17005849</a></p>
-<p><a href="http://blog.csdn.net/wh_19910525/article/details/8164107">http://blog.csdn.net/wh_19910525/article/details/8164107</a></p></div>
+        <div><h1>九月</h1>
+<p>一个九月，忙于保研。
+4号晚上知道可以单列，5号中心取材料，7号过院级审核校级出问题，8号中秋，9号中心校区改材料，11号出单列结果，15号通过保研名额，16阿里面试，17号研究生复试，18号研究生机试，19号确认保研名额，20号名额公示，25号录入系统，26注册，体检 27被调剂 28号报志愿 29号等待名额在研究生招生办 30号获得山东大学计算机科学与技术学院计算机科学与技术学硕录取通知。</p>
+<h1>欠下的东西</h1>
+<p><img alt="图片" src="http://i.imgur.com/9tRiup6.png" /></p></div>
         <hr />
     </div>
 		
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://fashion4cj.com/2014nian-10yue-1ri-ubuntu-repopei-zhi-yi-ji-androidyuan-dai-ma-xia-zai.html"><h2>【2014年10月1日】Ubuntu Repo配置以及Android源代码下载</h2></a>
+        <div class= "well small"> 2014-10-01(周三)
+
+by <a class="url fn" href="http://fashion4cj.com/author/chenjiame.html">chenjia.me</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>在ubuntu 14.04 LTS 下配置和下载android 源代码</p> <a class="btn btn-info xsmall" href="http://fashion4cj.com/2014nian-10yue-1ri-ubuntu-repopei-zhi-yi-ji-androidyuan-dai-ma-xia-zai.html">read more</a></div>
+    </div>	
+				
 
  
         
@@ -396,24 +344,6 @@ by <a class="url fn" href="http://fashion4cj.com/author/chenjiame.html">chenjia.
 
  </div>
         <div class="summary"><p>为自己的Pelican Blog添加主题和插件！</p> <a class="btn btn-info xsmall" href="http://fashion4cj.com/pelican-de-jin-jie-tian-jia-zhu-ti-cha-jian.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://fashion4cj.com/pelican-de-qing-song-shi-yong-xie-yi-ge-hao-jiao-ben.html"><h2>Pelican 的轻松使用-写一个好脚本</h2></a>
-        <div class= "well small"> 2014-07-26(周六)
-
-by <a class="url fn" href="http://fashion4cj.com/author/chenjiame.html">chenjia.me</a>
- 
-
-
- </div>
-        <div class="summary"><p>通过脚本快速发表文章，更新主题~</p> <a class="btn btn-info xsmall" href="http://fashion4cj.com/pelican-de-qing-song-shi-yong-xie-yi-ge-hao-jiao-ben.html">read more</a></div>
     </div>	
 				
 <div class="pagination">
