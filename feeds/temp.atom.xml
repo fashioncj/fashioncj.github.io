@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Fashioncj Tell You</title><link href="http://fashion4cj.com/" rel="alternate"></link><link href="http://fashion4cj.com/feeds/temp.atom.xml" rel="self"></link><id>http://fashion4cj.com/</id><updated>2014-10-08T14:59:00+08:00</updated><entry><title>域名到期。该Blog移植到Blog.chenjia.me</title><link href="http://fashion4cj.com/yu-ming-dao-qi-gai-blogyi-zhi-dao-blogchenjiame.html" rel="alternate"></link><updated>2014-10-08T14:59:00+08:00</updated><author><name>chenjia.me</name></author><id>tag:fashion4cj.com,2014-10-08:yu-ming-dao-qi-gai-blogyi-zhi-dao-blogchenjiame.html</id><summary type="html">&lt;h1&gt;域名到期。该Blog移植到blog.chenjia.me&lt;/h1&gt;
+&lt;h1&gt;感谢大家的支持，请收藏新的网址:&lt;a href="http://blog.chenjia.me"&gt;http://blog.chenjia.me&lt;/a&gt;&lt;/h1&gt;
+&lt;form name=loading&gt; 
+　&lt;p align=center&gt; &lt;font color="#0066ff" size="2"&gt;正在跳转，请稍等&lt;/font&gt;&lt;font color="#0066ff" size="2" face="Arial"&gt;...&lt;/font&gt;
+　　&lt;input type=text name=chart size=46 style="font-family:Arial; font-weight:bolder; color:#0066ff; background-color:#fef4d9; padding:0px; border-style:none;"&gt; 
+　　
+　　&lt;input type=text name=percent size=47 style="color:#0066ff; text-align:center; border-width:medium; border-style:none;"&gt; 
+　　&lt;script&gt;　 
+var bar=0　 
+var line="||"　 
+var amount="||"　 
+count()　 
+function count(){　 
+bar=bar+2　 
+amount =amount + line　 
+document.loading.chart.value=amount　 
+document.loading.percent.value=bar+"%"　 
+if (bar&lt;99)　 
+{setTimeout("count()",5000);}　 
+else　 
+{window.location = "http://blog.chenjia.me/";}　 
+}&lt;/script&gt; 
+　&lt;/p&gt; 
+&lt;/form&gt;
+
+&lt;p&gt;&lt;p align="center"&gt; 如果您的浏览器不支持跳转,&lt;a style="text-decoration: none" href="http://blog.chenjia.me/"&gt;&lt;font color="#FF0000"&gt;请点这里&lt;/font&gt;&lt;/a&gt;.&lt;/p&gt;&lt;/p&gt;</summary><category term="temp"></category></entry></feed>

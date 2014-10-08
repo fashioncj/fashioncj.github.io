@@ -77,3 +77,6 @@ h3 { margin-top: 2.5em; }
 .social a[href*='lnkd.in']:before {content: url('./images/icons/linkedin.png'); margin-right: 2px; vertical-align: -3px;}
 .social a[href*='weibo.com']:before {content: url('./images/icons/weibo.png'); margin-right: 2px; vertical-align: -3px;}
 .social a[href*='mailto:jiachenwk@gmail.com']:before {content: url('./images/icons/email.png'); margin-right: 2px; vertical-align: -3px;}
+
+.tags-cloud li {list-style: none;}
+.tags-cloud {margin-left: inherit;}

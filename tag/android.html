@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Fashioncj Tell You</title>
-    <meta name="description" content="fashion4cj.com ,chenjia.me ">
+    <meta name="description" content="blog.chenjia.me ,chenjia.me ">
     <meta name="author" content="chenjia.me">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -39,11 +39,12 @@
         <div class="nav-collapse">
         <ul class="nav">
             
+             <li><a href="http://chenjia.me" target="_blank">Home Page</a></li>
             <li><a href="http://fashion4cj.com/pages/about-me.html">About Me</a></li>
             <li><a href="http://fashion4cj.com/pages/my-weibo.html">My Weibo</a></li>
         </ul>
         </div>
-        <div><a style="float: right;padding: 10px 10px 11px;color: #ffffff;">Enjoy simple,record &amp; share</a></div>
+        <div><a style="float: right;padding: 10px 10px 11px;color: #ffffff;text-decoration: blink;">Enjoy simple,record &amp; share</a></div>
     </div>
     </div>
 </div>
@@ -61,90 +62,34 @@
     <div class='article'>
         <div class="content-title">
             <a href="http://fashion4cj.com/2014nian-10yue-1ri-ubuntu-repopei-zhi-yi-ji-androidyuan-dai-ma-xia-zai.html"><h1>【2014年10月1日】Ubuntu Repo配置以及Android源代码下载</h1></a>
-2014-10-01(周三)
+            <!-- <h3>2014-10-01(周三)
 
 by <a class="url fn" href="http://fashion4cj.com/author/chenjiame.html">chenjia.me</a>
  
 
 
+ </h3> -->
+            <div class= "well small"> 2014-10-01(周三)
+
+by <a class="url fn" href="http://fashion4cj.com/author/chenjiame.html">chenjia.me</a>
  
+
+
+ </div>
         </div>
         
-        <div><h1>安装Ubuntu 14.04 LTS</h1>
+        <!-- <div><h1>安装Ubuntu 14.04 LTS</h1>
 <p>不多说</p>
 <h1>配置环境</h1>
 <h2>配置Curl和git-core</h2>
 <p>安装两个软件</p>
-<div class="highlight"><pre><span class="err">$</span>  <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">curl</span>
-<span class="err">$</span>  <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">git</span><span class="o">-</span><span class="n">core</span>
-</pre></div>
-
-
-<h2>创建~/bin目录并添加到环境变量</h2>
-<div class="highlight"><pre> <span class="err">$</span>  <span class="n">mkdir</span> <span class="o">~/</span><span class="n">bin</span>
- <span class="err">$</span>  <span class="n">PATH</span><span class="o">=~/</span><span class="n">bin</span><span class="o">:</span><span class="err">$</span><span class="n">PATH</span>
-</pre></div>
-
-
-<h2>下载repo脚本并修改权限为可执行</h2>
-<p>这是最新repo 1.21</p>
-<div class="highlight"><pre><span class="err">$</span> <span class="n">curl</span> <span class="n">https</span><span class="o">:</span><span class="c1">//storage.googleapis.com/git-repo-downloads/repo &gt; ~/bin/repo</span>
-<span class="err">$</span> <span class="n">chmod</span> <span class="n">a</span><span class="o">+</span><span class="n">x</span> <span class="o">~/</span><span class="n">bin</span><span class="o">/</span><span class="n">repo</span>
-</pre></div>
-
-
-<h2>创建一个放代码的文件夹</h2>
-<p>创建一个保存android源码的目录，修改为最大权限，并进入该目录</p>
-<div class="highlight"><pre><span class="err">$</span>  <span class="n">mkdir</span> <span class="n">android4</span><span class="mf">.4</span>
-<span class="err">$</span>  <span class="n">sudo</span> <span class="n">chmod</span> <span class="err">–</span><span class="n">R</span> <span class="mi">777</span> <span class="n">android4</span><span class="mf">.4</span>
-<span class="err">$</span>  <span class="n">cd</span>  <span class="n">android4</span><span class="mf">.4</span>
-</pre></div>
-
-
-<h2>初始化repo</h2>
-<p>初始化repo，并选择要下载的分支</p>
-<blockquote>
-<p>下载所有代码使用这个
-    $  repo init -u https://android.googlesource.com/platform/manifest</p>
-</blockquote>
-<p>这时需要输入你的姓名和邮箱。
-申请到</p>
-<blockquote>
-<p>When prompted, configure Repo with your real name and email address. To use the Gerrit code-review tool, you will need an email address that is connected with a <a href="https://www.google.com/accounts">registered Google account</a>. Make sure this is a live address at which you can receive messages. The name that you provide here will show up in attributions for your code submissions.</p>
-</blockquote>
-<p>开通下载权限</p>
-<p>使用</p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="n">global</span> <span class="n">user</span><span class="p">.</span><span class="n">email</span> <span class="n">your</span><span class="o">-</span><span class="n">email</span>
-<span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="n">global</span> <span class="n">user</span><span class="p">.</span><span class="n">name</span> <span class="n">the</span><span class="o">-</span><span class="n">name</span><span class="o">-</span><span class="n">you</span><span class="o">-</span><span class="n">fetch</span>
-</pre></div>
-
-
-<p>如果选择下载的最新分支或者某个分支可以这么使用，最新的分支可以在这里看</p>
-<blockquote>
-<p><a href="https://android.googlesource.com/platform/manifest/+refs">https://android.googlesource.com/platform/manifest/+refs</a></p>
-</blockquote>
-<p>输入</p>
-<div class="highlight"><pre><span class="err">$</span> <span class="n">repo</span> <span class="n">init</span> <span class="o">-</span><span class="n">u</span> <span class="n">https</span><span class="o">:</span><span class="c1">//android.googlesource.com/platform/manifest -b android-4.4.4_r2.0.1</span>
-</pre></div>
-
-
-<h2>最后一步，同步内容</h2>
-<div class="highlight"><pre><span class="n">repo</span> <span class="n">sync</span>
-</pre></div>
-
-
-<p>支持断点续传的同步下载</p>
-<h1>断网自动恢复的脚本</h1>
-<p>在目录下新建一个sh的shell脚本
-    repo sync
-    while [ $? -ne 0 ] 
-    do 
-    repo sync
-    done</p>
-<h2>最后</h2>
-<p>官方文档：<a href="http://source.android.com/source/downloading.html#installing-repo">http://source.android.com/source/downloading.html#installing-repo</a></p>
-<p>参考Blog：<a href="http://blog.csdn.net/legendof1991/article/details/17005849">http://blog.csdn.net/legendof1991/article/details/17005849</a></p>
-<p><a href="http://blog.csdn.net/wh_19910525/article/details/8164107">http://blog.csdn.net/wh_19910525/article/details/8164107</a></p></div>
+<div class="highlight"><pre><span class="err">$</span>  <span class="n">sudo</span> <span class="n">apt</spa</div> -->
+        <div class="summary"><h1>安装Ubuntu 14.04 LTS</h1>
+<p>不多说</p>
+<h1>配置环境</h1>
+<h2>配置Curl和git-core</h2>
+<p>安装两个软件</p>
+<div class="highlight"><pre><span class="err">$</span>  <span class="n">sudo</span> <span class="n">apt</spa</br>........ </br><a class="btn btn-info xsmall" href="http://fashion4cj.com/2014nian-10yue-1ri-ubuntu-repopei-zhi-yi-ji-androidyuan-dai-ma-xia-zai.html">read more</a></div>
         <hr />
     </div>
 		
@@ -229,11 +174,7 @@ by <a class="url fn" href="http://fashion4cj.com/author/chenjiame.html">chenjia.
 </ol>
 <p>对于支付宝，根据源代码，可以有一下猜测</p>
 <blockquote>
-<p>A中了xxshenqi病毒，在软件注册页面输入个人信息，随后作者手机18670259904收到包括手机号，姓名，身份证号码，作者在支付宝点击忘记密码，输入A的身份证号码，然后A收到的短信验证码通过木马发送到作者的邮箱137736513@qq.com，作者输入验证码后成功修改密码，进入用户支付宝中进行操作</p>
-</blockquote>
-<h1>APK逆向和代码分析</h1>
-<p>看了报道作者已经被抓了，华南大学的贴吧里面也显示出其是软件学院大一的学生，更有人分析了他的罪与罚。这些都不属于我们讨论的范围。表示大家都是写代码的，一定不能开太大的玩笑。</p>
-<p>其次，这份代码应该是比较基本的Android代码，并没有利用任何Android漏洞，根据编码习惯推测应该是一个C++的人转Java写的，代码没有任何的混淆 ...</p> <a class="btn btn-info xsmall" href="http://fashion4cj.com/shuo-yi-shuo-xxshenqizhe-ge-shi-qing-ba.html">read more</a></div>
+<p>A中了xxshenqi病毒，在软件注册页面输入个人信息，随后作者手机18670259904收到包括手机号，姓名，身份证号码 ...</p></blockquote> <a class="btn btn-info xsmall" href="http://fashion4cj.com/shuo-yi-shuo-xxshenqizhe-ge-shi-qing-ba.html">read more</a></div>
     </div>	
 				
 <div class="pagination">
@@ -257,13 +198,14 @@ by <a class="url fn" href="http://fashion4cj.com/author/chenjiame.html">chenjia.
                 <li class="nav-header"> 
                 Share it 
                 </li>
-            	<wb:share-button appkey="3UEIPw" addition="text" type="button" default_text="我分享了:“ Fashioncj Tell You  ”来自 fashion4cj.com"></wb:share-button>
+            	<wb:share-button appkey="2smJ3a" addition="text" type="button" default_text="我分享了:“ Fashioncj Tell You  ”来自 blog.chenjia.me"></wb:share-button>
                 <li>
                 <!-- <li><wb:follow-button uid="1698025395" type="red_3" width="100%" height="24" ></wb:follow-button></li> -->
                
             </ul>
             </div>
 
+<!--
             <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
             <ul class="nav nav-list">
                 <li class="nav-header"> 
@@ -271,10 +213,11 @@ by <a class="url fn" href="http://fashion4cj.com/author/chenjiame.html">chenjia.
                 </li>
             
                 <li><a href="http://fashion4cj.com/">Archives</a>
-                <li><a href="http://fashion4cj.com/tags.html">Tags</a>
-                <!-- <li><a href="http://fashion4cj.com/" rel="alternate">Atom feed</a></li> -->
+                 <li><a href="http://fashion4cj.com/tags.html">Tags</a>
+                <li><a href="http://fashion4cj.com/" rel="alternate">Atom feed</a></li> 
             </ul>
             </div>
+            -->
 
 
             <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
@@ -287,7 +230,35 @@ by <a class="url fn" href="http://fashion4cj.com/author/chenjiame.html">chenjia.
                 <li><a href="http://fashion4cj.com/category/diary-android.html">Diary ,Android</a></li>
                 <li><a href="http://fashion4cj.com/category/pelican.html">Pelican</a></li>
                 <li><a href="http://fashion4cj.com/category/security.html">Security</a></li>
+                <li><a href="http://fashion4cj.com/category/temp.html">temp</a></li>
                    
+            </ul>
+            </div>
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Tags
+                </li>
+                <ul class="tags-cloud">
+                         <li><a href="http://fashion4cj.com/tag/android.html">android</a></li>
+                         <li><a href="http://fashion4cj.com/tag/ri-chang.html">日常</a></li>
+                         <li><a href="http://fashion4cj.com/tag/july.html">july</a></li>
+                         <li><a href="http://fashion4cj.com/tag/august.html">August</a></li>
+                         <li><a href="http://fashion4cj.com/tag/pelican.html">pelican</a></li>
+                         <li><a href="http://fashion4cj.com/tag/php.html">php</a></li>
+                         <li><a href="http://fashion4cj.com/tag/publishing.html">publishing</a></li>
+                         <li><a href="http://fashion4cj.com/tag/repo.html">Repo</a></li>
+                         <li><a href="http://fashion4cj.com/tag/september.html">September</a></li>
+                         <li><a href="http://fashion4cj.com/tag/python.html">python</a></li>
+                         <li><a href="http://fashion4cj.com/tag/route.html">route</a></li>
+                         <li><a href="http://fashion4cj.com/tag/ios.html">iOS</a></li>
+                         <li><a href="http://fashion4cj.com/tag/markdown.html">Markdown</a></li>
+                         <li><a href="http://fashion4cj.com/tag/temp.html">temp</a></li>
+                         <li><a href="http://fashion4cj.com/tag/october.html">October</a></li>
+                         <li><a href="http://fashion4cj.com/tag/security.html">Security</a></li>
+                         <li><a href="http://fashion4cj.com/tag/diary.html">diary</a></li>
+                    </ul>
             </ul>
             </div>
 
