@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Fashioncj Tell You</title><link href="http://blog.chenjia.me/" rel="alternate"></link><link href="http://blog.chenjia.me/feeds/reprint.atom.xml" rel="self"></link><id>http://blog.chenjia.me/</id><updated>2014-11-08T13:02:00+08:00</updated><entry><title>Repo的使用</title><link href="http://blog.chenjia.me/articles/141108-130200.html" rel="alternate"></link><updated>2014-11-08T13:02:00+08:00</updated><author><name>chenjia.me</name></author><id>tag:blog.chenjia.me,2014-11-08:articles/141108-130200.html</id><summary type="html">&lt;h1&gt;repo 简介&lt;/h1&gt;
+&lt;p&gt;Repo是google用Python脚本写的调用git的一个脚本，主要是用来下载、管理Android项目的软件仓库；&lt;/p&gt;
+&lt;p&gt;从高通或google下载代码是通过repo下载的，是由repo管理的266个git组成的&lt;/p&gt;
+&lt;p&gt;现在使用的git库是将由repo管理266个小git合并成一个git库导入
+目前导入的repo是将项目定制化的内容取出，拆成由repo管理45个小git；&lt;/p&gt;
+&lt;p&gt;Repo通过&lt;code&gt;manifest.xml&lt;/code&gt;来同步代码，xml文件内容如下：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nt"&gt;&amp;lt;manifest&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;remote&lt;/span&gt; &lt;span class="na"&gt;fetch=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;ssh://gitserver&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;origin&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;review=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://gerrit:8080&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;  
+&lt;span class="nt"&gt;&amp;lt;default&lt;/span&gt; &lt;span class="na"&gt;revision=&lt;/span&gt;&lt;span class="s"&gt;“master”&lt;/span&gt; &lt;span class="na"&gt;remote=&lt;/span&gt;&lt;span class="s"&gt;“origin”&lt;/span&gt; &lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;     
+&lt;span class="nt"&gt;&amp;lt;project&lt;/span&gt; &lt;span class="na"&gt;path=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;build&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;platform/build&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;project&lt;/span&gt; &lt;span class="na"&gt;path=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;abi/cpp&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;platform/abi/cpp&amp;quot;&lt;/span&gt; &lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;project&lt;/span&gt; &lt;span class="na"&gt;path=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;bionic&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;platform/bionic&amp;quot;&lt;/span&gt; &lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;project&lt;/span&gt; &lt;span class="na"&gt;path=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;bootable/bootloader/lk&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;kernel/lk&amp;quot;&lt;/span&gt; &lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1&gt;Repo初始化&lt;/h1&gt;
+&lt;h2&gt;Repo脚本获取（仅针对第一次使用）&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;repo脚本已导入git库，库名为git-repo.git&lt;/li&gt;
+&lt;li&gt;克隆repo库&lt;/li&gt;
+&lt;li&gt;git clone gitserver:git-repo&lt;/li&gt;
+&lt;li&gt;将git-repo库中的repo脚本拷贝到～/bin目录&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;增加权限&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=~/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;PATH&lt;/span&gt;
+&lt;span class="n"&gt;chmod&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;repo&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Repo设置成功后，输入&lt;code&gt;repo&lt;/code&gt;会提示运行&lt;code&gt;repo init&lt;/code&gt;进行初始化&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;yangfei&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;YYRD&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="o"&gt;:~&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;repo&lt;/span&gt;　&lt;span class="n"&gt;error&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;repo&lt;/span&gt; &lt;span class="n"&gt;is&lt;/span&gt; &lt;span class="n"&gt;not&lt;/span&gt; &lt;span class="n"&gt;installed&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;  &lt;span class="n"&gt;Use&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;repo init&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="n"&gt;here&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Repo初始化&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt; &lt;span class="n"&gt;Repo&lt;/span&gt;&lt;span class="err"&gt;初始化，会在根目录&lt;/span&gt; &lt;span class="err"&gt;建立&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;repo&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Repo同步&lt;/h2&gt;
+&lt;p&gt;同步repo代码&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;Repo&lt;/span&gt; &lt;span class="n"&gt;sync&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;初始化分支&lt;/h2&gt;
+&lt;p&gt;Sync成功后，所有的git库都处于 no branch状态，不能进行操作&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;yangfei&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;YYRD&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;&lt;span class="n"&gt;test&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;repo&lt;/span&gt; &lt;span class="n"&gt;branch&lt;/span&gt;
+
+         &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;no&lt;/span&gt; &lt;span class="n"&gt;branches&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;初化分支&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Repo start master –all&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;yangfei&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;YYRD&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;&lt;span class="n"&gt;test&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;repo&lt;/span&gt; &lt;span class="n"&gt;start&lt;/span&gt; &lt;span class="n"&gt;master&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;all&lt;/span&gt;
+
+   &lt;span class="n"&gt;Starting&lt;/span&gt; &lt;span class="n"&gt;master&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;45&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;45&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;done&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;blockquote&gt;
+&lt;p&gt;--all意思为对所有项目操作，如果对某个项目操作如下&lt;/p&gt;
+&lt;p&gt;Repo start master(分支名) cmd1(项目名)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Repo使用（分支初始化之后 ，操作同git）&lt;/h2&gt;
+&lt;p&gt;Repo初如化分支后，可切入各git库进行git的操作&lt;/p&gt;
+&lt;h1&gt;Repo常用命令&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Repo forall –c git …..&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;对由repo管理的git库进行操作，
+如repo forall –c git checkout  45451
+所有库检出45451分支与远程45451分支对应（若无，则跳过）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Repo checkout &amp;lt;branchname[projectname] &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;作用：等同于带项目参数的git checkout&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Repo branch [projectname]&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;作用：读取项目分支的情况&lt;/p&gt;
+&lt;p&gt;Repo abandon &amp;lt;branchname[projectname]&lt;/p&gt;
+&lt;p&gt;作用：删除指定项目的指定分支,强制删除不管是否有合并,等同git branch –D&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Repo version&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;作用：显示repo版本&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Repo status [projectname] &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;作用：显示分支及修改情况&lt;/p&gt;
+&lt;hr /&gt;
+&lt;blockquote&gt;
+&lt;p&gt;转载：&lt;a href="http://blog.csdn.net/hellofeiya/article/details/8560321"&gt;http://blog.csdn.net/hellofeiya/article/details/8560321&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</summary><category term="November"></category><category term="Repo"></category><category term="Android"></category></entry><entry><title>添加Ubuntu的swap分区增加虚拟内存</title><link href="http://blog.chenjia.me/articles/141016-124000.html" rel="alternate"></link><updated>2014-10-16T12:40:00+08:00</updated><author><name>chenjia.me</name></author><id>tag:blog.chenjia.me,2014-10-16:articles/141016-124000.html</id><summary type="html">&lt;h1&gt;需求&lt;/h1&gt;
+&lt;p&gt;为什么今天会写这个呢，因为在编译android4.4的时候发现内存不足。。我可以4G内存啊~&lt;/p&gt;
+&lt;p&gt;然后发现我在安装ubuntu的时候没有配置swap分区，就是木有虚拟内存。。&lt;/p&gt;
+&lt;p&gt;那不想重装，就找了这篇文章&lt;/p&gt;
+&lt;p&gt;来源：&lt;a href="http://blog.sina.com.cn/s/blog_6954b9a901016a0b.html"&gt;http://blog.sina.com.cn/s/blog_6954b9a901016a0b.html&lt;/a&gt;&lt;/p&gt;
+&lt;h1&gt;内容&lt;/h1&gt;
+&lt;h2&gt;mkswap 把一个分区格式化成为swap交换区&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;localhost&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;mkswap&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sda6&lt;/span&gt; &lt;span class="err"&gt;注：创建此分区为&lt;/span&gt;&lt;span class="n"&gt;swap&lt;/span&gt; &lt;span class="err"&gt;交换分区&lt;/span&gt;
+&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;localhost&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;swapon&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sda6&lt;/span&gt; &lt;span class="err"&gt;注：加载交换分区；&lt;/span&gt;
+&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;localhost&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;swapoff&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sda6&lt;/span&gt; &lt;span class="err"&gt;注：关闭交换分区；&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;查看系统已经加载的swap交换分区&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;localhost&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;swapon&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sda6&lt;/span&gt; &lt;span class="err"&gt;注：加载交换分区；&lt;/span&gt;
+&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;localhost&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;swapon&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;
+&lt;span class="n"&gt;Filename&lt;/span&gt; &lt;span class="n"&gt;Type&lt;/span&gt; &lt;span class="n"&gt;Size&lt;/span&gt; &lt;span class="n"&gt;Used&lt;/span&gt; &lt;span class="n"&gt;Priority&lt;/span&gt;
+&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;hda7&lt;/span&gt; &lt;span class="n"&gt;partition&lt;/span&gt; &lt;span class="mi"&gt;787144&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sda6&lt;/span&gt; &lt;span class="n"&gt;partition&lt;/span&gt; &lt;span class="mi"&gt;225144&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;如果让swap开机就加载，应该改 &lt;code&gt;/etc/fstab&lt;/code&gt;文件，加类似如下一行；
+&lt;code&gt;/dev/sda6 swap swap defaults 0 0&lt;/code&gt; &lt;/p&gt;
+&lt;p&gt;注：把此行中的&lt;code&gt;/dev/hda7&lt;/code&gt; 改为您的交换分区就行；
+或者把命令行直接写入&lt;code&gt;/etc/rc.d/rc.local&lt;/code&gt;中也行；
+  &lt;code&gt;swapon /dev/sda6&lt;/code&gt;&lt;/p&gt;
+&lt;h2&gt;如果您的硬盘不能再分区，您可以创建一个swap文件&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;localhost&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;dd&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="o"&gt;=/&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;zero&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt;&lt;span class="o"&gt;=/&lt;/span&gt;&lt;span class="n"&gt;tmp&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;swap&lt;/span&gt; &lt;span class="n"&gt;bs&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1024&lt;/span&gt; &lt;span class="n"&gt;count&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;524288&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;blockquote&gt;
+&lt;p&gt;注：创建一个大小为512M 的swap 文件，在/tmp目录中；您可以根据自己的需要的大小来创建swap 文
+件；&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;读入了&lt;/span&gt; &lt;span class="mi"&gt;524288&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="err"&gt;个块&lt;/span&gt;
+&lt;span class="err"&gt;输出了&lt;/span&gt; &lt;span class="mi"&gt;524288&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="err"&gt;个块&lt;/span&gt;
+&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;localhost&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;mkswap&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;tmp&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;swap&lt;/span&gt; &lt;span class="err"&gt;注：把&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;tmp&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;swap&lt;/span&gt; &lt;span class="err"&gt;文件，创建成&lt;/span&gt;&lt;span class="n"&gt;swap&lt;/span&gt; &lt;span class="err"&gt;交换区&lt;/span&gt;
+&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;localhost&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;sync&lt;/span&gt;
+&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;localhost&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;swapon&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;tmp&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;swap&lt;/span&gt; &lt;span class="err"&gt;注：挂载&lt;/span&gt;&lt;span class="n"&gt;swap&lt;/span&gt; 
+&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;localhost&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;vim&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;fstab&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;文件末尾添加&lt;code&gt;/tmp/swap none swap rw 0 1&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;localhost&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;swapon&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;
+&lt;span class="n"&gt;Filename&lt;/span&gt; &lt;span class="n"&gt;Type&lt;/span&gt; &lt;span class="n"&gt;Size&lt;/span&gt; &lt;span class="n"&gt;Used&lt;/span&gt; &lt;span class="n"&gt;Priority&lt;/span&gt;
+&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;hda7&lt;/span&gt; &lt;span class="n"&gt;partition&lt;/span&gt; &lt;span class="mi"&gt;787144&lt;/span&gt; &lt;span class="mi"&gt;888&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;tmp&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;swap&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt; &lt;span class="mi"&gt;524280&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;如何关闭交换分区&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="mf"&gt;1.&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;localhost&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;swapoff&lt;/span&gt; &lt;span class="n"&gt;swap1&lt;/span&gt;
+&lt;span class="mf"&gt;2.&lt;/span&gt;&lt;span class="err"&gt;删除&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;fstab&lt;/span&gt;&lt;span class="err"&gt;中的记录即可&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1&gt;最后&lt;/h1&gt;
+&lt;p&gt;我使用的是第三种，因为可以挂载在其他的磁盘上~只是每次需要的时候挂载一下或者开机自动挂载啦~&lt;/p&gt;</summary><category term="October"></category></entry></feed>

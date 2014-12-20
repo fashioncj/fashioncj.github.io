@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:wb="http://open.weibo.com/wb">
+<head>
+    <meta charset="utf-8">
+    <title>【2014-11-1】Pelican添加多说评论</title>
+    <meta name="description" content="blog.chenjia.me ,chenjia.me ">
+    <meta name="author" content="chenjia.me">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="http://blog.chenjia.me/theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="http://blog.chenjia.me/theme/bootstrap.min.css" rel="stylesheet">
+    <link href="http://blog.chenjia.me/theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="http://blog.chenjia.me/theme/local.css" rel="stylesheet">
+    <link href="http://blog.chenjia.me/theme/pygments.css" rel="stylesheet">
+
+    <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href="http://blog.chenjia.me">Fashioncj Tell You</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+            
+             <li><a href="http://chenjia.me" target="_blank">Home</a></li>
+            <li><a href="http://blog.chenjia.me/pages/weibo.html">Weibo</a></li>
+        </ul>
+        </div>
+        <div><a style="float: right;padding: 10px 10px 11px;color: #ffffff;text-decoration: blink;">Enjoy simple,record &amp; share</a></div>
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+    <div class='article'>
+        <div class="content-title">
+            <h1>【2014-11-1】Pelican添加多说评论</h1>
+2014-11-02(周日)
+
+by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a>
+ 
+
+
+        </div>
+	
+        <div><h1>多说评论</h1>
+<p>据说是现在大陆很流行的一个评论~关键是~好多人都在用~不过他们用的是HEXO~那我们就转移到Pelican上来吧~</p>
+<h1>开始添加多说评论</h1>
+<blockquote>
+<p>多说<a href="http://duoshuo.com/">http://duoshuo.com/</a></p>
+</blockquote>
+<h2>注册账号</h2>
+<ul>
+<li>注册多说账号</li>
+<li>绑定网站信息</li>
+<li>获取js代码，比如这样<div class="highlight"><pre><span class="c">&lt;!--</span> <span class="err">多说评论框</span> <span class="nx">start</span> <span class="o">--&gt;</span>
+<span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&quot;ds-thread&quot;</span> <span class="nx">data</span><span class="o">-</span><span class="nx">thread</span><span class="o">-</span><span class="nx">key</span><span class="o">=</span><span class="s2">&quot;请将此处替换成文章在你的站点中的ID&quot;</span> <span class="nx">data</span><span class="o">-</span><span class="nx">title</span><span class="o">=</span><span class="s2">&quot;请替换成文章的标题&quot;</span> <span class="nx">data</span><span class="o">-</span><span class="nx">url</span><span class="o">=</span><span class="s2">&quot;请替换成文章的网址&quot;</span><span class="o">&gt;&lt;</span><span class="err">/div&gt;</span>
+<span class="c">&lt;!--</span> <span class="err">多说评论框</span> <span class="nx">end</span> <span class="o">--&gt;</span>
+<span class="c">&lt;!--</span> <span class="err">多说公共</span><span class="nx">JS</span><span class="err">代码</span> <span class="nx">start</span> <span class="p">(</span><span class="err">一个网页只需插入一次</span><span class="p">)</span> <span class="o">--&gt;</span>
+<span class="o">&lt;</span><span class="nx">script</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span><span class="o">&gt;</span>
+<span class="kd">var</span> <span class="nx">duoshuoQuery</span> <span class="o">=</span> <span class="p">{</span><span class="nx">short_name</span><span class="o">:</span><span class="s2">&quot;chenjia&quot;</span><span class="p">};</span>
+<span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">ds</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;script&#39;</span><span class="p">);</span>
+    <span class="nx">ds</span><span class="p">.</span><span class="nx">type</span> <span class="o">=</span> <span class="s1">&#39;text/javascript&#39;</span><span class="p">;</span><span class="nx">ds</span><span class="p">.</span><span class="nx">async</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="nx">ds</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">protocol</span> <span class="o">==</span> <span class="s1">&#39;https:&#39;</span> <span class="o">?</span> <span class="s1">&#39;https:&#39;</span> <span class="o">:</span> <span class="s1">&#39;http:&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;//static.duoshuo.com/embed.js&#39;</span><span class="p">;</span>
+    <span class="nx">ds</span><span class="p">.</span><span class="nx">charset</span> <span class="o">=</span> <span class="s1">&#39;UTF-8&#39;</span><span class="p">;</span>
+    <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;head&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> 
+     <span class="o">||</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]).</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">ds</span><span class="p">);</span>
+<span class="p">})();</span>
+<span class="o">&lt;</span><span class="err">/script&gt;</span>
+<span class="c">&lt;!--</span> <span class="err">多说公共</span><span class="nx">JS</span><span class="err">代码</span> <span class="nx">end</span> <span class="o">--&gt;</span>
+</pre></div>
+
+
+</li>
+</ul>
+<h2>修改主题</h2>
+<p>一般评论的网页模板应该在主题目录下的<code>\templates\disqus.html</code>中</p>
+<ul>
+<li>
+<p>注释掉原来的js代码~不然会有两个评论框。</p>
+<div class="highlight"><pre><span class="c">&lt;!-- </span>
+<span class="c">&lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;</span>
+<span class="c">&lt;script type=&quot;text/javascript&quot;&gt;</span>
+<span class="c">var disqus_shortname = &#39;{{ DISQUS_SITENAME }}&#39;; </span>
+<span class="c">var disqus_title = &#39;{{ article.title }}&#39;;</span>
+
+<span class="c">(function() {</span>
+<span class="c">    var dsq = document.createElement(&#39;script&#39;); dsq.type = &#39;text/javascript&#39;; dsq.async = true;</span>
+<span class="c">    dsq.src = &#39;http://&#39; + disqus_shortname + &#39;.disqus.com/embed.js&#39;;</span>
+<span class="c">    (document.getElementsByTagName(&#39;head&#39;)[0] || document.getElementsByTagName(&#39;body&#39;)[0]).appendChild(dsq);</span>
+<span class="c">})();</span>
+<span class="c">&lt;/script&gt;</span>
+<span class="c">--&gt;</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>将js脚本复制到对应区域</p>
+</li>
+<li>第一个字符串修改为<code>data-thread-key="{{ article.slug }}"</code></li>
+<li>第二个字符串修改为<code>data-title="{{ article.title }}"</code></li>
+<li>第三个字符串修改为<code>data-url="{{ SITEURL }}/{{ article.url }}"</code>
++<blockquote>
+<p>这样第一个我们用的是文章的slug，一般来说没定义的话应该是文章标题的拼音~基本没有两个相同的文章名吧~</p>
+<p>第二个用的是文字的标题~这个就没什么多说的啦</p>
+<p>第三个用的就是文章的网址，也就是当前页面的网址~</p>
+</blockquote>
+</li>
+</ul>
+<p>然后更新主题，重新生成文章就好！</p>
+<h2>修改多说设置</h2>
+<p>我们可以在多说的网站管理里面修改评论框的各种属性~比如主题神马的~我就修改了微博的appkey让分享的时候可以显示来自我的网站~啦啦啦~</p></div>
+<!--
+        <hr>
+        <div class="bdsharebuttonbox"><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{"tsina":"2429705450"},"bdText":"“【2014-11-1】Pelican添加多说评论”  From  Fashion4cj.com","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script> -->
+        <hr>
+        <h2>Comments</h2>
+	<div class="ds-thread" data-thread-key="2014-11-1-pelicantian-jia-duo-shuo-ping-lun" data-title="【2014-11-1】Pelican添加多说评论" data-url="http://blog.chenjia.me/articles/141102-011500.html"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"chenjia"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'fashioncjtellyou'; 
+    var disqus_title = '【2014-11-1】Pelican添加多说评论';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+ -->
+<noscript>Please enable JavaScript to view the comments </noscript>
+    </div>
+        </div>
+        
+        <div class="span3">
+
+        	<div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Share it 
+                </li>
+            	<wb:share-button appkey="2smJ3a" addition="text" type="button" default_text="我分享了:“ 【2014-11-1】Pelican添加多说评论  ”来自 blog.chenjia.me"></wb:share-button>
+                <li>
+                <!-- <li><wb:follow-button uid="1698025395" type="red_3" width="100%" height="24" ></wb:follow-button></li> -->
+               
+            </ul>
+            </div>
+		
+			<div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list" style="  padding-left: 0px; padding-right: 0px; ">
+                <li class="nav-header" style=" padding-left: 30px; "> 
+                Serach
+                </li>
+            	<gcse:search></gcse:search>
+                
+                
+            </ul>
+            </div>
+
+<!--
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="http://blog.chenjia.me/">Archives</a>
+                 <li><a href="http://blog.chenjia.me/tags.html">Tags</a>
+                <li><a href="http://blog.chenjia.me/" rel="alternate">Atom feed</a></li> 
+            </ul>
+            </div>
+            -->
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                <li><a href="http://blog.chenjia.me/category/original.html">Original</a></li>
+                <li><a href="http://blog.chenjia.me/category/personal-diary.html">Personal Diary</a></li>
+                <li><a href="http://blog.chenjia.me/category/reprint.html">Reprint</a></li>
+                <li><a href="http://blog.chenjia.me/category/technology-diary.html">Technology Diary</a></li>
+                <li><a href="http://blog.chenjia.me/category/tips.html">Tips</a></li>
+                   
+            </ul>
+            </div>
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Tags
+                </li>
+                <ul class="tags-cloud">
+                         <li><a href="http://blog.chenjia.me/tag/android.html">Android</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/november.html">November</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/route.html">Route</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/html.html">HTML</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/security.html">Security</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/october.html">October</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/python.html">Python</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/pelican.html">Pelican</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/july.html">July</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/maintain.html">Maintain</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/ios.html">iOS</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/daily.html">Daily</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/repo.html">Repo</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/markdown.html">Markdown</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/august.html">August</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/september.html">September</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/linux.html">Linux</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/php.html">PHP</a></li>
+                    </ul>
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Links
+                </li>
+            
+                <li><a href="http://chenjia.me/">Chenjia.me</a></li>
+                <li><a href="http://safelab.chenjia.me/">Chenjia's SafeLab</a></li>
+                <li><a href="http://wp.chenjia.me/">Clever for you</a></li>
+                <li><a href="http://ingzone.com">Ing Stdio</a></li>
+                <li><a href="http://blog.callmewhy.com/">Why's Blog</a></li>
+            </ul>
+            </div>
+
+
+            <div class="social">
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Social
+                </li>
+           
+                <li><a href="http://weibo.com/cj93">Weibo</a></li>
+                <li><a href="mailto:jiachenwk@gmail.com">E-mail</a></li>
+                <li><a href="http://lnkd.in/bNqwSB4">LinkedIn</a></li>
+                <li><a href="https://twitter.com/Fashion_cj">Twitter</a></li>
+                <li><a href="https://www.facebook.com/jia.chen.fashion">Facebook</a></li>
+            </ul>
+            </div>
+            </div>
+
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href="http://blog.chenjia.me">Fashioncj Tell You</a> &copy; chenjia.me 2014</p>
+</footer>
+
+</div> <!-- /container -->
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> -->
+<script src="http://cdn.staticfile.org/jquery/1.7.1/jquery.min.js"></script>
+<!-- <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-collapse.js"></script> -->
+<script src="http://cdn.staticfile.org/twitter-bootstrap/2.3.1/js/bootstrap-collapse.js"></script>
+
+<script>
+  				(function() {
+    				var cx = '011192397530869344338:okujolpcgai';
+    				var gcse = document.createElement('script');
+    				gcse.type = 'text/javascript';
+    				gcse.async = true;
+    				gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        			'//www.google.com/cse/cse.js?cx=' + cx;
+    			var s = document.getElementsByTagName('script')[0];
+    				s.parentNode.insertBefore(gcse, s);
+ 				 })();
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=35878534" charset="UTF-8"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create','UA-41204528-4','auto');
+  ga('send','pageview');
+</script>
+ 
+</body>
+</html>

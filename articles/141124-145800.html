@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:wb="http://open.weibo.com/wb">
+<head>
+    <meta charset="utf-8">
+    <title>Andorid 颜色渐变的实现</title>
+    <meta name="description" content="blog.chenjia.me ,chenjia.me ">
+    <meta name="author" content="chenjia.me">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="http://blog.chenjia.me/theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="http://blog.chenjia.me/theme/bootstrap.min.css" rel="stylesheet">
+    <link href="http://blog.chenjia.me/theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="http://blog.chenjia.me/theme/local.css" rel="stylesheet">
+    <link href="http://blog.chenjia.me/theme/pygments.css" rel="stylesheet">
+
+    <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href="http://blog.chenjia.me">Fashioncj Tell You</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+            
+             <li><a href="http://chenjia.me" target="_blank">Home</a></li>
+            <li><a href="http://blog.chenjia.me/pages/weibo.html">Weibo</a></li>
+        </ul>
+        </div>
+        <div><a style="float: right;padding: 10px 10px 11px;color: #ffffff;text-decoration: blink;">Enjoy simple,record &amp; share</a></div>
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+    <div class='article'>
+        <div class="content-title">
+            <h1>Andorid 颜色渐变的实现</h1>
+2014-11-24(周一)
+
+by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a>
+ 
+
+
+        </div>
+	
+        <div><h1>颜色渐变</h1>
+<p>今天看到一个软件清理~动态效果很不错，从黄色到绿色表示的是电脑垃圾减少的过程~</p>
+<p>然后就想实现一个~</p>
+<hr />
+<p>颜色渐变是有算法的，最开始想从16进制的000000加到ffffff发现是不对的。</p>
+<p>//这是无意义的一行，防止subString出错========</p>
+<p>简单得渐变应该是将色值拆开，成为这样：</p>
+<div class="highlight"><pre><span class="kt">int</span> <span class="n">Red</span> <span class="n">from</span> <span class="mo">00</span> <span class="n">to</span> <span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="n">ff</span>
+<span class="kt">int</span> <span class="n">Blue</span> <span class="n">from</span> <span class="mo">00</span> <span class="n">to</span> <span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="n">ff</span>
+<span class="kt">int</span> <span class="n">Green</span> <span class="n">from</span> <span class="mo">00</span> <span class="n">to</span> <span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="n">ff</span>
+</pre></div>
+
+
+<p>因此我们可以得到一个简单算法。</p>
+<ol>
+<li>起始颜色比如#000000拆分为00 00 00，终点颜色为#FFFFFF拆开为FF FF FF</li>
+<li>确定渐变的步数，为x</li>
+<li>起始值减去终点值除以步数x就是每步我们要改变的数值</li>
+</ol>
+<h1>Android核心代码</h1>
+<p>开线程，修改bg的颜色色值</p>
+<p>主要涉及：</p>
+<ol>
+<li>android的颜色转换<code>new Color().parseColor(color_str)</code></li>
+<li>android的多线程</li>
+<li>Java 10进制到16进制转换<code>Integer.toHexString()</code></li>
+<li>进制转换的溢出和补0的操作<div class="highlight"><pre><span class="n">String</span> <span class="nf">return2</span><span class="o">(</span><span class="n">String</span> <span class="n">str</span><span class="o">){</span>
+    <span class="k">if</span><span class="o">(</span><span class="n">str</span><span class="o">.</span><span class="na">length</span><span class="o">()==</span><span class="mi">1</span><span class="o">)</span>
+        <span class="k">return</span> <span class="s">&quot;0&quot;</span><span class="o">+</span><span class="n">str</span><span class="o">;</span>
+    <span class="k">if</span><span class="o">(</span><span class="n">str</span><span class="o">.</span><span class="na">length</span><span class="o">()==</span><span class="mi">0</span><span class="o">)</span>
+        <span class="k">return</span> <span class="s">&quot;00&quot;</span><span class="o">+</span><span class="n">str</span><span class="o">;</span>
+    <span class="k">if</span><span class="o">(</span><span class="n">str</span><span class="o">.</span><span class="na">length</span><span class="o">()&gt;</span><span class="mi">2</span><span class="o">)</span>
+        <span class="k">return</span> <span class="n">str</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">str</span><span class="o">.</span><span class="na">length</span><span class="o">()-</span><span class="mi">2</span><span class="o">,</span><span class="n">str</span><span class="o">.</span><span class="na">length</span><span class="o">());</span>
+    <span class="k">return</span> <span class="n">str</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+
+
+</li>
+</ol>
+<h1>实现的核心代码</h1>
+<div class="highlight"><pre>    <span class="n">ImageView</span> <span class="n">imageView</span><span class="o">;</span>
+    <span class="n">Handler</span> <span class="n">handler</span><span class="o">;</span>
+    <span class="n">TextView</span> <span class="n">textView</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">color</span><span class="o">=</span><span class="mi">16777215</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">initgreen</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// TODO Auto-generated method stub</span>
+        <span class="n">imageView</span><span class="o">=(</span><span class="n">ImageView</span><span class="o">)</span><span class="n">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">imageView1</span><span class="o">);</span>
+        <span class="n">imageView</span><span class="o">.</span><span class="na">setOnClickListener</span><span class="o">(</span><span class="n">MainActivity</span><span class="o">.</span><span class="na">this</span><span class="o">);</span>
+        <span class="n">imageView</span><span class="o">.</span><span class="na">setBackgroundColor</span><span class="o">(</span><span class="k">new</span> <span class="n">Color</span><span class="o">().</span><span class="na">BLACK</span><span class="o">);</span>
+        <span class="n">textView</span><span class="o">=(</span><span class="n">TextView</span><span class="o">)</span><span class="n">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">textView1</span><span class="o">);</span>
+        <span class="n">handler</span><span class="o">=</span><span class="k">new</span> <span class="n">Handler</span><span class="o">();</span>
+
+    <span class="o">}</span>
+
+    <span class="kt">double</span> <span class="n">r</span><span class="o">=</span><span class="mi">255</span><span class="o">;</span>
+    <span class="kt">double</span> <span class="n">g</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+    <span class="kt">double</span> <span class="n">b</span><span class="o">=</span><span class="mi">255</span><span class="o">;</span>
+    <span class="n">Runnable</span> <span class="n">runnable</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Runnable</span><span class="o">()</span> <span class="o">{</span>  
+        <span class="nd">@Override</span>  
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>  
+            <span class="n">r</span><span class="o">=</span><span class="n">r</span><span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+            <span class="n">g</span><span class="o">=</span><span class="n">g</span><span class="o">+</span><span class="mf">0.5</span><span class="o">;</span>
+            <span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="o">-</span><span class="mf">0.25</span><span class="o">;</span>
+            <span class="n">String</span> <span class="n">color_str</span><span class="o">;</span>
+            <span class="n">color_str</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="o">+</span><span class="n">return2</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">toHexString</span><span class="o">((</span><span class="kt">int</span><span class="o">)</span><span class="n">r</span><span class="o">))+</span><span class="n">return2</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">toHexString</span><span class="o">((</span><span class="kt">int</span><span class="o">)</span><span class="n">g</span><span class="o">))+</span><span class="n">return2</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">toHexString</span><span class="o">((</span><span class="kt">int</span><span class="o">)</span><span class="n">b</span><span class="o">));</span>
+             <span class="n">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">&quot;color&quot;</span><span class="o">,</span> <span class="n">color_str</span><span class="o">);</span>
+            <span class="n">imageView</span><span class="o">.</span><span class="na">setBackgroundColor</span><span class="o">(</span><span class="k">new</span> <span class="n">Color</span><span class="o">().</span><span class="na">parseColor</span><span class="o">(</span><span class="n">color_str</span><span class="o">));</span>
+            <span class="n">textView</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">color_str</span><span class="o">);</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">r</span><span class="o">&gt;=</span><span class="mi">1</span><span class="o">)</span>
+            <span class="n">handler</span><span class="o">.</span><span class="na">postDelayed</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="mi">19</span><span class="o">);</span>
+
+        <span class="o">}</span>  
+    <span class="o">};</span>
+
+    <span class="n">String</span> <span class="nf">return2</span><span class="o">(</span><span class="n">String</span> <span class="n">str</span><span class="o">){</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">str</span><span class="o">.</span><span class="na">length</span><span class="o">()==</span><span class="mi">1</span><span class="o">)</span>
+            <span class="k">return</span> <span class="s">&quot;0&quot;</span><span class="o">+</span><span class="n">str</span><span class="o">;</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">str</span><span class="o">.</span><span class="na">length</span><span class="o">()==</span><span class="mi">0</span><span class="o">)</span>
+            <span class="k">return</span> <span class="s">&quot;00&quot;</span><span class="o">+</span><span class="n">str</span><span class="o">;</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">str</span><span class="o">.</span><span class="na">length</span><span class="o">()&gt;</span><span class="mi">2</span><span class="o">)</span>
+            <span class="k">return</span> <span class="n">str</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">str</span><span class="o">.</span><span class="na">length</span><span class="o">()-</span><span class="mi">2</span><span class="o">,</span><span class="n">str</span><span class="o">.</span><span class="na">length</span><span class="o">());</span>
+        <span class="k">return</span> <span class="n">str</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onClick</span><span class="o">(</span><span class="n">View</span> <span class="n">v</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// TODO Auto-generated method stub</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">v</span><span class="o">.</span><span class="na">getId</span><span class="o">()==</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">imageView1</span><span class="o">){</span>
+            <span class="n">r</span><span class="o">=</span><span class="mi">255</span><span class="o">;</span>
+            <span class="n">g</span><span class="o">=</span><span class="mi">127</span><span class="o">;</span>
+            <span class="n">b</span><span class="o">=</span><span class="mi">64</span><span class="o">;</span>
+            <span class="n">handler</span><span class="o">.</span><span class="na">postDelayed</span><span class="o">(</span><span class="n">runnable</span><span class="o">,</span> <span class="mi">100</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+</pre></div></div>
+<!--
+        <hr>
+        <div class="bdsharebuttonbox"><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{"tsina":"2429705450"},"bdText":"“Andorid 颜色渐变的实现”  From  Fashion4cj.com","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script> -->
+        <hr>
+        <h2>Comments</h2>
+	<div class="ds-thread" data-thread-key="andorid-yan-se-jian-bian-de-shi-xian" data-title="Andorid 颜色渐变的实现" data-url="http://blog.chenjia.me/articles/141124-145800.html"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"chenjia"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'fashioncjtellyou'; 
+    var disqus_title = 'Andorid 颜色渐变的实现';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+ -->
+<noscript>Please enable JavaScript to view the comments </noscript>
+    </div>
+        </div>
+        
+        <div class="span3">
+
+        	<div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Share it 
+                </li>
+            	<wb:share-button appkey="2smJ3a" addition="text" type="button" default_text="我分享了:“ Andorid 颜色渐变的实现  ”来自 blog.chenjia.me"></wb:share-button>
+                <li>
+                <!-- <li><wb:follow-button uid="1698025395" type="red_3" width="100%" height="24" ></wb:follow-button></li> -->
+               
+            </ul>
+            </div>
+		
+			<div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list" style="  padding-left: 0px; padding-right: 0px; ">
+                <li class="nav-header" style=" padding-left: 30px; "> 
+                Serach
+                </li>
+            	<gcse:search></gcse:search>
+                
+                
+            </ul>
+            </div>
+
+<!--
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="http://blog.chenjia.me/">Archives</a>
+                 <li><a href="http://blog.chenjia.me/tags.html">Tags</a>
+                <li><a href="http://blog.chenjia.me/" rel="alternate">Atom feed</a></li> 
+            </ul>
+            </div>
+            -->
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                <li><a href="http://blog.chenjia.me/category/original.html">Original</a></li>
+                <li><a href="http://blog.chenjia.me/category/personal-diary.html">Personal Diary</a></li>
+                <li><a href="http://blog.chenjia.me/category/reprint.html">Reprint</a></li>
+                <li><a href="http://blog.chenjia.me/category/technology-diary.html">Technology Diary</a></li>
+                <li><a href="http://blog.chenjia.me/category/tips.html">Tips</a></li>
+                   
+            </ul>
+            </div>
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Tags
+                </li>
+                <ul class="tags-cloud">
+                         <li><a href="http://blog.chenjia.me/tag/android.html">Android</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/november.html">November</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/route.html">Route</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/html.html">HTML</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/security.html">Security</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/october.html">October</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/python.html">Python</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/pelican.html">Pelican</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/july.html">July</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/maintain.html">Maintain</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/ios.html">iOS</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/daily.html">Daily</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/repo.html">Repo</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/markdown.html">Markdown</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/august.html">August</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/september.html">September</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/linux.html">Linux</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/php.html">PHP</a></li>
+                    </ul>
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Links
+                </li>
+            
+                <li><a href="http://chenjia.me/">Chenjia.me</a></li>
+                <li><a href="http://safelab.chenjia.me/">Chenjia's SafeLab</a></li>
+                <li><a href="http://wp.chenjia.me/">Clever for you</a></li>
+                <li><a href="http://ingzone.com">Ing Stdio</a></li>
+                <li><a href="http://blog.callmewhy.com/">Why's Blog</a></li>
+            </ul>
+            </div>
+
+
+            <div class="social">
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Social
+                </li>
+           
+                <li><a href="http://weibo.com/cj93">Weibo</a></li>
+                <li><a href="mailto:jiachenwk@gmail.com">E-mail</a></li>
+                <li><a href="http://lnkd.in/bNqwSB4">LinkedIn</a></li>
+                <li><a href="https://twitter.com/Fashion_cj">Twitter</a></li>
+                <li><a href="https://www.facebook.com/jia.chen.fashion">Facebook</a></li>
+            </ul>
+            </div>
+            </div>
+
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href="http://blog.chenjia.me">Fashioncj Tell You</a> &copy; chenjia.me 2014</p>
+</footer>
+
+</div> <!-- /container -->
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> -->
+<script src="http://cdn.staticfile.org/jquery/1.7.1/jquery.min.js"></script>
+<!-- <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-collapse.js"></script> -->
+<script src="http://cdn.staticfile.org/twitter-bootstrap/2.3.1/js/bootstrap-collapse.js"></script>
+
+<script>
+  				(function() {
+    				var cx = '011192397530869344338:okujolpcgai';
+    				var gcse = document.createElement('script');
+    				gcse.type = 'text/javascript';
+    				gcse.async = true;
+    				gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        			'//www.google.com/cse/cse.js?cx=' + cx;
+    			var s = document.getElementsByTagName('script')[0];
+    				s.parentNode.insertBefore(gcse, s);
+ 				 })();
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=35878534" charset="UTF-8"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create','UA-41204528-4','auto');
+  ga('send','pageview');
+</script>
+ 
+</body>
+</html>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Fashioncj Tell You</title><link href="http://blog.chenjia.me/" rel="alternate"></link><link href="http://blog.chenjia.me/feeds/tips.atom.xml" rel="self"></link><id>http://blog.chenjia.me/</id><updated>2014-11-08T14:30:00+08:00</updated><entry><title>Ubuntu 添加第三方源(PPA)</title><link href="http://blog.chenjia.me/articles/141108-143000.html" rel="alternate"></link><updated>2014-11-08T14:30:00+08:00</updated><author><name>chenjia.me</name></author><id>tag:blog.chenjia.me,2014-11-08:articles/141108-143000.html</id><summary type="html">&lt;h1&gt;Ubuntu添加PPA源并安装软件&lt;/h1&gt;
+&lt;p&gt;大家都知道&lt;code&gt;apt-get&lt;/code&gt;可以很方便的获得很多程序，可是有的程序因为某些原因无法直接在官方的源里面下载，比如oracle 的java&lt;/p&gt;
+&lt;p&gt;我们可以通过&lt;a href="http://LunchPad.net" title="LunchPad"&gt;http://LunchPad.net&lt;/a&gt; 来添加一些软件&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;sudo add-apt-repository ppa:user/ppa-name&lt;/li&gt;
+&lt;li&gt;sudo apt-get update&lt;/li&gt;
+&lt;li&gt;sudo apt-get install oracle-java6-install&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这样我们就可以直接装好java6，也省去了我们配置java 环境变量的时间了。&lt;/p&gt;</summary><category term="November"></category><category term="Linux"></category></entry><entry><title>【2014-10-18】Ubuntu中的一些小技巧</title><link href="http://blog.chenjia.me/articles/141018-220300.html" rel="alternate"></link><updated>2014-10-18T22:03:00+08:00</updated><author><name>chenjia.me</name></author><id>tag:blog.chenjia.me,2014-10-18:articles/141018-220300.html</id><summary type="html">&lt;h1&gt;命令&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;top&lt;/code&gt;命令：进程查看&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;netstat&lt;/code&gt; 网络查看&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ps aux&lt;/code&gt; 全部进程&lt;/li&gt;
+&lt;li&gt;学会使用&lt;code&gt;|grep 表达式&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;。。。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;tips&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;使用交换区&lt;/li&gt;
+&lt;li&gt;注意文件权限&lt;/li&gt;
+&lt;li&gt;vsftp&lt;/li&gt;
+&lt;li&gt;更换软件源&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="October"></category><category term="Linux"></category></entry><entry><title>使用公共CND进行加速</title><link href="http://blog.chenjia.me/articles/141007-201700.html" rel="alternate"></link><updated>2014-10-07T20:17:00+08:00</updated><author><name>chenjia.me</name></author><id>tag:blog.chenjia.me,2014-10-07:articles/141007-201700.html</id><summary type="html">&lt;h1&gt;问题&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;现在大多数前端都用了jQuery等类库&lt;/li&gt;
+&lt;li&gt;google font被墙不能用&lt;/li&gt;
+&lt;li&gt;网站3网访问速度不一样&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1&gt;解决&lt;/h1&gt;
+&lt;h2&gt;类库Cdn&lt;/h2&gt;
+&lt;p&gt;个人觉得很全的~七牛CND 
+&lt;a href="http://www.staticfile.org/"&gt;http://www.staticfile.org/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;360前端CDN
+&lt;a href="http://libs.useso.com/"&gt;http://libs.useso.com/&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;字体加速&lt;/h2&gt;
+&lt;p&gt;360字体镜像
+&lt;a href="http://libs.useso.com/"&gt;http://libs.useso.com/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;使用:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;首先在程序源代码中找到调用Google免费字体库的地址，比如：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;link&lt;/span&gt; &lt;span class="n"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//fonts.googleapis.com/css?family=Open+Sans:300,400,600&amp;amp;subset=latin,latin-ext&amp;#39; rel=&amp;#39;stylesheet&amp;#39;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;将Google免费字体库的域名 fonts.googleapis.com 修改为：fonts.useso.com 即可，如下所示：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;link&lt;/span&gt; &lt;span class="n"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//fonts.useso.com/css?family=Open+Sans:300,400,600&amp;amp;subset=latin,latin-ext&amp;#39; rel=&amp;#39;stylesheet&amp;#39;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;简洁来说，就是讲&lt;code&gt;googleapis&lt;/code&gt;替换为&lt;code&gt;useso&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;替换后记得刷新~&lt;/p&gt;</summary><category term="October"></category><category term="HTML"></category></entry><entry><title>QQ空间手机端特殊json</title><link href="http://blog.chenjia.me/articles/140925-165900.html" rel="alternate"></link><updated>2014-09-25T16:59:00+08:00</updated><author><name>chenjia.me</name></author><id>tag:blog.chenjia.me,2014-09-25:articles/140925-165900.html</id><summary type="html">&lt;p&gt;qq空间客户端json&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;uin&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;qq&lt;/span&gt;&lt;span class="err"&gt;号&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;nick&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="err"&gt;昵称&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;who&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="September"></category></entry><entry><title>【2014年8月12日】分享一些好的简历生成网站</title><link href="http://blog.chenjia.me/articles/140813-014300.html" rel="alternate"></link><updated>2014-08-13T01:43:00+08:00</updated><author><name>chenjia.me</name></author><id>tag:blog.chenjia.me,2014-08-13:articles/140813-014300.html</id><summary type="html">&lt;h1&gt;简历CV&lt;/h1&gt;
+&lt;p&gt;很多人都表示简历很重要，毕竟是HR认识你的第一手资料，它的优劣很大程度的关系到你后面的面试。&lt;/p&gt;
+&lt;p&gt;然后最近填写了几份简历，发现东西后好雷同，复制粘贴好麻烦。就像有木有一个好的通用简历格式（想想就好）、&lt;/p&gt;
+&lt;p&gt;不过这也拖了好久，终于在各种烦心事情结束后有心情给自己写一份比较好看的简历了。&lt;/p&gt;
+&lt;h1&gt;如何获得简历&lt;/h1&gt;
+&lt;h2&gt;Word模板&lt;/h2&gt;
+&lt;p&gt;很多简历网站都提供各种各样的Word简历模板，我们可以根据不同的需求在百度或者office的模板库中寻找模板。个人觉得office 2013模板库中带封面的简历都不错，有兴趣可以去试试，而百度到的模板个人认为都是很久以前的。看上去过于呆板。不太喜欢。&lt;/p&gt;
+&lt;h2&gt;网页简历模板生成&lt;/h2&gt;
+&lt;p&gt;自动生成模板，注册账户后根据需要生成各种形式模板。&lt;/p&gt;
+&lt;p&gt;有两类。&lt;/p&gt;
+&lt;p&gt;一类是和大街网这样的网站类似的，填写一份简历模板，然后就可以导出或者直接使用。很方便，推荐。而且国内的某些简历网站支持导入。&lt;/p&gt;
+&lt;p&gt;第二类，也就是介绍重点。
+个人觉得很不错、&lt;/p&gt;
+&lt;p&gt;国内：&lt;a href="http://www.ujianli.com"&gt;http://www.ujianli.com&lt;/a&gt;
+国外：&lt;a href="http://cvmkr.com/"&gt;http://cvmkr.com/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;现在国外的CVMAKER已经支持中文了！不过还是英文比较好看。&lt;/p&gt;
+&lt;p&gt;这 两者都提供账户注册，保存资料，生成简历。&lt;/p&gt;
+&lt;p&gt;支持4种格式&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Word（文档）&lt;/li&gt;
+&lt;li&gt;Pdf&lt;/li&gt;
+&lt;li&gt;png（图片）&lt;/li&gt;
+&lt;li&gt;Html（网页）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;基本上满足了所有的需求，推荐~&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;end&lt;/p&gt;
+&lt;p&gt;最近使用了ujianli，设计的不错，简洁简单。&lt;/p&gt;</summary><category term="August"></category></entry></feed>
