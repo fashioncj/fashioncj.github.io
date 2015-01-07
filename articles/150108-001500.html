@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:wb="http://open.weibo.com/wb">
+<head>
+    <meta charset="utf-8">
+    <title>Sae网站异常流量分析以及Sql注入和爬虫安全</title>
+    <meta name="description" content="blog.chenjia.me ,chenjia.me ">
+    <meta name="author" content="chenjia.me">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="http://blog.chenjia.me/theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="http://blog.chenjia.me/theme/bootstrap.min.css" rel="stylesheet">
+    <link href="http://blog.chenjia.me/theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="http://blog.chenjia.me/theme/local.css" rel="stylesheet">
+    <link href="http://blog.chenjia.me/theme/pygments.css" rel="stylesheet">
+
+    <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href="http://blog.chenjia.me">Fashioncj Tell You</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+            
+             <li><a href="http://chenjia.me" target="_blank">Home</a></li>
+            <li><a href="http://blog.chenjia.me/pages/weibo.html">Weibo</a></li>
+        </ul>
+        </div>
+        <div><a style="float: right;padding: 10px 10px 11px;color: #ffffff;text-decoration: blink;">Enjoy simple,record &amp; share</a></div>
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+    <div class='article'>
+        <div class="content-title">
+            <h1>Sae网站异常流量分析以及Sql注入和爬虫安全</h1>
+2015-01-08(周四)
+
+by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a>
+ 
+
+
+        </div>
+	
+        <div><h1>云豆不够了？</h1>
+<p>今天早上SAE突然给我发邮件说我的云豆预计7天内用完！逗我呢。。我可是每个月10k云豆的人啊，绝对有问题。马上开电脑看，发现我的一个php架构的网站这个月7天用了5000+的云豆，之前的平均水平应该是在每日几十而已。
+<img alt="云豆" src="http://i.imgur.com/ZxRi7C1.png" /></p>
+<p>这样不科学，我们肯定要查看为什么，通过SAE的<code>计费统计-资源报表</code>来进行查看，发现HTTP的流出流量巨大，而且流入流出差距非常大。</p>
+<p><img alt="流量" src="http://i.imgur.com/OePWy1b.png" /></p>
+<p>那么问题就处在这里了，那我们得马上去看访问日志了<code>安全与运维-日志中心</code>查看HTTP请求，这里我们就可以发现最近10k的请求都来自哪里，访问了哪些页面，访问类型等，可以说是很全的，还提供下载功能。</p>
+<p>这时候我们可以发现所有的请求都在访问一个<code>list.php</code>的页面，很好，我们马上就找到问题了。</p>
+<h1>抓出元凶</h1>
+<p>上文提到了list.php这个文件，我们通过日志清楚的看到，有人在对他进行get和post请求，而且还有数字和like，猜测是爬虫或者是机器木马以及sql注入。</p>
+<p>日志</p>
+<div class="highlight"><pre><span class="n">wp</span><span class="p">.</span><span class="n">chenjia</span><span class="p">.</span><span class="n">me</span> <span class="mf">188.165.15.66</span> <span class="mi">144841</span> <span class="mi">90</span> <span class="p">[</span><span class="mo">05</span><span class="o">/</span><span class="n">Jan</span><span class="o">/</span><span class="mi">2015</span><span class="o">:</span><span class="mo">00</span><span class="o">:</span><span class="mi">09</span><span class="o">:</span><span class="mo">02</span> <span class="o">+</span><span class="mi">0800</span><span class="p">]</span> <span class="n">clever4u</span> <span class="mi">943</span> <span class="mi">1</span> <span class="s">&quot;GET /somepages/liuyan/list.php?id=2081&amp;like=1 HTTP/1.0&quot;</span> <span class="mi">200</span> <span class="mi">1758912</span> <span class="s">&quot;-&quot;</span> <span class="s">&quot;Mozilla/5.0 (compatible; AhrefsBot/5.0; +http://ahrefs.com/robot/)&quot;</span> <span class="mf">188.165.15.66.1420387742982432</span> <span class="n">yq24</span>
+<span class="n">wp</span><span class="p">.</span><span class="n">chenjia</span><span class="p">.</span><span class="n">me</span> <span class="mf">188.165.15.66</span> <span class="mi">217763</span> <span class="mi">143</span> <span class="p">[</span><span class="mo">05</span><span class="o">/</span><span class="n">Jan</span><span class="o">/</span><span class="mi">2015</span><span class="o">:</span><span class="mo">00</span><span class="o">:</span><span class="mi">09</span><span class="o">:</span><span class="mi">38</span> <span class="o">+</span><span class="mi">0800</span><span class="p">]</span> <span class="n">clever4u</span> <span class="mi">943</span> <span class="mi">1</span> <span class="s">&quot;GET /somepages/liuyan/list.php?id=2098&amp;like=1 HTTP/1.0&quot;</span> <span class="mi">200</span> <span class="mi">1758912</span> <span class="s">&quot;-&quot;</span> <span class="s">&quot;Mozilla/5.0 (compatible; AhrefsBot/5.0; +http://ahrefs.com/robot/)&quot;</span> <span class="mf">188.165.15.66.1420387778914382</span> <span class="n">yq22</span>
+<span class="n">wp</span><span class="p">.</span><span class="n">chenjia</span><span class="p">.</span><span class="n">me</span> <span class="mf">188.165.15.66</span> <span class="mi">280660</span> <span class="mi">160</span> <span class="p">[</span><span class="mo">05</span><span class="o">/</span><span class="n">Jan</span><span class="o">/</span><span class="mi">2015</span><span class="o">:</span><span class="mo">00</span><span class="o">:</span><span class="mi">09</span><span class="o">:</span><span class="mi">57</span> <span class="o">+</span><span class="mi">0800</span><span class="p">]</span> <span class="n">clever4u</span> <span class="mi">943</span> <span class="mi">1</span> <span class="s">&quot;GET /somepages/liuyan/list.php?id=2075&amp;like=1 HTTP/1.0&quot;</span> <span class="mi">200</span> <span class="mi">1758912</span> <span class="s">&quot;-&quot;</span> <span class="s">&quot;Mozilla/5.0 (compatible; AhrefsBot/5.0; +http://ahrefs.com/robot/)&quot;</span> <span class="mf">188.165.15.66.1420387797767577</span> <span class="n">yq22</span>
+<span class="n">wp</span><span class="p">.</span><span class="n">chenjia</span><span class="p">.</span><span class="n">me</span> <span class="mf">188.165.15.66</span> <span class="mi">244504</span> <span class="mi">183</span> <span class="p">[</span><span class="mo">05</span><span class="o">/</span><span class="n">Jan</span><span class="o">/</span><span class="mi">2015</span><span class="o">:</span><span class="mo">00</span><span class="o">:</span><span class="mi">10</span><span class="o">:</span><span class="mi">26</span> <span class="o">+</span><span class="mi">0800</span><span class="p">]</span> <span class="n">clever4u</span> <span class="mi">943</span> <span class="mi">1</span> <span class="s">&quot;GET /somepages/liuyan/list.php?id=2068&amp;like=1 HTTP/1.0&quot;</span> <span class="mi">200</span> <span class="mi">1758912</span> <span class="s">&quot;-&quot;</span> <span class="s">&quot;Mozilla/5.0 (compatible; AhrefsBot/5.0; +http://ahrefs.com/robot/)&quot;</span> <span class="mf">188.165.15.66.1420387826118131</span> <span class="n">yq48</span>
+<span class="n">wp</span><span class="p">.</span><span class="n">chenjia</span><span class="p">.</span><span class="n">me</span> <span class="mf">188.165.15.209</span> <span class="mi">228733</span> <span class="mi">80</span> <span class="p">[</span><span class="mo">05</span><span class="o">/</span><span class="n">Jan</span><span class="o">/</span><span class="mi">2015</span><span class="o">:</span><span class="mo">00</span><span class="o">:</span><span class="mi">11</span><span class="o">:</span><span class="mi">08</span> <span class="o">+</span><span class="mi">0800</span><span class="p">]</span> <span class="n">clever4u</span> <span class="mi">943</span> <span class="mi">1</span> <span class="s">&quot;GET /somepages/liuyan/list.php?id=2026&amp;like=1 HTTP/1.0&quot;</span> <span class="mi">200</span> <span class="mi">1758912</span> <span class="s">&quot;-&quot;</span> <span class="s">&quot;Mozilla/5.0 (compatible; AhrefsBot/5.0; +http://ahrefs.com/robot/)&quot;</span> <span class="mf">188.165.15.209.1420387868681249</span> <span class="n">yq24</span>
+</pre></div>
+
+
+<p>日志中我们获得了攻击者的ip以及http的头部信息，通过查询<code>http://ahrefs.com/robot/</code>我们发现这是一个正规的网站，也就是说攻击者仿照了这个头部信息而已（事实上这也是非常简单的）</p>
+<p>好奇一下他们在我的网页留下来了好多信息，还好我在网页留言的时候后台记录了发布者的ip和时间，我们通过查询数据库可以看到。以下内容。</p>
+<div class="highlight"><pre><span class="p">(</span><span class="mi">2269</span><span class="p">,</span> <span class="s1">&#39;AImiQwNlahFndy&#39;</span><span class="p">,</span> <span class="s1">&#39;SyvyvzufCMvuz&#39;</span><span class="p">,</span> <span class="s1">&#39;2015-01-05&#39;</span><span class="p">,</span> <span class="s1">&#39;, &lt;a href=&quot;http://canadianpharmacyrxbest.com/#cialiscanadian&quot;&gt;cialis 20mg canadian&lt;/a&gt;, &lt;a href=&quot;http://canadianpharmacyrxbest.com/#howtoordercialisincanada&quot;&gt;free cialis in canada&lt;/a&gt;, &lt;a href=&quot;http://canadianpharmacyrxbest.com/#genericviagracialiscanada&quot;&gt;canadian pharmacy cialis soft tabs&lt;/a&gt;, &lt;a href=&quot;http://canadianpharmacyrxbest.com/#buycialisonlinecanadapharmacy&quot;&gt;cialis canada over counter&lt;/a&gt;, &lt;a href=&quot;http://canadianpharmacyrxbest.com/#achetercialisaucanada&quot;&gt;mail order cialis canada&lt;/a&gt;, &lt;a href=&quot;http://canadianpharmacyrxbest.com/#cialissalesonlinecanada&quot;&gt;pharmacie francaise en ligne cialis&lt;/a&gt;, &lt;a href=&quot;http://canadianpharmacyrxbest.com/#cialiscostincanada&quot;&gt;how to order cialis from canada&lt;/a&gt;, &lt;a href=&quot;http://canadianpharmacyrxbest.com/#cialispricesincanada&quot;&gt;purchase cialis in canada&lt;/a&gt;, &lt;a href=&quot;http://canadianpharmacyrxbest.com/#cialisuspharmacy&quot;&gt;cialis online canada reviews&lt;/a&gt;, &#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;94.153.11.98&#39;</span><span class="p">,</span> <span class="s1">&#39;2015-01-05 22:18:39&#39;</span><span class="p">,</span> <span class="kt">NULL</span><span class="p">),</span>
+<span class="p">(</span><span class="mi">2270</span><span class="p">,</span> <span class="s1">&#39;wtVcdABQmufsTrhV&#39;</span><span class="p">,</span> <span class="s1">&#39;keIWGoWmNRKKdxgrYNl&#39;</span><span class="p">,</span> <span class="s1">&#39;2015-01-05&#39;</span><span class="p">,</span> <span class="s1">&#39;, &lt;a href=&quot;http://canadianpharmacyrxbest.com/#onlinepharmacycialisreviews&quot;&gt;cheap canadian cialis&lt;/a&gt;, &lt;a href=&quot;http://canadianpharmacyrxbest.com/#cialisprofessionalcanadianpharmacy&quot;&gt;cialis uk pharmacy&lt;/a&gt;, &lt;a href=&quot;http://canadianpharmacyrxbest.com/#onlinepharmacywwwbuycialisusa&quot;&gt;reliable online pharmacy cialis&lt;/a&gt;, &lt;a href=&quot;http://canadianpharmacyrxbest.com/#cialis5mgfromcanada&quot;&gt;cialis canada pharmacy&lt;/a&gt;, &lt;a href=&quot;http://canadianpharmacyrxbest.com/#canadacialisprices&quot;&gt;canada viagra cialis&lt;/a&gt;, &lt;a href=&quot;http://canadianpharmacyrxbest.com/#canadianpharmaciessellingcialis&quot;&gt;buying real cialis online canada&lt;/a&gt;, &lt;a href=&quot;http://canadianpharmacyrxbest.com/#canadianpharmacycialischeap&quot;&gt;real cialis canada&lt;/a&gt;, &lt;a href=&quot;http://canadianpharmacyrxbest.com/#canadiangenericcialis&quot;&gt;canada pharmacy drugs cialis&lt;/a&gt;, &#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;94.153.11.98&#39;</span><span class="p">,</span> <span class="s1">&#39;2015-01-05 22:26:12&#39;</span><span class="p">,</span> <span class="kt">NULL</span><span class="p">),</span>
+<span class="p">(</span><span class="mi">2271</span><span class="p">,</span> <span class="s1">&#39;YzfMXRrCh&#39;</span><span class="p">,</span> <span class="s1">&#39;XvizwRTzT&#39;</span><span class="p">,</span> <span class="s1">&#39;2015-01-05&#39;</span><span class="p">,</span> <span class="s1">&#39;, &lt;a href=&quot;http://canadianpharmacyrxbest.com/#canadianpharmacyviagraandcialis&quot;&gt;canada pharmacy cialis online&lt;/a&gt;, &lt;a href=&quot;http://canadianpharmacyrxbest.com/#bestonlinepharmacytobuycialis&quot;&gt;canadian cialis for sale&lt;/a&gt;, &lt;a href=&quot;http://canadianpharmacyrxbest.com/#cialisbrandedcanadianpharmacy&quot;&gt;cialis and viagra from canada&lt;/a&gt;, &lt;a href=&quot;http://canadianpharmacyrxbest.com/#onlinecialisincanada&quot;&gt;canadian pharmacy with cialis&lt;/a&gt;, &lt;a href=&quot;http://canadianpharmacyrxbest.com/#onlinecialiscanadian&quot;&gt;canadian pharmacy cialis 10mg&lt;/a&gt;, &lt;a href=&quot;http://canadianpharmacyrxbest.com/#cialisinternetpharmacy&quot;&gt;pharmacie francaise en ligne cialis&lt;/a&gt;, &lt;a href=&quot;http://canadianpharmacyrxbest.com/#cheapcialiscanadapharmacyonline&quot;&gt;cialis canada over counter&lt;/a&gt;, &lt;a href=&quot;http://canadianpharmacyrxbest.com/#buyingcialisonlineincanada&quot;&gt;canadian cialis reviews&lt;/a&gt;, &lt;a href=&quot;http://canadianpharmacyrxbest.com/#bestonlinepharmacycialis&quot;&gt;how much does cialis cost in canada&lt;/a&gt;, &lt;a href=&quot;http://canadianpharmacyrxbest.com/#cialisfordailyusefromcanada&quot;&gt;cialis vs viagra canada&lt;/a&gt;, &lt;a href=&quot;http://canadianpharmacyrxbest.com/#cialisbrandcanadadiscount&quot;&gt;pharmacie francaise en ligne cialis&lt;/a&gt;, &#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;94.153.11.98&#39;</span><span class="p">,</span> <span class="s1">&#39;2015-01-05 22:40:41&#39;</span><span class="p">,</span> <span class="kt">NULL</span><span class="p">),</span>
+<span class="p">(</span><span class="mi">2272</span><span class="p">,</span> <span class="s1">&#39;moyJWBpSRJEiqYCu&#39;</span><span class="p">,</span> <span class="s1">&#39;xUqloQDwcdMfZv&#39;</span><span class="p">,</span> <span class="s1">&#39;2015-01-05&#39;</span><span class="p">,</span> <span class="s1">&#39;, &lt;a href=&quot;http://canadianpharmacyrxbest.com/#cialisvsviagracanada&quot;&gt;cialis in canada over the counter&lt;/a&gt;, &lt;a href=&quot;http://canadianpharmacyrxbest.com/#cialisviagracanada&quot;&gt;cost cialis walmart pharmacy&lt;/a&gt;, &lt;a href=&quot;http://canadianpharmacyrxbest.com/#cialisviagraonlinecanada&quot;&gt;viagra cialis canadian pharmacy&lt;/a&gt;, &lt;a href=&quot;http://canadianpharmacyrxbest.com/#cheapgenericcialisfromcanada&quot;&gt;cialis canada mail order&lt;/a&gt;, &lt;a href=&quot;http://canadianpharmacyrxbest.com/#canadianpharmacyviagra+cialis&quot;&gt;pharmacy cialis canada&lt;/a&gt;, &lt;a href=&quot;http://canadianpharmacyrxbest.com/#canadianpharmacompaniescialis&quot;&gt;cialis professional canadian pharmacy&lt;/a&gt;, &lt;a href=&quot;http://canadianpharmacyrxbest.com/#bestonlinepharmaciesforcialis&quot;&gt;cialis by mail canada&lt;/a&gt;, &lt;a href=&quot;http://canadianpharmacyrxbest.com/#cialispillsincanada&quot;&gt;is canadian cialis safe&lt;/a&gt;, &lt;a href=&quot;http://canadianpharmacyrxbest.com/#cialiscanadabuy&quot;&gt;real cialis canada&lt;/a&gt;, &lt;a href=&quot;http://canadianpharmacyrxbest.com/#mailordercialiscanada&quot;&gt;20 mg cialis canada&lt;/a&gt;, &#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;94.153.11.98&#39;</span><span class="p">,</span> <span class="s1">&#39;2015-01-05 22:47:54&#39;</span><span class="p">,</span> <span class="kt">NULL</span><span class="p">),</span>
+</pre></div>
+
+
+<p>很明显的随机生成，留言的内容都是<code>&lt;a&gt;</code>标签，留下的网址都是同一个，也就是加拿大的xx医药网址（18+）的，很明显是一个推广机构在用,查询到的ip也是各种各样的~那么通过比对发现应该只有一到二个软件在攻击，不过流量巨大，每日请求的次数由几百次到几千次不等。</p>
+<h1>后续</h1>
+<ol>
+<li>我修改了一下留言的地址，然后在原来地址上留了一个纯文本来勾引spider，我看看攻击人的维护时间。</li>
+<li>我用数据库里面的留言数据在Google中进行搜索，发现很多大陆网站的留言区都被写入过，高度怀疑和wp的自动留言机器是同一个类型的恶意推广模式。</li>
+<li>使用开源框架或者内嵌开源框架一定要做好一些变化或者流量监控，互联网的nmap扫描太多了，很有可能你的网站的某一个功能就被robot给记录了。</li>
+<li>自己的完整还是每天都来看看，发现异常的情况应该及时修改，我的这个list在我旧的主机的时候已经有了，可是那时候以为是有些人搞笑的就没太在意。</li>
+<li>善于使用平台提供的工具，本地数据分析sublime就很方便~文本处理还是很快的。</li>
+</ol></div>
+<!--
+        <hr>
+        <div class="bdsharebuttonbox"><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{"tsina":"2429705450"},"bdText":"“Sae网站异常流量分析以及Sql注入和爬虫安全”  From  Fashion4cj.com","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script> -->
+        <hr>
+        <h2>Comments</h2>
+	<div class="ds-thread" data-thread-key="saewang-zhan-yi-chang-liu-liang-fen-xi-yi-ji-sqlzhu-ru-he-pa-chong-an-quan" data-title="Sae网站异常流量分析以及Sql注入和爬虫安全" data-url="http://blog.chenjia.me/articles/150108-001500.html"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"chenjia"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'fashioncjtellyou'; 
+    var disqus_title = 'Sae网站异常流量分析以及Sql注入和爬虫安全';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+ -->
+<noscript>Please enable JavaScript to view the comments </noscript>
+    </div>
+        </div>
+        
+        <div class="span3">
+
+        	<div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Share it 
+                </li>
+            	<wb:share-button appkey="2smJ3a" addition="text" type="button" default_text="我分享了:“ Sae网站异常流量分析以及Sql注入和爬虫安全  ”来自 blog.chenjia.me"></wb:share-button>
+                <li>
+                <!-- <li><wb:follow-button uid="1698025395" type="red_3" width="100%" height="24" ></wb:follow-button></li> -->
+               
+            </ul>
+            </div>
+		
+			<div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list" style="  padding-left: 0px; padding-right: 0px; ">
+                <li class="nav-header" style=" padding-left: 30px; "> 
+                Serach
+                </li>
+            	<gcse:search></gcse:search>
+                
+                
+            </ul>
+            </div>
+
+<!--
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="http://blog.chenjia.me/">Archives</a>
+                 <li><a href="http://blog.chenjia.me/tags.html">Tags</a>
+                <li><a href="http://blog.chenjia.me/" rel="alternate">Atom feed</a></li> 
+            </ul>
+            </div>
+            -->
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                <li><a href="http://blog.chenjia.me/category/original.html">Original</a></li>
+                <li><a href="http://blog.chenjia.me/category/personal-diary.html">Personal Diary</a></li>
+                <li><a href="http://blog.chenjia.me/category/reprint.html">Reprint</a></li>
+                <li><a href="http://blog.chenjia.me/category/technology-diary.html">Technology Diary</a></li>
+                <li><a href="http://blog.chenjia.me/category/tips.html">Tips</a></li>
+                   
+            </ul>
+            </div>
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Tags
+                </li>
+                <ul class="tags-cloud">
+                         <li><a href="http://blog.chenjia.me/tag/html.html">HTML</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/pelican.html">Pelican</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/january.html">January</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/linux.html">Linux</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/python.html">Python</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/september.html">September</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/route.html">Route</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/markdown.html">Markdown</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/security.html">Security</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/july.html">July</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/repo.html">Repo</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/android.html">Android</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/daily.html">Daily</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/october.html">October</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/november.html">November</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/august.html">August</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/maintain.html">Maintain</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/ios.html">iOS</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/php.html">PHP</a></li>
+                    </ul>
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Links
+                </li>
+            
+                <li><a href="http://chenjia.me/">Chenjia.me</a></li>
+                <li><a href="http://safelab.chenjia.me/">Chenjia's SafeLab</a></li>
+                <li><a href="http://wp.chenjia.me/">Clever for you</a></li>
+                <li><a href="http://ingzone.com">Ing Stdio</a></li>
+                <li><a href="http://blog.callmewhy.com/">Why's Blog</a></li>
+            </ul>
+            </div>
+
+
+            <div class="social">
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Social
+                </li>
+           
+                <li><a href="http://weibo.com/cj93">Weibo</a></li>
+                <li><a href="mailto:jiachenwk@gmail.com">E-mail</a></li>
+                <li><a href="http://lnkd.in/bNqwSB4">LinkedIn</a></li>
+                <li><a href="https://twitter.com/Fashion_cj">Twitter</a></li>
+                <li><a href="https://www.facebook.com/jia.chen.fashion">Facebook</a></li>
+            </ul>
+            </div>
+            </div>
+
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href="http://blog.chenjia.me">Fashioncj Tell You</a> &copy; chenjia.me 2014</p>
+</footer>
+
+</div> <!-- /container -->
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> -->
+<script src="http://cdn.staticfile.org/jquery/1.7.1/jquery.min.js"></script>
+<!-- <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-collapse.js"></script> -->
+<script src="http://cdn.staticfile.org/twitter-bootstrap/2.3.1/js/bootstrap-collapse.js"></script>
+
+<script>
+  				(function() {
+    				var cx = '011192397530869344338:okujolpcgai';
+    				var gcse = document.createElement('script');
+    				gcse.type = 'text/javascript';
+    				gcse.async = true;
+    				gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        			'//www.google.com/cse/cse.js?cx=' + cx;
+    			var s = document.getElementsByTagName('script')[0];
+    				s.parentNode.insertBefore(gcse, s);
+ 				 })();
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=35878534" charset="UTF-8"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create','UA-41204528-4','auto');
+  ga('send','pageview');
+</script>
+ 
+</body>
+</html>
