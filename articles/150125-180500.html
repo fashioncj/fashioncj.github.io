@@ -2,7 +2,7 @@
 <html lang="en" xmlns:wb="http://open.weibo.com/wb">
 <head>
     <meta charset="utf-8">
-    <title>Fashioncj Tell You</title>
+    <title>如何在家用宽带中搭建一个个人网站</title>
     <meta name="description" content="blog.chenjia.me ,chenjia.me ">
     <meta name="author" content="chenjia.me">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,31 +53,18 @@
     <div class="row">
 
         <div class="span9">
-        
-
-        
-
-
     <div class='article'>
         <div class="content-title">
-            <a href="http://blog.chenjia.me/articles/150125-180500.html"><h1>如何在家用宽带中搭建一个个人网站</h1></a>
-            <!-- <h3>2015-01-25(周日)
+            <h1>如何在家用宽带中搭建一个个人网站</h1>
+2015-01-25(周日)
 
 by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a>
  
 
 
- </h3> -->
-            <div class= "well small"> 2015-01-25(周日)
-
-by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a>
- 
-
-
- </div>
         </div>
-        
-        <!-- <div><p>本文介绍的是普通电信宽带用户获取公网ip及公开端口的解决方案</p>
+	
+        <div><p>本文介绍的是普通电信宽带用户获取公网ip及公开端口的解决方案</p>
 <h1>原料</h1>
 <ol>
 <li>中国大陆普通电信宽带</li>
@@ -88,209 +75,65 @@ by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia
 <h1>可以做什么</h1>
 <ol>
 <li>搭建自己的网站</li>
-<li>自己电脑架设服</div> -->
-        <div class="summary"><p>本文介绍的是普通电信宽带用户获取公网ip及公开端口的解决方案</p>
-<h1>原料</h1>
-<ol>
-<li>中国大陆普通电信宽带</li>
-<li>支持端口转发和DDNS的路由器或者直连电脑</li>
-<li>花生壳等ddns服务</li>
-<li>本机电脑上开放某端口</li>
+<li>自己电脑架设服务器和别人一起连接</li>
+<li>架设samba等文件共享服务器可以在世界各地随时随地访问</li>
+<li>远程桌面自己的电脑</li>
+<li>。。。</li>
 </ol>
-<h1>可以做什么</h1>
-<ol>
-<li>搭建自己的网站</li>
-<li>自己电脑架设服</br>........ </br><a class="btn btn-info xsmall" href="http://blog.chenjia.me/articles/150125-180500.html">read more</a></div>
-        <hr />
+<h1>教学开始</h1>
+<p>遇到不理解的名词可以评论或者百度之~</p>
+<h2>获得一个独立的公网ip</h2>
+<p>电信用户现在大多都是NATip，也就是很多人的ip是<code>100.64.*.*</code></p>
+<blockquote>
+<p>如何查看自己的ip情况呢，打开百度，输入ip搜索，你就会看到自己的ip，然后打开电脑（直接拨号的）或者路由器的设置界面，看拨号的ip是否一致，如果一致则说明是公网ip，如果不是则说明是内网ip</p>
+</blockquote>
+<p>如果是内网ip的话电信用户可以打10000转4报修宽带故障，转人工坐席，告诉他要申请外网ip，他就会给你开通，开通后等几个小时断开宽带重新连接就可以看到效果了。</p>
+<h2>配置DDNS</h2>
+<p>这里以小米路由器mini来说明</p>
+<p>首先我们打开<a href="http://www.oray.com/" title="花生壳官网">http://www.oray.com/</a>之类的DDNS服务网站，主要先查看你的路由器支持哪家DDNS服务，注册账号，获得DDNS服务</p>
+<p>然后我们将注册的账号密码域名填入路由器设置中，更新时间10分钟到1个小时都可以，强制更新时间一个小时就好，宽带的ip变化其实不是很频繁</p>
+<p>配置完成后我们更新域名的dns服务状态，通过<code>Windows的nslookup 域名或者Linux的dig 域名</code>看看解析出来的dns是否和宽带的ip一致，dns更新时间和dns服务商有关</p>
+<p>如果一致则更新成功</p>
+<h2>配置端口转发</h2>
+<p>如果你是直连的就无视这一步，如果是路由器的话一台设备的话可以用DMZ全局转发，如果多台设备按照 <code>协议，开放端口，局域网机器的ip，局域网机器服务的端口</code>来进行配置，一般80端口都是被路由器占用，配置好后要记得保存让之生效</p>
+<p>配置成功后我们可以用<code>telnet 域名 端口</code>来测试端口是否成功</p>
+<h2>绑定自己的域名</h2>
+<p>如果你申请了自己的域名可以将某一个二级域名的DNS添加一条记录<code>CNAME</code>到配置好的域名就ok了~dig的时候就可以看到CNAME的跳转了</p>
+<h2>然后配置本机的服务</h2>
+<p>比如游戏服务器的端口，远程桌面的3389，ssh的22端口，goagent的8087~设置好转发就ok~</p></div>
+<!--
+        <hr>
+        <div class="bdsharebuttonbox"><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{"tsina":"2429705450"},"bdText":"“如何在家用宽带中搭建一个个人网站”  From  Fashion4cj.com","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script> -->
+        <hr>
+        <h2>Comments</h2>
+	<div class="ds-thread" data-thread-key="ru-he-zai-jia-yong-kuan-dai-zhong-da-jian-yi-ge-ge-ren-wang-zhan" data-title="如何在家用宽带中搭建一个个人网站" data-url="http://blog.chenjia.me/articles/150125-180500.html"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"chenjia"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'fashioncjtellyou'; 
+    var disqus_title = '如何在家用宽带中搭建一个个人网站';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+ -->
+<noscript>Please enable JavaScript to view the comments </noscript>
     </div>
-		
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://blog.chenjia.me/articles/150108-001500.html"><h2>Sae网站异常流量分析以及Sql注入和爬虫安全</h2></a>
-        <div class= "well small"> 2015-01-08(周四)
-
-by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a>
- 
-
-
- </div>
-        <div class="summary"><h1>云豆不够了？</h1>
-<p>今天早上SAE突然给我发邮件说我的云豆预计7天内用完！逗我呢。。我可是每个月10k云豆的人啊，绝对有问题 ...</p> <a class="btn btn-info xsmall" href="http://blog.chenjia.me/articles/150108-001500.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://blog.chenjia.me/articles/141208-002200.html"><h2>Linux 远程连接 Windows电脑</h2></a>
-        <div class= "well small"> 2014-12-08(周一)
-
-by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a>
- 
-
-
- </div>
-        <div class="summary"><p>首先，windows电脑要开启远程登录</p>
-<p>然后，Ubuntu下载rdesktop~</p>
-<p>然后用命令 ...</p> <a class="btn btn-info xsmall" href="http://blog.chenjia.me/articles/141208-002200.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://blog.chenjia.me/articles/141201-002000.html"><h2>Eclipse for Android 配置过程</h2></a>
-        <div class= "well small"> 2014-12-01(周一)
-
-by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a>
- 
-
-
- </div>
-        <div class="summary"><p>Android5.0的代码都出来好久了，官网的ADT还是旧的，对于我这样新版本就要换新eclipse的人觉得好痛苦的等待。那就自己动手吧 ...</p> <a class="btn btn-info xsmall" href="http://blog.chenjia.me/articles/141201-002000.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://blog.chenjia.me/articles/141127-210600.html"><h2>为安全研究专门开了一个新Blog</h2></a>
-        <div class= "well small"> 2014-11-27(周四)
-
-by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a>
- 
-
-
- </div>
-        <div class="summary"><p>回顾这几个月来做的事情，准备吧某些东西给写出来，因为研究这种东西过程往往比结果来的漫长，来的枯燥。</p>
-<p>刚好之前汪海推荐过一个叫Typecho的博客系统 ...</p> <a class="btn btn-info xsmall" href="http://blog.chenjia.me/articles/141127-210600.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://blog.chenjia.me/articles/141124-145800.html"><h2>Andorid 颜色渐变的实现</h2></a>
-        <div class= "well small"> 2014-11-24(周一)
-
-by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a>
- 
-
-
- </div>
-        <div class="summary"><h1>颜色渐变</h1>
-<p>今天看到一个软件清理~动态效果很不错，从黄色到绿色表示的是电脑垃圾减少的过程~</p>
-<p>然后就想实现一个 ...</p> <a class="btn btn-info xsmall" href="http://blog.chenjia.me/articles/141124-145800.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://blog.chenjia.me/articles/141120-163000.html"><h2>申请VPS.me免费主机</h2></a>
-        <div class= "well small"> 2014-11-20(周四)
-
-by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a>
- 
-
-
- </div>
-        <div class="summary"><h1>VPS主机是什么</h1>
-<p>VPS其实就是比主机更高级的一个网络服务，他直接的是提供一个真正虚拟主机给你，和你自己的的电脑是一样的。你可以通过VNC或者SSH进行连接 ...</p> <a class="btn btn-info xsmall" href="http://blog.chenjia.me/articles/141120-163000.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://blog.chenjia.me/articles/141108-143000.html"><h2>Ubuntu 添加第三方源(PPA)</h2></a>
-        <div class= "well small"> 2014-11-08(周六)
-
-by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a>
- 
-
-
- </div>
-        <div class="summary"><h1>Ubuntu添加PPA源并安装软件</h1>
-<p>大家都知道<code>apt-get</code>可以很方便的获得很多程序，可是有的程序因为某些原因无法直接在官方的源里面下载 ...</p> <a class="btn btn-info xsmall" href="http://blog.chenjia.me/articles/141108-143000.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://blog.chenjia.me/articles/141108-130200.html"><h2>Repo的使用</h2></a>
-        <div class= "well small"> 2014-11-08(周六)
-
-by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a>
- 
-
-
- </div>
-        <div class="summary"><h1>repo 简介</h1>
-<p>Repo是google用Python脚本写的调用git的一个脚本，主要是用来下载、管理Android项目的软件仓库 ...</p> <a class="btn btn-info xsmall" href="http://blog.chenjia.me/articles/141108-130200.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://blog.chenjia.me/articles/141102-011500.html"><h2>【2014-11-1】Pelican添加多说评论</h2></a>
-        <div class= "well small"> 2014-11-02(周日)
-
-by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a>
- 
-
-
- </div>
-        <div class="summary"><h1>多说评论</h1>
-<p>据说是现在大陆很流行的一个评论~关键是~好多人都在用~不过他们用的是HEXO ...</p> <a class="btn btn-info xsmall" href="http://blog.chenjia.me/articles/141102-011500.html">read more</a></div>
-    </div>	
-				
-<div class="pagination">
-<ul>
-    <li class="prev disabled"><a href="#">&larr; Previous</a></li>
-
-    <li class="active"><a href="http://blog.chenjia.me/index.html">1</a></li>
-    <li class=""><a href="http://blog.chenjia.me/index2.html">2</a></li>
-    <li class=""><a href="http://blog.chenjia.me/index3.html">3</a></li>
-    <li class=""><a href="http://blog.chenjia.me/index4.html">4</a></li>
-
-    <li class="next"><a href="http://blog.chenjia.me/index2.html">Next &rarr;</a></li>
-
-</ul>
-</div>
- 
-  
         </div>
         
         <div class="span3">
@@ -300,7 +143,7 @@ by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia
                 <li class="nav-header"> 
                 Share it 
                 </li>
-            	<wb:share-button appkey="2smJ3a" addition="text" type="button" default_text="我分享了:“ Fashioncj Tell You  ”来自 blog.chenjia.me"></wb:share-button>
+            	<wb:share-button appkey="2smJ3a" addition="text" type="button" default_text="我分享了:“ 如何在家用宽带中搭建一个个人网站  ”来自 blog.chenjia.me"></wb:share-button>
                 <li>
                 <!-- <li><wb:follow-button uid="1698025395" type="red_3" width="100%" height="24" ></wb:follow-button></li> -->
                
