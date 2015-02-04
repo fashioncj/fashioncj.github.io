@@ -60,15 +60,15 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="http://blog.chenjia.me/articles/141208-002200.html"><h1>Linux 远程连接 Windows电脑</h1></a>
-            <!-- <h3>2014-12-08(周一)
+            <a href="http://blog.chenjia.me/articles/150205-002400.html"><h1>发现那些尝试登入你SSH的ip</h1></a>
+            <!-- <h3>2015-02-05(周四)
 
 by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a>
  
 
 
  </h3> -->
-            <div class= "well small"> 2014-12-08(周一)
+            <div class= "well small"> 2015-02-05(周四)
 
 by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a>
  
@@ -77,17 +77,39 @@ by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia
  </div>
         </div>
         
-        <!-- <div><p>首先，windows电脑要开启远程登录</p>
-<p>然后，Ubuntu下载rdesktop~</p>
-<p>然后用命令<code>rdesktop -x hex 111.111.111.111 -g 1024*786 -f</code></p>
-<p>经常使用<code>rdesktop -x hex 111.111.11.1 -a 24 -f</code> 使用ctrl+enter可以缩</div> -->
-        <div class="summary"><p>首先，windows电脑要开启远程登录</p>
-<p>然后，Ubuntu下载rdesktop~</p>
-<p>然后用命令<code>rdesktop -x hex 111.111.111.111 -g 1024*786 -f</code></p>
-<p>经常使用<code>rdesktop -x hex 111.111.11.1 -a 24 -f</code> 使用ctrl+enter可以缩</br>........ </br><a class="btn btn-info xsmall" href="http://blog.chenjia.me/articles/141208-002200.html">read more</a></div>
+        <!-- <div><h1>发现</h1>
+<p>今天看到有人在v2ex说浙江的肉鸡好多~想到当时我的vnc端口也被暴力登录过，就好奇心一下！看了一下我SSH的登录日志~</p>
+<p>果然惨不忍睹~</p>
+<h2>如何查看暴力登录日志</h2>
+<p>在终端运行：<code>grep "Failed password for root" /var/log/auth.log | awk '{print $11}' </div> -->
+        <div class="summary"><h1>发现</h1>
+<p>今天看到有人在v2ex说浙江的肉鸡好多~想到当时我的vnc端口也被暴力登录过，就好奇心一下！看了一下我SSH的登录日志~</p>
+<p>果然惨不忍睹~</p>
+<h2>如何查看暴力登录日志</h2>
+<p>在终端运行：<code>grep "Failed password for root" /var/log/auth.log | awk '{print $11}' </br>........ </br><a class="btn btn-info xsmall" href="http://blog.chenjia.me/articles/150205-002400.html">read more</a></div>
         <hr />
     </div>
 		
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://blog.chenjia.me/articles/141208-002200.html"><h2>Linux 远程连接 Windows电脑</h2></a>
+        <div class= "well small"> 2014-12-08(周一)
+
+by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>首先，windows电脑要开启远程登录</p>
+<p>然后，Ubuntu下载rdesktop~</p>
+<p>然后用命令 ...</p> <a class="btn btn-info xsmall" href="http://blog.chenjia.me/articles/141208-002200.html">read more</a></div>
+    </div>	
+				
 
  
         
@@ -222,25 +244,26 @@ by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia
                 Tags
                 </li>
                 <ul class="tags-cloud">
-                         <li><a href="http://blog.chenjia.me/tag/august.html">August</a></li>
-                         <li><a href="http://blog.chenjia.me/tag/november.html">November</a></li>
-                         <li><a href="http://blog.chenjia.me/tag/daily.html">Daily</a></li>
-                         <li><a href="http://blog.chenjia.me/tag/january.html">January</a></li>
-                         <li><a href="http://blog.chenjia.me/tag/linux.html">Linux</a></li>
-                         <li><a href="http://blog.chenjia.me/tag/android.html">Android</a></li>
-                         <li><a href="http://blog.chenjia.me/tag/markdown.html">Markdown</a></li>
-                         <li><a href="http://blog.chenjia.me/tag/september.html">September</a></li>
-                         <li><a href="http://blog.chenjia.me/tag/security.html">Security</a></li>
-                         <li><a href="http://blog.chenjia.me/tag/html.html">HTML</a></li>
                          <li><a href="http://blog.chenjia.me/tag/maintain.html">Maintain</a></li>
-                         <li><a href="http://blog.chenjia.me/tag/ios.html">iOS</a></li>
-                         <li><a href="http://blog.chenjia.me/tag/php.html">PHP</a></li>
-                         <li><a href="http://blog.chenjia.me/tag/route.html">Route</a></li>
-                         <li><a href="http://blog.chenjia.me/tag/july.html">July</a></li>
-                         <li><a href="http://blog.chenjia.me/tag/python.html">Python</a></li>
-                         <li><a href="http://blog.chenjia.me/tag/repo.html">Repo</a></li>
-                         <li><a href="http://blog.chenjia.me/tag/october.html">October</a></li>
                          <li><a href="http://blog.chenjia.me/tag/pelican.html">Pelican</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/linux.html">Linux</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/january.html">January</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/repo.html">Repo</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/daily.html">Daily</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/october.html">October</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/route.html">Route</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/ios.html">iOS</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/august.html">August</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/html.html">HTML</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/september.html">September</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/php.html">PHP</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/python.html">Python</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/android.html">Android</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/february.html">February</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/july.html">July</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/november.html">November</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/markdown.html">Markdown</a></li>
+                         <li><a href="http://blog.chenjia.me/tag/security.html">Security</a></li>
                     </ul>
             </ul>
             </div>

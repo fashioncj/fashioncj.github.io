@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Fashioncj Tell You</title><link href="http://blog.chenjia.me/" rel="alternate"></link><link href="http://blog.chenjia.me/feeds/technology-diary.atom.xml" rel="self"></link><id>http://blog.chenjia.me/</id><updated>2015-01-25T18:05:00+08:00</updated><entry><title>如何在家用宽带中搭建一个个人网站</title><link href="http://blog.chenjia.me/articles/150125-180500.html" rel="alternate"></link><updated>2015-01-25T18:05:00+08:00</updated><author><name>chenjia.me</name></author><id>tag:blog.chenjia.me,2015-01-25:articles/150125-180500.html</id><summary type="html">&lt;p&gt;本文介绍的是普通电信宽带用户获取公网ip及公开端口的解决方案&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Fashioncj Tell You</title><link href="http://blog.chenjia.me/" rel="alternate"></link><link href="http://blog.chenjia.me/feeds/technology-diary.atom.xml" rel="self"></link><id>http://blog.chenjia.me/</id><updated>2015-02-05T00:24:00+08:00</updated><entry><title>发现那些尝试登入你SSH的ip</title><link href="http://blog.chenjia.me/articles/150205-002400.html" rel="alternate"></link><updated>2015-02-05T00:24:00+08:00</updated><author><name>chenjia.me</name></author><id>tag:blog.chenjia.me,2015-02-05:articles/150205-002400.html</id><summary type="html">&lt;h1&gt;发现&lt;/h1&gt;
+&lt;p&gt;今天看到有人在v2ex说浙江的肉鸡好多~想到当时我的vnc端口也被暴力登录过，就好奇心一下！看了一下我SSH的登录日志~&lt;/p&gt;
+&lt;p&gt;果然惨不忍睹~&lt;/p&gt;
+&lt;h2&gt;如何查看暴力登录日志&lt;/h2&gt;
+&lt;p&gt;在终端运行：&lt;code&gt;grep "Failed password for root" /var/log/auth.log | awk '{print $11}' | sort | uniq -c | sort -nr | more&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;其中&lt;code&gt;auth.log&lt;/code&gt;或者&lt;code&gt;auth.log.1&lt;/code&gt;，以及已经被压缩的&lt;code&gt;auth.log.gz&lt;/code&gt;解压后的文件~&lt;/p&gt;
+&lt;p&gt;然后你就可以看到密密麻麻的记录了~&lt;/p&gt;
+&lt;h2&gt;总结&lt;/h2&gt;
+&lt;p&gt;根据ip查找发现大部分ip都是在大家deny.host里面~
+所以我们可以将对应的ip加入到ban列表~也可以用deny host的python脚本~&lt;/p&gt;
+&lt;p&gt;比较快速的就是修改端口了~我看了我另外一个vps主机的记录~因为端口变化了所以登录日志就很干净~&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;修改SSh端口，禁止root登陆
+这个比较简单，只需要修改&lt;code&gt;/etc/ssh/sshd_config&lt;/code&gt;文件就好了&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo vi /etc/ssh/sshd_config&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;Port&lt;/span&gt; &lt;span class="mi"&gt;4484&lt;/span&gt;
+&lt;span class="cp"&gt;#这里就该为你认为别人猜不到的端口号&lt;/span&gt;
+&lt;span class="n"&gt;PermitRootLogin&lt;/span&gt; &lt;span class="n"&gt;no&lt;/span&gt;
+&lt;span class="cp"&gt;#这里改为no即为禁止root登陆&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;最后保存，重启
+&lt;code&gt;sudo /etc/init.d/ssh restart&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</summary><category term="Linux"></category><category term="February"></category></entry><entry><title>如何在家用宽带中搭建一个个人网站</title><link href="http://blog.chenjia.me/articles/150125-180500.html" rel="alternate"></link><updated>2015-01-25T18:05:00+08:00</updated><author><name>chenjia.me</name></author><id>tag:blog.chenjia.me,2015-01-25:articles/150125-180500.html</id><summary type="html">&lt;p&gt;本文介绍的是普通电信宽带用户获取公网ip及公开端口的解决方案&lt;/p&gt;
 &lt;h1&gt;原料&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;中国大陆普通电信宽带&lt;/li&gt;
