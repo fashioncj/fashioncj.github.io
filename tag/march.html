@@ -2,7 +2,7 @@
 <html lang="en" xmlns:wb="http://open.weibo.com/wb">
 <head>
     <meta charset="utf-8">
-    <title>发现那些尝试登入你SSH的ip</title>
+    <title>Fashioncj Tell You</title>
     <meta name="description" content="blog.chenjia.me ,chenjia.me ">
     <meta name="author" content="chenjia.me">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,75 +53,61 @@
     <div class="row">
 
         <div class="span9">
+        
+
+        
+
+
     <div class='article'>
         <div class="content-title">
-            <h1>发现那些尝试登入你SSH的ip</h1>
-2015-02-05(周四)
+            <a href="http://blog.chenjia.me/articles/150303-233500.html"><h1>【2015年3月3日】碎碎念</h1></a>
+            <!-- <h3>2015-03-03(周二)
 
 by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a>
  
 
 
+ </h3> -->
+            <div class= "well small"> 2015-03-03(周二)
+
+by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a>
+ 
+
+
+ </div>
         </div>
-	
-        <div><h1>发现</h1>
-<p>今天看到有人在v2ex说浙江的肉鸡好多~想到当时我的vnc端口也被暴力登录过，就好奇心一下！看了一下我SSH的登录日志~</p>
-<p>果然惨不忍睹~</p>
-<h2>如何查看暴力登录日志</h2>
-<p>在终端运行：<code>grep "Failed password for root" /var/log/auth.log | awk '{print $11}' | sort | uniq -c | sort -nr | more</code></p>
-<p>其中<code>auth.log</code>或者<code>auth.log.1</code>，以及已经被压缩的<code>auth.log.gz</code>解压后的文件~</p>
-<p>然后你就可以看到密密麻麻的记录了~</p>
-<h2>总结</h2>
-<p>根据ip查找发现大部分ip都是在大家deny.host里面~
-所以我们可以将对应的ip加入到ban列表~也可以用deny host的python脚本~</p>
-<p>比较快速的就是修改端口了~我看了我另外一个vps主机的记录~因为端口变化了所以登录日志就很干净~</p>
-<blockquote>
-<p>修改SSh端口，禁止root登陆
-这个比较简单，只需要修改<code>/etc/ssh/sshd_config</code>文件就好了</p>
-<p><code>sudo vi /etc/ssh/sshd_config</code></p>
-<div class="highlight"><pre><span class="n">Port</span> <span class="mi">4484</span>
-<span class="cp">#这里就该为你认为别人猜不到的端口号</span>
-<span class="n">PermitRootLogin</span> <span class="n">no</span>
-<span class="cp">#这里改为no即为禁止root登陆</span>
-</pre></div>
-
-
-<p>最后保存，重启
-<code>sudo /etc/init.d/ssh restart</code></p>
-</blockquote></div>
-<!--
-        <hr>
-        <div class="bdsharebuttonbox"><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a></div>
-<script>window._bd_share_config={"common":{"bdSnsKey":{"tsina":"2429705450"},"bdText":"“发现那些尝试登入你SSH的ip”  From  Fashion4cj.com","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script> -->
-        <hr>
-        <h2>Comments</h2>
-	<div class="ds-thread" data-thread-key="fa-xian-na-xie-chang-shi-deng-ru-ni-sshde-ip" data-title="发现那些尝试登入你SSH的ip" data-url="http://blog.chenjia.me/articles/150205-002400.html"></div>
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"chenjia"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-<!-- 
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_shortname = 'fashioncjtellyou'; 
-    var disqus_title = '发现那些尝试登入你SSH的ip';
-
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
- -->
-<noscript>Please enable JavaScript to view the comments </noscript>
+        
+        <!-- <div><h1>一</h1>
+<p>大学最后一个寒假，还有一周的时间。</p>
+<p>在家，过得还不错，不过还是和以前一样，永远的拖延症。</p>
+<p>说好的甜点~可惜吃的人不在了~然后就一直没动力做~面粉都买了！！！</p>
+<p>然后论文还是没看，就看了一点书~</p>
+<p>大部分的时间都沉迷于游戏和哔哩哔哩~</p>
+<p>然后~还有聊天~</p>
+<p>不过~导师的任务Panda和Androi</div> -->
+        <div class="summary"><h1>一</h1>
+<p>大学最后一个寒假，还有一周的时间。</p>
+<p>在家，过得还不错，不过还是和以前一样，永远的拖延症。</p>
+<p>说好的甜点~可惜吃的人不在了~然后就一直没动力做~面粉都买了！！！</p>
+<p>然后论文还是没看，就看了一点书~</p>
+<p>大部分的时间都沉迷于游戏和哔哩哔哩~</p>
+<p>然后~还有聊天~</p>
+<p>不过~导师的任务Panda和Androi</br>........ </br><a class="btn btn-info xsmall" href="http://blog.chenjia.me/articles/150303-233500.html">read more</a></div>
+        <hr />
     </div>
+		
+<div class="pagination">
+<ul>
+    <li class="prev disabled"><a href="#">&larr; Previous</a></li>
+
+    <li class="active"><a href="http://blog.chenjia.me/tag/march.html">1</a></li>
+
+    <li class="next disabled"><a href="#">&rarr; Next</a></li>
+
+</ul>
+</div>
+ 
+  
         </div>
         
         <div class="span3">
@@ -131,7 +117,7 @@ var duoshuoQuery = {short_name:"chenjia"};
                 <li class="nav-header"> 
                 Share it 
                 </li>
-            	<wb:share-button appkey="2smJ3a" addition="text" type="button" default_text="我分享了:“ 发现那些尝试登入你SSH的ip  ”来自 blog.chenjia.me"></wb:share-button>
+            	<wb:share-button appkey="2smJ3a" addition="text" type="button" default_text="我分享了:“ Fashioncj Tell You  ”来自 blog.chenjia.me"></wb:share-button>
                 <li>
                 <!-- <li><wb:follow-button uid="1698025395" type="red_3" width="100%" height="24" ></wb:follow-button></li> -->
                
