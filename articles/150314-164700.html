@@ -2,7 +2,7 @@
 <html lang="en" xmlns:wb="http://open.weibo.com/wb">
 <head>
     <meta charset="utf-8">
-    <title>Fashioncj Tell You</title>
+    <title>shadowsocks同时监听ipv6&4端口</title>
     <meta name="description" content="blog.chenjia.me ,chenjia.me ">
     <meta name="author" content="chenjia.me">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,129 +53,55 @@
     <div class="row">
 
         <div class="span9">
-        
-
-        
-
-
     <div class='article'>
         <div class="content-title">
-            <a href="http://blog.chenjia.me/articles/140819-003000.html"><h1>【2014年8月18日】Android第三方SDK使用的一些提示</h1></a>
-            <!-- <h3>2014-08-19(周二)
+            <h1>shadowsocks同时监听ipv6&4端口</h1>
+2015-03-14(周六)
 
 by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a>
  
 
 
- </h3> -->
-            <div class= "well small"> 2014-08-19(周二)
-
-by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a>
- 
-
-
- </div>
         </div>
-        
-        <!-- <div><h1>前言</h1>
-<p>今天有个学弟问了我一个问题，关于蛐蛐儿的SDK为什么DEMO可以运行但是他一使用就直接报错。</p>
-<p>我第一个想法是lib配置不对，提示应该加入lib order中。</p>
-<p>这是新版本ADT中导入第三方类库经常出现CLASS NOT FOUND的原因、</p>
-<p>学弟说他被这个问题困扰了很久了。一直导致无法继续敲代码。</p>
-<p>然后我就试了一下</div> -->
-        <div class="summary"><h1>前言</h1>
-<p>今天有个学弟问了我一个问题，关于蛐蛐儿的SDK为什么DEMO可以运行但是他一使用就直接报错。</p>
-<p>我第一个想法是lib配置不对，提示应该加入lib order中。</p>
-<p>这是新版本ADT中导入第三方类库经常出现CLASS NOT FOUND的原因、</p>
-<p>学弟说他被这个问题困扰了很久了。一直导致无法继续敲代码。</p>
-<p>然后我就试了一下</br>........ </br><a class="btn btn-info xsmall" href="http://blog.chenjia.me/articles/140819-003000.html">read more</a></div>
-        <hr />
+	
+        <div><p>在ipv6网络下我们可以利用ipv6的快速来越过ipv4的速度限制！</p>
+<p>ss监听ipv4 和 ipv6 端口</p>
+<div class="highlight"><pre><span class="n">ssserver</span> <span class="o">-</span><span class="n">p</span> <span class="mi">2123</span> <span class="o">-</span><span class="n">k</span> <span class="o">****</span> <span class="o">-</span><span class="n">m</span> <span class="n">rc4</span><span class="o">-</span><span class="n">md5</span> <span class="o">-</span><span class="n">s</span> <span class="err">&#39;</span><span class="o">::</span><span class="err">&#39;</span> <span class="o">-</span><span class="n">d</span> <span class="n">start</span>
+<span class="n">ssserver</span> <span class="o">-</span><span class="n">p</span> <span class="mi">2123</span> <span class="o">-</span><span class="n">k</span> <span class="o">****</span> <span class="o">-</span><span class="n">m</span> <span class="n">rc4</span><span class="o">-</span><span class="n">md5</span> <span class="o">-</span><span class="n">s</span> <span class="err">&#39;</span><span class="o">::</span><span class="err">&#39;</span> <span class="o">-</span><span class="n">d</span> <span class="n">stop</span>
+</pre></div></div>
+<!--
+        <hr>
+        <div class="bdsharebuttonbox"><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{"tsina":"2429705450"},"bdText":"“shadowsocks同时监听ipv6&4端口”  From  Fashion4cj.com","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script> -->
+        <hr>
+        <h2>Comments</h2>
+	<div class="ds-thread" data-thread-key="shadowsockstong-shi-jian-ting-ipv64duan-kou" data-title="shadowsocks同时监听ipv6&4端口" data-url="http://blog.chenjia.me/articles/150314-164700.html"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"chenjia"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'fashioncjtellyou'; 
+    var disqus_title = 'shadowsocks同时监听ipv6&4端口';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+ -->
+<noscript>Please enable JavaScript to view the comments </noscript>
     </div>
-		
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://blog.chenjia.me/articles/140818-010300.html"><h2>【2014年8月17日】Android的设备管理器（一）</h2></a>
-        <div class= "well small"> 2014-08-18(周一)
-
-by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a>
- 
-
-
- </div>
-        <div class="summary"><p>Android设备管理器的使用</p> <a class="btn btn-info xsmall" href="http://blog.chenjia.me/articles/140818-010300.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://blog.chenjia.me/articles/140815-015000.html"><h2>【2014年8月14日】关于正则表达式的一些事情</h2></a>
-        <div class= "well small"> 2014-08-15(周五)
-
-by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a>
- 
-
-
- </div>
-        <div class="summary"><p>PHP中正则表达式的用法</p> <a class="btn btn-info xsmall" href="http://blog.chenjia.me/articles/140815-015000.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://blog.chenjia.me/articles/140813-014300.html"><h2>【2014年8月12日】分享一些好的简历生成网站</h2></a>
-        <div class= "well small"> 2014-08-13(周三)
-
-by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a>
- 
-
-
- </div>
-        <div class="summary"><p>推荐几个好的 简历网站。</p> <a class="btn btn-info xsmall" href="http://blog.chenjia.me/articles/140813-014300.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://blog.chenjia.me/articles/140811-004200.html"><h2>【2014年8月10日】原来，没有GPS，手机是这么定位的</h2></a>
-        <div class= "well small"> 2014-08-11(周一)
-
-by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a>
- 
-
-
- </div>
-        <div class="summary"><p>手机如何通过WiFi和基站进行定位</p> <a class="btn btn-info xsmall" href="http://blog.chenjia.me/articles/140811-004200.html">read more</a></div>
-    </div>	
-				
-<div class="pagination">
-<ul>
-    <li class="prev disabled"><a href="#">&larr; Previous</a></li>
-
-    <li class="active"><a href="http://blog.chenjia.me/tag/august.html">1</a></li>
-
-    <li class="next disabled"><a href="#">&rarr; Next</a></li>
-
-</ul>
-</div>
- 
-  
         </div>
         
         <div class="span3">
@@ -185,7 +111,7 @@ by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia
                 <li class="nav-header"> 
                 Share it 
                 </li>
-            	<wb:share-button appkey="2smJ3a" addition="text" type="button" default_text="我分享了:“ Fashioncj Tell You  ”来自 blog.chenjia.me"></wb:share-button>
+            	<wb:share-button appkey="2smJ3a" addition="text" type="button" default_text="我分享了:“ shadowsocks同时监听ipv6&4端口  ”来自 blog.chenjia.me"></wb:share-button>
                 <li>
                 <!-- <li><wb:follow-button uid="1698025395" type="red_3" width="100%" height="24" ></wb:follow-button></li> -->
                
