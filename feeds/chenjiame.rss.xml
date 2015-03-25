@@ -1,5 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Fashioncj Tell You</title><link>http://blog.chenjia.me/</link><description></description><atom:link href="http://blog.chenjia.me/feeds%5Cchenjiame.rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 14 Mar 2015 16:48:00 +0800</lastBuildDate><item><title>shadowsocks同时监听ipv6&amp;4端口</title><link>http://blog.chenjia.me/articles/150314-164700.html</link><description>&lt;p&gt;在ipv6网络下我们可以利用ipv6的快速来越过ipv4的速度限制！&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Fashioncj Tell You</title><link>http://blog.chenjia.me/</link><description></description><atom:link href="http://blog.chenjia.me/feeds%5Cchenjiame.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 25 Mar 2015 13:14:00 +0800</lastBuildDate><item><title>查找手机QQ特别关心铃声</title><link>http://blog.chenjia.me/articles/150325-131400.html</link><description>&lt;p&gt;iOS QQ因为苹果限制导致不可以更换特别关心铃声~不过作为程序猿怎么会被限制呢~&lt;/p&gt;
+&lt;h1&gt;获得qq特别关心铃声&lt;/h1&gt;
+&lt;p&gt;小白步骤~
++ root过的手机
++ 在android qq中试听喜欢的铃声
++ 用RE文件管理器或相同的文件管理器进入&lt;code&gt;data/data/com.tencent.mobileqq/files/http:/imgcache.gtimg.cn/club/mobile/special_sound/&lt;/code&gt;目录下
++ 里面就是想要的铃声&lt;/p&gt;
+&lt;h2&gt;以下是程序猿的步骤~&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;下载qq android版本&lt;/li&gt;
+&lt;li&gt;安装在一个root过的手机里面&lt;/li&gt;
+&lt;li&gt;登录qq&lt;/li&gt;
+&lt;li&gt;打开特别关心铃声设置页面&lt;/li&gt;
+&lt;li&gt;用adb.exe 连接手机&lt;/li&gt;
+&lt;li&gt;使用命令 adb.exe shell 进入&lt;/li&gt;
+&lt;li&gt;输入命令 &lt;code&gt;cd data/data/com.tencent.mobileqq&lt;/code&gt;进入qq目录&lt;/li&gt;
+&lt;li&gt;在手机页面中试听你喜欢的铃声&lt;/li&gt;
+&lt;li&gt;使用命令 &lt;code&gt;find -mmin -10&lt;/code&gt;就可以看到文件了~&lt;/li&gt;
+&lt;li&gt;然后复制出来就好啦~&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;上图
+&lt;img alt="" src="http://i.imgur.com/58JHg54.png" /&gt;&lt;/p&gt;
+&lt;h1&gt;修改iOS QQ的特别关注铃声&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;用pp助手等工具将MP3文件转为caf格式铃声&lt;/li&gt;
+&lt;li&gt;root过的iPhone&lt;/li&gt;
+&lt;li&gt;用ifile或者文件管理器打开qq的程序目录&lt;/li&gt;
+&lt;li&gt;替换1.caf文件即可~&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">chenjia.me</dc:creator><pubDate>Wed, 25 Mar 2015 13:14:00 +0800</pubDate><guid>tag:blog.chenjia.me,2015-03-25:articles/150325-131400.html</guid><category>March</category><category>Android</category></item><item><title>shadowsocks同时监听ipv6&amp;4端口</title><link>http://blog.chenjia.me/articles/150314-164700.html</link><description>&lt;p&gt;在ipv6网络下我们可以利用ipv6的快速来越过ipv4的速度限制！&lt;/p&gt;
 &lt;p&gt;ss监听ipv4 和 ipv6 端口&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;ssserver&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="mi"&gt;2123&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;k&lt;/span&gt; &lt;span class="o"&gt;****&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="n"&gt;rc4&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;md5&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="n"&gt;start&lt;/span&gt;
 &lt;span class="n"&gt;ssserver&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="mi"&gt;2123&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;k&lt;/span&gt; &lt;span class="o"&gt;****&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="n"&gt;rc4&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;md5&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="n"&gt;stop&lt;/span&gt;

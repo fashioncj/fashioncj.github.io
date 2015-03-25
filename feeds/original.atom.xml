@@ -1,5 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Fashioncj Tell You</title><link href="http://blog.chenjia.me/" rel="alternate"></link><link href="http://blog.chenjia.me/feeds/original.atom.xml" rel="self"></link><id>http://blog.chenjia.me/</id><updated>2014-11-27T21:06:00+08:00</updated><entry><title>为安全研究专门开了一个新Blog</title><link href="http://blog.chenjia.me/articles/141127-210600.html" rel="alternate"></link><updated>2014-11-27T21:06:00+08:00</updated><author><name>chenjia.me</name></author><id>tag:blog.chenjia.me,2014-11-27:articles/141127-210600.html</id><summary type="html">&lt;p&gt;回顾这几个月来做的事情，准备吧某些东西给写出来，因为研究这种东西过程往往比结果来的漫长，来的枯燥。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Fashioncj Tell You</title><link href="http://blog.chenjia.me/" rel="alternate"></link><link href="http://blog.chenjia.me/feeds/original.atom.xml" rel="self"></link><id>http://blog.chenjia.me/</id><updated>2015-03-25T13:14:00+08:00</updated><entry><title>查找手机QQ特别关心铃声</title><link href="http://blog.chenjia.me/articles/150325-131400.html" rel="alternate"></link><updated>2015-03-25T13:14:00+08:00</updated><author><name>chenjia.me</name></author><id>tag:blog.chenjia.me,2015-03-25:articles/150325-131400.html</id><summary type="html">&lt;p&gt;iOS QQ因为苹果限制导致不可以更换特别关心铃声~不过作为程序猿怎么会被限制呢~&lt;/p&gt;
+&lt;h1&gt;获得qq特别关心铃声&lt;/h1&gt;
+&lt;p&gt;小白步骤~
++ root过的手机
++ 在android qq中试听喜欢的铃声
++ 用RE文件管理器或相同的文件管理器进入&lt;code&gt;data/data/com.tencent.mobileqq/files/http:/imgcache.gtimg.cn/club/mobile/special_sound/&lt;/code&gt;目录下
++ 里面就是想要的铃声&lt;/p&gt;
+&lt;h2&gt;以下是程序猿的步骤~&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;下载qq android版本&lt;/li&gt;
+&lt;li&gt;安装在一个root过的手机里面&lt;/li&gt;
+&lt;li&gt;登录qq&lt;/li&gt;
+&lt;li&gt;打开特别关心铃声设置页面&lt;/li&gt;
+&lt;li&gt;用adb.exe 连接手机&lt;/li&gt;
+&lt;li&gt;使用命令 adb.exe shell 进入&lt;/li&gt;
+&lt;li&gt;输入命令 &lt;code&gt;cd data/data/com.tencent.mobileqq&lt;/code&gt;进入qq目录&lt;/li&gt;
+&lt;li&gt;在手机页面中试听你喜欢的铃声&lt;/li&gt;
+&lt;li&gt;使用命令 &lt;code&gt;find -mmin -10&lt;/code&gt;就可以看到文件了~&lt;/li&gt;
+&lt;li&gt;然后复制出来就好啦~&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;上图
+&lt;img alt="" src="http://i.imgur.com/58JHg54.png" /&gt;&lt;/p&gt;
+&lt;h1&gt;修改iOS QQ的特别关注铃声&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;用pp助手等工具将MP3文件转为caf格式铃声&lt;/li&gt;
+&lt;li&gt;root过的iPhone&lt;/li&gt;
+&lt;li&gt;用ifile或者文件管理器打开qq的程序目录&lt;/li&gt;
+&lt;li&gt;替换1.caf文件即可~&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="March"></category><category term="Android"></category></entry><entry><title>为安全研究专门开了一个新Blog</title><link href="http://blog.chenjia.me/articles/141127-210600.html" rel="alternate"></link><updated>2014-11-27T21:06:00+08:00</updated><author><name>chenjia.me</name></author><id>tag:blog.chenjia.me,2014-11-27:articles/141127-210600.html</id><summary type="html">&lt;p&gt;回顾这几个月来做的事情，准备吧某些东西给写出来，因为研究这种东西过程往往比结果来的漫长，来的枯燥。&lt;/p&gt;
 &lt;p&gt;刚好之前汪海推荐过一个叫Typecho的博客系统，就在SAE上搭建了一个~&lt;/p&gt;
 &lt;p&gt;感谢@JEM 的前端支持~&lt;/p&gt;
 &lt;p&gt;欢迎大家访问陈佳的安全实验室&lt;a href="http://safelab.chenjia.me" title="Chenjia's SafeLab"&gt;http://safelab.chenjia.me&lt;/a&gt;&lt;/p&gt;
