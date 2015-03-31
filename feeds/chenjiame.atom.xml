@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Fashioncj Tell You</title><link href="http://blog.chenjia.me/" rel="alternate"></link><link href="http://blog.chenjia.me/feeds%5Cchenjiame.atom.xml" rel="self"></link><id>http://blog.chenjia.me/</id><updated>2015-03-25T13:14:00+08:00</updated><entry><title>查找手机QQ特别关心铃声</title><link href="http://blog.chenjia.me/articles/150325-131400.html" rel="alternate"></link><updated>2015-03-25T13:14:00+08:00</updated><author><name>chenjia.me</name></author><id>tag:blog.chenjia.me,2015-03-25:articles/150325-131400.html</id><summary type="html">&lt;p&gt;iOS QQ因为苹果限制导致不可以更换特别关心铃声~不过作为程序猿怎么会被限制呢~&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Fashioncj Tell You</title><link href="http://blog.chenjia.me/" rel="alternate"></link><link href="http://blog.chenjia.me/feeds%5Cchenjiame.atom.xml" rel="self"></link><id>http://blog.chenjia.me/</id><updated>2015-03-31T11:30:00+08:00</updated><entry><title>Android判定当前无线网是否需要验证</title><link href="http://blog.chenjia.me/articles/150331-113000.html" rel="alternate"></link><updated>2015-03-31T11:30:00+08:00</updated><author><name>chenjia.me</name></author><id>tag:blog.chenjia.me,2015-03-31:articles/150331-113000.html</id><summary type="html">&lt;p&gt;之前在写i-wifi的时候，就对这个问题比较疑惑，对此我还专门研究了Andoroid Wifi类的功能。可惜并没有发现相关的东西。&lt;/p&gt;
+&lt;p&gt;可是别的程序可以做出检测。&lt;/p&gt;
+&lt;p&gt;所以最后我就用了ping命令来进行查看是否连上无线却无法访问外网。&lt;/p&gt;
+&lt;h2&gt;Android的实现原理&lt;/h2&gt;
+&lt;p&gt;今天看到有关讨论android5.1的时候，发现大家提到了这个。&lt;/p&gt;
+&lt;p&gt;才知道，google用了一个http 204的状态码，当你连接上无线网络的时候，会去请求网址&lt;code&gt;http://connectivitycheck.android.com/generate_204&lt;/code&gt;或者&lt;code&gt;clients3.google.com/generate_204&lt;/code&gt;来判断是否放回204&lt;/p&gt;
+&lt;h2&gt;我们怎么做&lt;/h2&gt;
+&lt;p&gt;如果要实现类似的功能，只要搭建一个简单的服务器，返回204就好了，服务器内容流量压力都很小。&lt;/p&gt;</summary><category term="Android"></category><category term="March"></category></entry><entry><title>查找手机QQ特别关心铃声</title><link href="http://blog.chenjia.me/articles/150325-131400.html" rel="alternate"></link><updated>2015-03-25T13:14:00+08:00</updated><author><name>chenjia.me</name></author><id>tag:blog.chenjia.me,2015-03-25:articles/150325-131400.html</id><summary type="html">&lt;p&gt;iOS QQ因为苹果限制导致不可以更换特别关心铃声~不过作为程序猿怎么会被限制呢~&lt;/p&gt;
 &lt;h1&gt;获得qq特别关心铃声&lt;/h1&gt;
 &lt;p&gt;小白步骤~
 + root过的手机
@@ -20,7 +27,7 @@
 &lt;li&gt;然后复制出来就好啦~&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;上图
-&lt;img alt="" src="http://i.imgur.com/58JHg54.png" /&gt;&lt;/p&gt;
+&lt;img alt="命令行" src="http://i.imgur.com/58JHg54.png" /&gt;&lt;/p&gt;
 &lt;h1&gt;修改iOS QQ的特别关注铃声&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;用pp助手等工具将MP3文件转为caf格式铃声&lt;/li&gt;

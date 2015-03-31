@@ -2,7 +2,7 @@
 <html lang="en" xmlns:wb="http://open.weibo.com/wb">
 <head>
     <meta charset="utf-8">
-    <title>Fashioncj Tell You</title>
+    <title>Android判定当前无线网是否需要验证</title>
     <meta name="description" content="blog.chenjia.me ,chenjia.me ">
     <meta name="author" content="chenjia.me">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,217 +53,58 @@
     <div class="row">
 
         <div class="span9">
-        
-
-        
-
- 
-
     <div class='article'>
-        <a href="http://blog.chenjia.me/articles/141124-145800.html"><h2>Andorid 颜色渐变的实现</h2></a>
-        <div class= "well small"> 2014-11-24(周一)
+        <div class="content-title">
+            <h1>Android判定当前无线网是否需要验证</h1>
+2015-03-31(周二)
 
 by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a>
  
 
 
- </div>
-        <div class="summary"><h1>颜色渐变</h1>
-<p>今天看到一个软件清理~动态效果很不错，从黄色到绿色表示的是电脑垃圾减少的过程~</p>
-<p>然后就想实现一个 ...</p> <a class="btn btn-info xsmall" href="http://blog.chenjia.me/articles/141124-145800.html">read more</a></div>
-    </div>	
-				
+        </div>
+	
+        <div><p>之前在写i-wifi的时候，就对这个问题比较疑惑，对此我还专门研究了Andoroid Wifi类的功能。可惜并没有发现相关的东西。</p>
+<p>可是别的程序可以做出检测。</p>
+<p>所以最后我就用了ping命令来进行查看是否连上无线却无法访问外网。</p>
+<h2>Android的实现原理</h2>
+<p>今天看到有关讨论android5.1的时候，发现大家提到了这个。</p>
+<p>才知道，google用了一个http 204的状态码，当你连接上无线网络的时候，会去请求网址<code>http://connectivitycheck.android.com/generate_204</code>或者<code>clients3.google.com/generate_204</code>来判断是否放回204</p>
+<h2>我们怎么做</h2>
+<p>如果要实现类似的功能，只要搭建一个简单的服务器，返回204就好了，服务器内容流量压力都很小。</p></div>
+<!--
+        <hr>
+        <div class="bdsharebuttonbox"><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{"tsina":"2429705450"},"bdText":"“Android判定当前无线网是否需要验证”  From  Fashion4cj.com","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script> -->
+        <hr>
+        <h2>Comments</h2>
+	<div class="ds-thread" data-thread-key="androidpan-ding-dang-qian-wu-xian-wang-shi-fou-xu-yao-yan-zheng" data-title="Android判定当前无线网是否需要验证" data-url="http://blog.chenjia.me/articles/150331-113000.html"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"chenjia"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'fashioncjtellyou'; 
+    var disqus_title = 'Android判定当前无线网是否需要验证';
 
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://blog.chenjia.me/articles/141120-163000.html"><h2>申请VPS.me免费主机</h2></a>
-        <div class= "well small"> 2014-11-20(周四)
-
-by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a>
- 
-
-
- </div>
-        <div class="summary"><h1>VPS主机是什么</h1>
-<p>VPS其实就是比主机更高级的一个网络服务，他直接的是提供一个真正虚拟主机给你，和你自己的的电脑是一样的。你可以通过VNC或者SSH进行连接 ...</p> <a class="btn btn-info xsmall" href="http://blog.chenjia.me/articles/141120-163000.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://blog.chenjia.me/articles/141108-143000.html"><h2>Ubuntu 添加第三方源(PPA)</h2></a>
-        <div class= "well small"> 2014-11-08(周六)
-
-by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a>
- 
-
-
- </div>
-        <div class="summary"><h1>Ubuntu添加PPA源并安装软件</h1>
-<p>大家都知道<code>apt-get</code>可以很方便的获得很多程序，可是有的程序因为某些原因无法直接在官方的源里面下载 ...</p> <a class="btn btn-info xsmall" href="http://blog.chenjia.me/articles/141108-143000.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://blog.chenjia.me/articles/141108-130200.html"><h2>Repo的使用</h2></a>
-        <div class= "well small"> 2014-11-08(周六)
-
-by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a>
- 
-
-
- </div>
-        <div class="summary"><h1>repo 简介</h1>
-<p>Repo是google用Python脚本写的调用git的一个脚本，主要是用来下载、管理Android项目的软件仓库 ...</p> <a class="btn btn-info xsmall" href="http://blog.chenjia.me/articles/141108-130200.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://blog.chenjia.me/articles/141102-011500.html"><h2>【2014-11-1】Pelican添加多说评论</h2></a>
-        <div class= "well small"> 2014-11-02(周日)
-
-by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a>
- 
-
-
- </div>
-        <div class="summary"><h1>多说评论</h1>
-<p>据说是现在大陆很流行的一个评论~关键是~好多人都在用~不过他们用的是HEXO ...</p> <a class="btn btn-info xsmall" href="http://blog.chenjia.me/articles/141102-011500.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://blog.chenjia.me/articles/141028-202300.html"><h2>【2014-10-28】Goagent的妙用</h2></a>
-        <div class= "well small"> 2014-10-28(周二)
-
-by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a>
- 
-
-
- </div>
-        <div class="summary"><h1>什么是Goagent</h1>
-<p>goagent是一个google的开源项目，可以访问<a href="http://code.google.com/p/goagent">http://code ...</a></p> <a class="btn btn-info xsmall" href="http://blog.chenjia.me/articles/141028-202300.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://blog.chenjia.me/articles/141018-220300.html"><h2>【2014-10-18】Ubuntu中的一些小技巧</h2></a>
-        <div class= "well small"> 2014-10-18(周六)
-
-by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a>
- 
-
-
- </div>
-        <div class="summary"><h1>命令</h1>
-<ul>
-<li><code>top</code>命令：进程查看</li>
-<li><code>netstat ...</code></li></ul> <a class="btn btn-info xsmall" href="http://blog.chenjia.me/articles/141018-220300.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://blog.chenjia.me/articles/141016-124000.html"><h2>添加Ubuntu的swap分区增加虚拟内存</h2></a>
-        <div class= "well small"> 2014-10-16(周四)
-
-by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a>
- 
-
-
- </div>
-        <div class="summary"><h1>需求</h1>
-<p>为什么今天会写这个呢，因为在编译android4.4的时候发现内存不足。。我可以4G内存啊 ...</p> <a class="btn btn-info xsmall" href="http://blog.chenjia.me/articles/141016-124000.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://blog.chenjia.me/articles/141013-215000.html"><h2>阿里面试心得</h2></a>
-        <div class= "well small"> 2014-10-13(周一)
-
-by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a>
- 
-
-
- </div>
-        <div class="summary"><h1>阿里面试之路</h1>
-<p>本人过了阿里面试一面，因为某些原因不能去北京只能申请电话面试，现在还在等待中。</p>
-<p>想一下自己一个人直接早上去北京晚上回来还是蛮拼的 ...</p> <a class="btn btn-info xsmall" href="http://blog.chenjia.me/articles/141013-215000.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://blog.chenjia.me/articles/141013-123500.html"><h2>华为2014年校园招聘机试题目与答案</h2></a>
-        <div class= "well small"> 2014-10-13(周一)
-
-by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a>
- 
-
-
- </div>
-        <div class="summary"><h1>写在前面</h1>
-<p>其实我想吐槽的是每次华为机试都能满分，可惜到最后都没面试机会。。。不知道HR是怎么想的。。</p>
-<p>而且 ...</p> <a class="btn btn-info xsmall" href="http://blog.chenjia.me/articles/141013-123500.html">read more</a></div>
-    </div>	
-				
-<div class="pagination">
-<ul>
-    <li class="prev"><a href="http://blog.chenjia.me/index.html">&larr; Previous</a></li>
-
-    <li class=""><a href="http://blog.chenjia.me/index.html">1</a></li>
-    <li class="active"><a href="http://blog.chenjia.me/index2.html">2</a></li>
-    <li class=""><a href="http://blog.chenjia.me/index3.html">3</a></li>
-    <li class=""><a href="http://blog.chenjia.me/index4.html">4</a></li>
-    <li class=""><a href="http://blog.chenjia.me/index5.html">5</a></li>
-
-    <li class="next"><a href="http://blog.chenjia.me/index3.html">Next &rarr;</a></li>
-
-</ul>
-</div>
- 
-  
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+ -->
+<noscript>Please enable JavaScript to view the comments </noscript>
+    </div>
         </div>
         
         <div class="span3">
@@ -273,7 +114,7 @@ by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia
                 <li class="nav-header"> 
                 Share it 
                 </li>
-            	<wb:share-button appkey="2smJ3a" addition="text" type="button" default_text="我分享了:“ Fashioncj Tell You  ”来自 blog.chenjia.me"></wb:share-button>
+            	<wb:share-button appkey="2smJ3a" addition="text" type="button" default_text="我分享了:“ Android判定当前无线网是否需要验证  ”来自 blog.chenjia.me"></wb:share-button>
                 <li>
                 <!-- <li><wb:follow-button uid="1698025395" type="red_3" width="100%" height="24" ></wb:follow-button></li> -->
                
