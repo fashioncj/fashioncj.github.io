@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Fashioncj Tell You</title><link href="http://blog.chenjia.me/" rel="alternate"></link><link href="http://blog.chenjia.me/feeds%5Cchenjiame.atom.xml" rel="self"></link><id>http://blog.chenjia.me/</id><updated>2015-03-31T11:30:00+08:00</updated><entry><title>Android判定当前无线网是否需要验证</title><link href="http://blog.chenjia.me/articles/150331-113000.html" rel="alternate"></link><updated>2015-03-31T11:30:00+08:00</updated><author><name>chenjia.me</name></author><id>tag:blog.chenjia.me,2015-03-31:articles/150331-113000.html</id><summary type="html">&lt;p&gt;之前在写i-wifi的时候，就对这个问题比较疑惑，对此我还专门研究了Andoroid Wifi类的功能。可惜并没有发现相关的东西。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Fashioncj Tell You</title><link href="http://blog.chenjia.me/" rel="alternate"></link><link href="http://blog.chenjia.me/feeds%5Cchenjiame.atom.xml" rel="self"></link><id>http://blog.chenjia.me/</id><updated>2015-04-09T16:27:00+08:00</updated><entry><title>Sublime Text 3 打印代码</title><link href="http://blog.chenjia.me/articles/150409-162700.html" rel="alternate"></link><updated>2015-04-09T16:27:00+08:00</updated><author><name>chenjia.me</name></author><id>tag:blog.chenjia.me,2015-04-09:articles/150409-162700.html</id><summary type="html">&lt;p&gt;今天突然需要打印smail语言，发现sublime并没有smail语法高亮和打印功能，那么，装插件啦。&lt;/p&gt;
+&lt;h2&gt;安装smail语法高亮插件&lt;/h2&gt;
+&lt;p&gt;包管理中安装插件&lt;code&gt;smail&lt;/code&gt;即可&lt;/p&gt;
+&lt;h2&gt;安装打印插件&lt;/h2&gt;
+&lt;p&gt;试了一下两个打印插件都并不好用，推荐&lt;code&gt;ExportHTML&lt;/code&gt;这个安装后可以直接导出html并且打印，而且有两种配色方案以及3种模式~可供选择&lt;/p&gt;</summary><category term="April"></category></entry><entry><title>Android判定当前无线网是否需要验证</title><link href="http://blog.chenjia.me/articles/150331-113000.html" rel="alternate"></link><updated>2015-03-31T11:30:00+08:00</updated><author><name>chenjia.me</name></author><id>tag:blog.chenjia.me,2015-03-31:articles/150331-113000.html</id><summary type="html">&lt;p&gt;之前在写i-wifi的时候，就对这个问题比较疑惑，对此我还专门研究了Andoroid Wifi类的功能。可惜并没有发现相关的东西。&lt;/p&gt;
 &lt;p&gt;可是别的程序可以做出检测。&lt;/p&gt;
 &lt;p&gt;所以最后我就用了ping命令来进行查看是否连上无线却无法访问外网。&lt;/p&gt;
 &lt;h2&gt;Android的实现原理&lt;/h2&gt;
