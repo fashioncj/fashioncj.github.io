@@ -1,5 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Fashioncj Tell You</title><link href="http://blog.chenjia.me/" rel="alternate"></link><link href="http://blog.chenjia.me/feeds/all.atom.xml" rel="self"></link><id>http://blog.chenjia.me/</id><updated>2015-04-09T16:27:00+08:00</updated><entry><title>Sublime Text 3 打印代码</title><link href="http://blog.chenjia.me/articles/150409-162700.html" rel="alternate"></link><updated>2015-04-09T16:27:00+08:00</updated><author><name>chenjia.me</name></author><id>tag:blog.chenjia.me,2015-04-09:articles/150409-162700.html</id><summary type="html">&lt;p&gt;今天突然需要打印smail语言，发现sublime并没有smail语法高亮和打印功能，那么，装插件啦。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Fashioncj Tell You</title><link href="http://blog.chenjia.me/" rel="alternate"></link><link href="http://blog.chenjia.me/feeds/all.atom.xml" rel="self"></link><id>http://blog.chenjia.me/</id><updated>2015-04-14T10:59:00+08:00</updated><entry><title>Ubuntu安装ipython notebook及配置</title><link href="http://blog.chenjia.me/articles/150414-105900.html" rel="alternate"></link><updated>2015-04-14T10:59:00+08:00</updated><author><name>chenjia.me</name></author><id>tag:blog.chenjia.me,2015-04-14:articles/150414-105900.html</id><summary type="html">&lt;h1&gt;ipython notebook&lt;/h1&gt;
+&lt;p&gt;ipython 据说是一个比python还好的python软件，支持全平台，今天我们要的是配置他的notebook组件，利用其网页端的优势，我们可以实时的演示终端，远程终端，这些都可以在网上搞定的。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;官网：&lt;a href="http://ipython.org/"&gt;http://ipython.org/&lt;/a&gt;&lt;/p&gt;
+&lt;h1&gt;安装&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;安装python3环境，然后安装python的pip(&lt;code&gt;sudo apt-get install python3-pip&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sudo pip3 install ipython[notebook]&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;等待安装成功&lt;/li&gt;
+&lt;li&gt;输入&lt;code&gt;ipython3 notebook&lt;/code&gt;测试，成功后可以关闭&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1&gt;配置&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;创建配置文件&lt;code&gt;ipython profile create fashioncj&lt;/code&gt;（fashioncj可替换为你的名字）&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;创建密码hash值，输入&lt;code&gt;ipython&lt;/code&gt;进入
+    &amp;gt;To generate, type in a python/IPython shell:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;from&lt;/span&gt; &lt;span class="n"&gt;IPython&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;lib&lt;/span&gt; &lt;span class="n"&gt;import&lt;/span&gt; &lt;span class="n"&gt;passwd&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;passwd&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;blockquote&gt;
+&lt;p&gt;The string should be of the form type:salt:hashed-password.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;记住生成的数值&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;找到配置文件，用编辑器打开进行编辑&lt;code&gt;~/.ipython/profile_fashioncj/ipython_notebook_config.py&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;修改端口&lt;code&gt;c.NotebookApp.port&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;修改ip&lt;code&gt;c.NotebookApp.ip&lt;/code&gt; 修改为0.0.0.0即可让外网访问&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;c.NotebookApp.password&lt;/code&gt; 写入刚才生成的字符串&lt;/li&gt;
+&lt;li&gt;修改的配置都要去除掉前面的#号才可以生效，并且去掉行首的空格&lt;/li&gt;
+&lt;li&gt;使用&lt;code&gt;ipython notebook --profile=fashioncj&lt;/code&gt;启动&lt;/li&gt;
+&lt;li&gt;如果需要后台启动使用&lt;code&gt;nohup ipython notebook --profile=fashioncj &amp;amp;&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1&gt;使用&lt;/h1&gt;
+&lt;p&gt;打开浏览器，输入ip：端口即可&lt;/p&gt;
+&lt;p&gt;在主页的右边有new选项，里面可以新建终端&lt;/p&gt;</summary><category term="April"></category><category term="Linux"></category></entry><entry><title>Sublime Text 3 打印代码</title><link href="http://blog.chenjia.me/articles/150409-162700.html" rel="alternate"></link><updated>2015-04-09T16:27:00+08:00</updated><author><name>chenjia.me</name></author><id>tag:blog.chenjia.me,2015-04-09:articles/150409-162700.html</id><summary type="html">&lt;p&gt;今天突然需要打印smail语言，发现sublime并没有smail语法高亮和打印功能，那么，装插件啦。&lt;/p&gt;
 &lt;h2&gt;安装smail语法高亮插件&lt;/h2&gt;
 &lt;p&gt;包管理中安装插件&lt;code&gt;smail&lt;/code&gt;即可&lt;/p&gt;
 &lt;h2&gt;安装打印插件&lt;/h2&gt;

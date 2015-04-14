@@ -2,7 +2,7 @@
 <html lang="en" xmlns:wb="http://open.weibo.com/wb">
 <head>
     <meta charset="utf-8">
-    <title>Fashioncj Tell You</title>
+    <title>Ubuntu安装ipython notebook及配置</title>
     <meta name="description" content="blog.chenjia.me ,chenjia.me ">
     <meta name="author" content="chenjia.me">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,7 +53,90 @@
     <div class="row">
 
         <div class="span9">
-    <h1>Authors on Fashioncj Tell You</h1>        <li><a href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a> (44)</li>
+    <div class='article'>
+        <div class="content-title">
+            <h1>Ubuntu安装ipython notebook及配置</h1>
+2015-04-14(周二)
+
+by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a>
+ 
+
+
+        </div>
+	
+        <div><h1>ipython notebook</h1>
+<p>ipython 据说是一个比python还好的python软件，支持全平台，今天我们要的是配置他的notebook组件，利用其网页端的优势，我们可以实时的演示终端，远程终端，这些都可以在网上搞定的。</p>
+<hr />
+<p>官网：<a href="http://ipython.org/">http://ipython.org/</a></p>
+<h1>安装</h1>
+<ol>
+<li>安装python3环境，然后安装python的pip(<code>sudo apt-get install python3-pip</code>)</li>
+<li><code>sudo pip3 install ipython[notebook]</code></li>
+<li>等待安装成功</li>
+<li>输入<code>ipython3 notebook</code>测试，成功后可以关闭</li>
+</ol>
+<h1>配置</h1>
+<ol>
+<li>创建配置文件<code>ipython profile create fashioncj</code>（fashioncj可替换为你的名字）</li>
+<li>
+<p>创建密码hash值，输入<code>ipython</code>进入
+    &gt;To generate, type in a python/IPython shell:</p>
+<div class="highlight"><pre><span class="n">from</span> <span class="n">IPython</span><span class="p">.</span><span class="n">lib</span> <span class="n">import</span> <span class="n">passwd</span><span class="p">;</span>
+<span class="n">passwd</span><span class="p">()</span>
+</pre></div>
+
+
+<blockquote>
+<p>The string should be of the form type:salt:hashed-password.</p>
+</blockquote>
+<p>记住生成的数值</p>
+</li>
+<li>
+<p>找到配置文件，用编辑器打开进行编辑<code>~/.ipython/profile_fashioncj/ipython_notebook_config.py</code></p>
+</li>
+<li>修改端口<code>c.NotebookApp.port</code></li>
+<li>修改ip<code>c.NotebookApp.ip</code> 修改为0.0.0.0即可让外网访问</li>
+<li><code>c.NotebookApp.password</code> 写入刚才生成的字符串</li>
+<li>修改的配置都要去除掉前面的#号才可以生效，并且去掉行首的空格</li>
+<li>使用<code>ipython notebook --profile=fashioncj</code>启动</li>
+<li>如果需要后台启动使用<code>nohup ipython notebook --profile=fashioncj &amp;</code></li>
+</ol>
+<h1>使用</h1>
+<p>打开浏览器，输入ip：端口即可</p>
+<p>在主页的右边有new选项，里面可以新建终端</p></div>
+<!--
+        <hr>
+        <div class="bdsharebuttonbox"><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{"tsina":"2429705450"},"bdText":"“Ubuntu安装ipython notebook及配置”  From  Fashion4cj.com","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script> -->
+        <hr>
+        <h2>Comments</h2>
+	<div class="ds-thread" data-thread-key="ubuntuan-zhuang-ipython-notebookji-pei-zhi" data-title="Ubuntu安装ipython notebook及配置" data-url="http://blog.chenjia.me/articles/150414-105900.html"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"chenjia"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'fashioncjtellyou'; 
+    var disqus_title = 'Ubuntu安装ipython notebook及配置';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+ -->
+<noscript>Please enable JavaScript to view the comments </noscript>
+    </div>
         </div>
         
         <div class="span3">
@@ -63,7 +146,7 @@
                 <li class="nav-header"> 
                 Share it 
                 </li>
-            	<wb:share-button appkey="2smJ3a" addition="text" type="button" default_text="我分享了:“ Fashioncj Tell You  ”来自 blog.chenjia.me"></wb:share-button>
+            	<wb:share-button appkey="2smJ3a" addition="text" type="button" default_text="我分享了:“ Ubuntu安装ipython notebook及配置  ”来自 blog.chenjia.me"></wb:share-button>
                 <li>
                 <!-- <li><wb:follow-button uid="1698025395" type="red_3" width="100%" height="24" ></wb:follow-button></li> -->
                
