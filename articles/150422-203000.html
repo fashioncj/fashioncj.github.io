@@ -2,7 +2,7 @@
 <html lang="en" xmlns:wb="http://open.weibo.com/wb">
 <head>
     <meta charset="utf-8">
-    <title>Fashioncj Tell You</title>
+    <title>搭建gitlab在自己的服务器上</title>
     <meta name="description" content="blog.chenjia.me ,chenjia.me ">
     <meta name="author" content="chenjia.me">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,231 +53,84 @@
     <div class="row">
 
         <div class="span9">
-        
-
-        
-
-
     <div class='article'>
         <div class="content-title">
-            <a href="http://blog.chenjia.me/articles/150422-203000.html"><h1>搭建gitlab在自己的服务器上</h1></a>
-            <!-- <h3>2015-04-22(周三)
+            <h1>搭建gitlab在自己的服务器上</h1>
+2015-04-22(周三)
 
 by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a>
  
 
 
- </h3> -->
-            <div class= "well small"> 2015-04-22(周三)
-
-by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a>
- 
-
-
- </div>
         </div>
-        
-        <!-- <div><h1>简介</h1>
+	
+        <div><h1>简介</h1>
 <p>GitLab 是一个完整的开源的git网站框架，简单易部署（大雾），基本上只要搭建好了就可以公开使用了，效果可以看
-<a href="https://gitlab.com/users/sign_in">https://gitlab.com/users/sign_in</a>这是他们使用自己框架搭建的，他们的主页是<a href="https://about.gitla</div> -->
-        <div class="summary"><h1>简介</h1>
-<p>GitLab 是一个完整的开源的git网站框架，简单易部署（大雾），基本上只要搭建好了就可以公开使用了，效果可以看
-<a href="https://gitlab.com/users/sign_in">https://gitlab.com/users/sign_in</a>这是他们使用自己框架搭建的，他们的主页是<a href="https://about.gitla</br>........ </br><a class="btn btn-info xsmall" href="http://blog.chenjia.me/articles/150422-203000.html">read more</a></div>
-        <hr />
+<a href="https://gitlab.com/users/sign_in">https://gitlab.com/users/sign_in</a>这是他们使用自己框架搭建的，他们的主页是<a href="https://about.gitlab.com/">https://about.gitlab.com/</a>里面有文档教程等待的一些东西</p>
+<h1>部署</h1>
+<p>gitlab需求的配置可以在<a href="http://doc.gitlab.com/ce/install/requirements.html">http://doc.gitlab.com/ce/install/requirements.html</a>上查看，建议使用ubuntu，毕竟用的人多，其次他们是基于ruby的</p>
+<h2>下载并安装 包</h2>
+<p>官网命令是</p>
+<div class="highlight"><pre><span class="cp">#下载</span>
+<span class="n">wget</span> <span class="n">https</span><span class="o">:</span><span class="c1">//downloads-packages.s3.amazonaws.com/ubuntu-12.04/gitlab_7.9.4-omnibus.1-1_amd64.deb</span>
+<span class="cp">#安装</span>
+<span class="n">sudo</span> <span class="n">dpkg</span> <span class="o">-</span><span class="n">i</span> <span class="n">gitlab_7</span><span class="mf">.9.4</span><span class="o">-</span><span class="n">omnibus</span><span class="mf">.1</span><span class="o">-</span><span class="mi">1</span><span class="n">_amd64</span><span class="p">.</span><span class="n">deb</span>
+</pre></div>
+
+
+<p>但是Amazon云很多都被大陆墙了，所以你需要用自己的方法下载deb包</p>
+<h2>第一次启动</h2>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">gitlab</span><span class="o">-</span><span class="n">ctl</span> <span class="n">reconfigure</span>
+</pre></div>
+
+
+<p>等待。。。</p>
+<p>然后访问<code>ip:port</code>进行开启</p>
+<p>如果打不开可能端口被占用了，他需要80端口和8080端口</p>
+<p>更改端口的话比较麻烦~需要修改对应配置</p>
+<p>或者关闭其他占用该端口的服务器，然后修改
+<code>vim /etc/gitlab/gitlab.rb</code> 中的</p>
+<div class="highlight"><pre><span class="n">external_url</span> <span class="err">&#39;</span><span class="n">http</span><span class="o">:</span><span class="c1">//xxx.xx.xx&#39;</span>
+</pre></div>
+
+
+<p>即可</p>
+<h2>第一次登陆</h2>
+<p>使用用户名root，密码5iveL!fe进行登录</p>
+<p>然后修改默认密码，继续登录，即可进入管理界面</p></div>
+<!--
+        <hr>
+        <div class="bdsharebuttonbox"><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{"tsina":"2429705450"},"bdText":"“搭建gitlab在自己的服务器上”  From  Fashion4cj.com","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script> -->
+        <hr>
+        <h2>Comments</h2>
+	<div class="ds-thread" data-thread-key="da-jian-gitlabzai-zi-ji-de-fu-wu-qi-shang" data-title="搭建gitlab在自己的服务器上" data-url="http://blog.chenjia.me/articles/150422-203000.html"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"chenjia"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'fashioncjtellyou'; 
+    var disqus_title = '搭建gitlab在自己的服务器上';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+ -->
+<noscript>Please enable JavaScript to view the comments </noscript>
     </div>
-		
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://blog.chenjia.me/articles/150414-105900.html"><h2>Ubuntu安装ipython notebook及配置</h2></a>
-        <div class= "well small"> 2015-04-14(周二)
-
-by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a>
- 
-
-
- </div>
-        <div class="summary"><h1>ipython notebook</h1>
-<p>ipython 据说是一个比python还好的python软件，支持全平台 ...</p> <a class="btn btn-info xsmall" href="http://blog.chenjia.me/articles/150414-105900.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://blog.chenjia.me/articles/150409-162700.html"><h2>Sublime Text 3 打印代码</h2></a>
-        <div class= "well small"> 2015-04-09(周四)
-
-by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a>
- 
-
-
- </div>
-        <div class="summary"><p>今天突然需要打印smail语言，发现sublime并没有smail语法高亮和打印功能，那么，装插件啦。</p>
-<h2>安装smail语法高亮插件 ...</h2> <a class="btn btn-info xsmall" href="http://blog.chenjia.me/articles/150409-162700.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://blog.chenjia.me/articles/150331-113000.html"><h2>Android判定当前无线网是否需要验证</h2></a>
-        <div class= "well small"> 2015-03-31(周二)
-
-by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a>
- 
-
-
- </div>
-        <div class="summary"><p>之前在写i-wifi的时候，就对这个问题比较疑惑，对此我还专门研究了Andoroid Wifi类的功能。可惜并没有发现相关的东西 ...</p> <a class="btn btn-info xsmall" href="http://blog.chenjia.me/articles/150331-113000.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://blog.chenjia.me/articles/150325-131400.html"><h2>查找手机QQ特别关心铃声</h2></a>
-        <div class= "well small"> 2015-03-25(周三)
-
-by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a>
- 
-
-
- </div>
-        <div class="summary"><p>iOS QQ因为苹果限制导致不可以更换特别关心铃声~不过作为程序猿怎么会被限制呢~</p>
-<h1>获得qq特别关心铃声</h1>
-<p>小白步骤 ...</p> <a class="btn btn-info xsmall" href="http://blog.chenjia.me/articles/150325-131400.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://blog.chenjia.me/articles/150314-164700.html"><h2>shadowsocks同时监听ipv6&4端口</h2></a>
-        <div class= "well small"> 2015-03-14(周六)
-
-by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a>
- 
-
-
- </div>
-        <div class="summary"><p>在ipv6网络下我们可以利用ipv6的快速来越过ipv4的速度限制！</p>
-<p>ss监听ipv4 和 ipv6 端口 ...</p> <a class="btn btn-info xsmall" href="http://blog.chenjia.me/articles/150314-164700.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://blog.chenjia.me/articles/150303-233500.html"><h2>【2015年3月3日】碎碎念</h2></a>
-        <div class= "well small"> 2015-03-03(周二)
-
-by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a>
- 
-
-
- </div>
-        <div class="summary"><h1>一</h1>
-<p>大学最后一个寒假，还有一周的时间。</p>
-<p>在家，过得还不错 ...</p> <a class="btn btn-info xsmall" href="http://blog.chenjia.me/articles/150303-233500.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://blog.chenjia.me/articles/150205-002400.html"><h2>发现那些尝试登入你SSH的ip</h2></a>
-        <div class= "well small"> 2015-02-05(周四)
-
-by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a>
- 
-
-
- </div>
-        <div class="summary"><h1>发现</h1>
-<p>今天看到有人在v2ex说浙江的肉鸡好多~想到当时我的vnc端口也被暴力登录过，就好奇心一下！看了一下我SSH的登录日志 ...</p> <a class="btn btn-info xsmall" href="http://blog.chenjia.me/articles/150205-002400.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://blog.chenjia.me/articles/150125-180500.html"><h2>如何在家用宽带中搭建一个个人网站</h2></a>
-        <div class= "well small"> 2015-01-25(周日)
-
-by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a>
- 
-
-
- </div>
-        <div class="summary"><p>本文介绍的是普通电信宽带用户获取公网ip及公开端口的解决方案</p>
-<h1>原料</h1>
-<ol>
-<li>中国大陆普通电信宽带</li>
-<li>支持端口转发和DDNS的路由器或者直连电脑</li>
-<li>花生壳等ddns服务 ...</li></ol> <a class="btn btn-info xsmall" href="http://blog.chenjia.me/articles/150125-180500.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://blog.chenjia.me/articles/150108-001500.html"><h2>Sae网站异常流量分析以及Sql注入和爬虫安全</h2></a>
-        <div class= "well small"> 2015-01-08(周四)
-
-by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia.me</a>
- 
-
-
- </div>
-        <div class="summary"><h1>云豆不够了？</h1>
-<p>今天早上SAE突然给我发邮件说我的云豆预计7天内用完！逗我呢。。我可是每个月10k云豆的人啊，绝对有问题 ...</p> <a class="btn btn-info xsmall" href="http://blog.chenjia.me/articles/150108-001500.html">read more</a></div>
-    </div>	
-				
-<div class="pagination">
-<ul>
-    <li class="prev disabled"><a href="#">&larr; Previous</a></li>
-
-    <li class="active"><a href="http://blog.chenjia.me/index.html">1</a></li>
-    <li class=""><a href="http://blog.chenjia.me/index2.html">2</a></li>
-    <li class=""><a href="http://blog.chenjia.me/index3.html">3</a></li>
-    <li class=""><a href="http://blog.chenjia.me/index4.html">4</a></li>
-    <li class=""><a href="http://blog.chenjia.me/index5.html">5</a></li>
-
-    <li class="next"><a href="http://blog.chenjia.me/index2.html">Next &rarr;</a></li>
-
-</ul>
-</div>
- 
-  
         </div>
         
         <div class="span3">
@@ -287,7 +140,7 @@ by <a class="url fn" href="http://blog.chenjia.me/author/chenjiame.html">chenjia
                 <li class="nav-header"> 
                 Share it 
                 </li>
-            	<wb:share-button appkey="2smJ3a" addition="text" type="button" default_text="我分享了:“ Fashioncj Tell You  ”来自 blog.chenjia.me"></wb:share-button>
+            	<wb:share-button appkey="2smJ3a" addition="text" type="button" default_text="我分享了:“ 搭建gitlab在自己的服务器上  ”来自 blog.chenjia.me"></wb:share-button>
                 <li>
                 <!-- <li><wb:follow-button uid="1698025395" type="red_3" width="100%" height="24" ></wb:follow-button></li> -->
                

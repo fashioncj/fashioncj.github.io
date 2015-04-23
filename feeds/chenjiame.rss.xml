@@ -1,5 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Fashioncj Tell You</title><link>http://blog.chenjia.me/</link><description></description><atom:link href="http://blog.chenjia.me/feeds%5Cchenjiame.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 14 Apr 2015 10:59:00 +0800</lastBuildDate><item><title>Ubuntu安装ipython notebook及配置</title><link>http://blog.chenjia.me/articles/150414-105900.html</link><description>&lt;h1&gt;ipython notebook&lt;/h1&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Fashioncj Tell You</title><link>http://blog.chenjia.me/</link><description></description><atom:link href="http://blog.chenjia.me/feeds%5Cchenjiame.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 22 Apr 2015 20:30:00 +0800</lastBuildDate><item><title>搭建gitlab在自己的服务器上</title><link>http://blog.chenjia.me/articles/150422-203000.html</link><description>&lt;h1&gt;简介&lt;/h1&gt;
+&lt;p&gt;GitLab 是一个完整的开源的git网站框架，简单易部署（大雾），基本上只要搭建好了就可以公开使用了，效果可以看
+&lt;a href="https://gitlab.com/users/sign_in"&gt;https://gitlab.com/users/sign_in&lt;/a&gt;这是他们使用自己框架搭建的，他们的主页是&lt;a href="https://about.gitlab.com/"&gt;https://about.gitlab.com/&lt;/a&gt;里面有文档教程等待的一些东西&lt;/p&gt;
+&lt;h1&gt;部署&lt;/h1&gt;
+&lt;p&gt;gitlab需求的配置可以在&lt;a href="http://doc.gitlab.com/ce/install/requirements.html"&gt;http://doc.gitlab.com/ce/install/requirements.html&lt;/a&gt;上查看，建议使用ubuntu，毕竟用的人多，其次他们是基于ruby的&lt;/p&gt;
+&lt;h2&gt;下载并安装 包&lt;/h2&gt;
+&lt;p&gt;官网命令是&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;#下载&lt;/span&gt;
+&lt;span class="n"&gt;wget&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//downloads-packages.s3.amazonaws.com/ubuntu-12.04/gitlab_7.9.4-omnibus.1-1_amd64.deb&lt;/span&gt;
+&lt;span class="cp"&gt;#安装&lt;/span&gt;
+&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;dpkg&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="n"&gt;gitlab_7&lt;/span&gt;&lt;span class="mf"&gt;.9.4&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;omnibus&lt;/span&gt;&lt;span class="mf"&gt;.1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;_amd64&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;deb&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;但是Amazon云很多都被大陆墙了，所以你需要用自己的方法下载deb包&lt;/p&gt;
+&lt;h2&gt;第一次启动&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;gitlab&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;ctl&lt;/span&gt; &lt;span class="n"&gt;reconfigure&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;等待。。。&lt;/p&gt;
+&lt;p&gt;然后访问&lt;code&gt;ip:port&lt;/code&gt;进行开启&lt;/p&gt;
+&lt;p&gt;如果打不开可能端口被占用了，他需要80端口和8080端口&lt;/p&gt;
+&lt;p&gt;更改端口的话比较麻烦~需要修改对应配置&lt;/p&gt;
+&lt;p&gt;或者关闭其他占用该端口的服务器，然后修改
+&lt;code&gt;vim /etc/gitlab/gitlab.rb&lt;/code&gt; 中的&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;external_url&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//xxx.xx.xx&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;即可&lt;/p&gt;
+&lt;h2&gt;第一次登陆&lt;/h2&gt;
+&lt;p&gt;使用用户名root，密码5iveL!fe进行登录&lt;/p&gt;
+&lt;p&gt;然后修改默认密码，继续登录，即可进入管理界面&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">chenjia.me</dc:creator><pubDate>Wed, 22 Apr 2015 20:30:00 +0800</pubDate><guid>tag:blog.chenjia.me,2015-04-22:articles/150422-203000.html</guid><category>April</category><category>Linux</category></item><item><title>Ubuntu安装ipython notebook及配置</title><link>http://blog.chenjia.me/articles/150414-105900.html</link><description>&lt;h1&gt;ipython notebook&lt;/h1&gt;
 &lt;p&gt;ipython 据说是一个比python还好的python软件，支持全平台，今天我们要的是配置他的notebook组件，利用其网页端的优势，我们可以实时的演示终端，远程终端，这些都可以在网上搞定的。&lt;/p&gt;
 &lt;hr /&gt;
 &lt;p&gt;官网：&lt;a href="http://ipython.org/"&gt;http://ipython.org/&lt;/a&gt;&lt;/p&gt;
